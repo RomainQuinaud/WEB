@@ -16,7 +16,7 @@
 
     <link rel="icon" href="../img/photo-justice.ico">
 
-    <title>Hellaw's</title>
+    <title>Camping paradis</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -55,9 +55,9 @@
 
       <div class="starter-template">
 
-        <h1>Bienvenue sur Hellaw's</h1>
+        <h1>Bienvenue au Camping Paradis</h1>
 
-        <p class="lead">Ce site contient toutes les informations nécessaires en cas de recours à la justice<br> All you get is this text and a mostly barebones HTML document.</p>
+        <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br><a href="inscription.php">Inscrivez-vous</a> ou <a href="connexion.php">connectez-vous</a> pour réserver un logement</p>
 
 	<div class="row">
         <div class="col-sm-9 blog-main">
