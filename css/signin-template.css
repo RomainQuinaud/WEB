@@ -1,0 +1,46 @@
+
+
+.starter-template {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.col-sm-9 {
+	border: 1px solid black;
+}
+
+.col-sm-2 {
+	border: 1px solid black;
+}
+.histo {
+	border: 1px solid black;
+}
+
+.center-block
+{
+	width:400px;
+	border: 1px solid #F5F4F4;
+	padding: 20px;
+	background-color:#F5F4F4;
+	border-radius:2px 2px 4px 4px;
+	-moz-box-shadow: 5px 5px 5px 0px #656565;
+-webkit-box-shadow: 5px 5px 5px 0px #656565;
+-o-box-shadow: 5px 5px 5px 0px #656565;
+box-shadow: 5px 5px 5px 0px #656565;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+
+}
+
+.form-group a 
+{
+	color: black;
+}
+
+.footer
+{
+	padding-top: 30px;
+	padding-bottom:30px;
+	margin-top:40px;
+	border-top: 1px solid #EEE;
+}
+
