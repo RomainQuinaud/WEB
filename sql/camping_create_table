@@ -1,0 +1,128 @@
+
+/*
+@author Romain Quinaud
+@author Philippe Vieira Aleixo
+08/04/2015
+*/
+
+create database camping;
+use camping;
+
+-- ------------------------------------------------------------- --
+-- 						camping 								 --
+-- ------------------------------------------------------------- --
+
+DROP table if exists camping; -- supprime la table camping si elle existe
+create table camping -- cree la table camping
+(
+		idcamping int auto_increment not null, -- clé primaire de la table camping
+		nomcamping varchar(50),
+		villecamping varchar(50),
+		adressecamping varchar(50),
+		departementcamping int(2) unsigned zerofill,
+
+		CONSTRAINT PK_camping PRIMARY KEY (idcamping)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
+-- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
+
+
+-- ------------------------------------------------------------- --
+-- 						statut 									 --
+-- ------------------------------------------------------------- --
+
+
+drop table if exists statut; -- supprime la table statut si elle existe
+create table statut -- cree la table statut
+(
+		idstatut int(11) AUTO_INCREMENT not null,
+		libellestatut varchar(50),
+
+		CONSTRAINT PK_statut primary key (idstatut)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
+-- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
+
+
+-- ------------------------------------------------------------- --
+-- 						categorie 								 --
+-- ------------------------------------------------------------- --
+
+drop table if exists categorie; -- supprime la table categorie si elle existe
+create table categorie -- cree la table categorie
+(
+		idcategorie int(11) auto_increment not null,
+		libellecategorie varchar(50),
+
+		CONSTRAINT PK_categorie PRIMARY KEY (idcategorie)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
+-- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
+
+
+-- ------------------------------------------------------------- --
+-- 						logement 								 --
+-- ------------------------------------------------------------- --
+
+DROP TABLE IF EXISTS logement; -- supprime la table logement si elle existe
+CREATE TABLE logement -- cree la table logement
+(
+		idlogement INT(11) AUTO_INCREMENT NOT NULL,
+		idcategorie int(5) DEFAULT NULL,
+		nomlogement varchar(50) DEFAULT NULL,
+		idcamping int(11),
+		idstatut int(11),
+
+		CONSTRAINT PK_logement PRIMARY KEY (idlogement),
+		CONSTRAINT FK_logement_camping FOREIGN KEY (idcamping) references camping(idcamping),
+		CONSTRAINT FK_logement_categorie FOREIGN KEY (idcategorie) references categorie(idcategorie),
+		CONSTRAINT FK_logement_statut foreign key (idstatut) references statut(idstatut)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
+-- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
+
+
+-- ------------------------------------------------------------- --
+-- 						utilisateur 							 --
+-- ------------------------------------------------------------- --
+
+
+DROP TABLE IF EXISTS UTILISATEUR; -- SUPPRIME LA TABLE UTILISATEUR SI ELLE EXISTE
+CREATE TABLE UTILISATEUR -- CREE LA TABLE UTILISATEUR
+(
+		idUTILISATEUR INT(11) AUTO_INCREMENT NOT NULL, -- CLE PRIMAIRE DE LA TABLE UTILISATEUR
+		loginUTILISATEUR varchar(40) DEFAULT NULL,
+		nomUTILISATEUR VARCHAR(40),
+		prenomUTILISATEUR VARCHAR(40),
+		telephoneUTILISATEUR INT(10) UNSIGNED ZEROFILL NULL DEFAULT NULL,
+		mailUTILISATEUR VARCHAR(40),
+		departementUTILISATEUR int(2) unsigned zerofill DEFAULT NULL,
+		mdpUTILISATEUR VARCHAR(20) DEFAULT NULL,
+
+		CONSTRAINT PK_UTILISATEUR PRIMARY KEY (idUTILISATEUR)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
+-- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
+
+
+-- -------------------------------------------------------------- --
+-- 						reservation								  --
+-- -------------------------------------------------------------- --
+
+
+drop table if exists reservation; -- supprime la table reservation si elle existe
+create table reservation -- cree la table reservation 
+(
+		numreservation int(11) AUTO_INCREMENT not null,
+		idUTILISATEUR int(11),
+		idlogement int(11),
+		datereservation DATE,
+		datedebut DATE,
+		datefin DATE,
+
+		CONSTRAINT PK_reservation primary key (numreservation),
+		CONSTRAINT FK_reservation_utilisateur foreign key (idUTILISATEUR) references utilisateur(idUTILISATEUR),
+		CONSTRAINT FK_reservation_logement foreign key (idlogement) references logement(idlogement)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
+-- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR

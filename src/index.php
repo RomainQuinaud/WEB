@@ -16,7 +16,7 @@
 
     <link rel="icon" href="../img/photo-justice.ico">
 
-    <title>Hellaw's</title>
+    <title>Camp'Find</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -55,9 +55,11 @@
 
       <div class="starter-template">
 
-        <h1>I Camp' Find</h1>
+        <h1>I Camp' Find !</h1>
 
-        <p class="lead">Ce site permet de trouver un logement<br>Pas cher pour Vos vancances!</p>
+        <h1>Bienvenue au Camping Paradis</h1>
+
+        <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br><a href="inscription.php">Inscrivez-vous</a> ou <a href="connexion.php">connectez-vous</a> pour réserver un logement</p>
 
 	<div class="row">
         <div class="col-sm-9 blog-main">
@@ -66,18 +68,20 @@
            			<p>Exemple random de logment. Fichier image avec prix.</p>
     		</div>
     		<div class="blog-post">
-    			<h2>Article</h2>
-	            	<p>Emplacement du futur emplacement des notifications de réservation.<br>BLA... BLA...<br>BLA... BLA...</p>
+    			<h2>Devenu Inutile de faire 2 paragraphes?</h2>
+	            	<p>Le mieux c'est de se faire une liste d'image renvoyant aux annnoces non?<br>BLA... BLA...<br>BLA... BLA...</p>
 	        </div>
     	</div>
         <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
 	        <div class="sidebar-module sidebar-module-inset">
 	           	<div class="sidebar-module">
-                	<h2>Notification</h2>
-               			<p>Emplacement de la future notification.</p>
+                	<h2>Notifications</h2>
+               			<p>Emplacement du futur emplacement des notifications lié réservation.</p>
             	</div>
         	</div>
     	</div>
+
+
 
 
     <footer class="row">

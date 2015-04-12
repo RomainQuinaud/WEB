@@ -18,7 +18,7 @@
 
 	          </button>
 
-	          <a class="navbar-brand" href="#">Lois</a>
+	          <a class="navbar-brand" href="#">Camping Paradis</a>
 
 	        </div>
        
@@ -29,9 +29,7 @@
 
 	            <li class="active"><a href="index.php">Accueil</a></li>
 
-	            <li><a href="Recherche.php">Catalogue/a></li>
-
-	            <li><a href="#contact">Forum</a></li>      
+	            <li><a href="reservation.php">Réservation</a></li>
 
 	          </ul>
 
