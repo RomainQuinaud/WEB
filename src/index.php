@@ -55,19 +55,19 @@
 
       <div class="starter-template">
 
-        <h1>Bienvenue sur Hellaw's</h1>
+        <h1>I Camp' Find</h1>
 
-        <p class="lead">Ce site contient toutes les informations nécessaires en cas de recours à la justice<br> All you get is this text and a mostly barebones HTML document.</p>
+        <p class="lead">Ce site permet de trouver un logement<br>Pas cher pour Vos vancances!</p>
 
 	<div class="row">
         <div class="col-sm-9 blog-main">
         	<div class="blog-post">
-        		<h2 class="blog-post-titre">Loi du Jour</h2>
-           			<p>La loi du jour n'est pas disponible... Ce n'est pas le bon jour.</p>
+        		<h2 class="blog-post-titre">Proposition</h2>
+           			<p>Exemple random de logment. Fichier image avec prix.</p>
     		</div>
     		<div class="blog-post">
     			<h2>Article</h2>
-	            	<p>Emplacement du futur emplacement du texte de l'article.<br>BLA... BLA...<br>BLA... BLA...</p>
+	            	<p>Emplacement du futur emplacement des notifications de réservation.<br>BLA... BLA...<br>BLA... BLA...</p>
 	        </div>
     	</div>
         <div class="col-sm-2 col-sm-offset-1 blog-sidebar">

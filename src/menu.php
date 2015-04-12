@@ -14,6 +14,8 @@
 
 	            <span class="icon-bar"></span>
 
+                <span class="icon-bar"></span>
+
 	          </button>
 
 	          <a class="navbar-brand" href="#">Lois</a>
@@ -27,7 +29,7 @@
 
 	            <li class="active"><a href="index.php">Accueil</a></li>
 
-	            <li><a href="Recherche.php">Recherche</a></li>
+	            <li><a href="Recherche.php">Catalogue/a></li>
 
 	            <li><a href="#contact">Forum</a></li>      
 
