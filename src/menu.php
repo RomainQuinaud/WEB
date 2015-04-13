@@ -14,6 +14,8 @@
 
 	            <span class="icon-bar"></span>
 
+                <span class="icon-bar"></span>
+
 	          </button>
 
 	          <a class="navbar-brand" href="#">Camping Paradis</a>
@@ -25,9 +27,15 @@
 
 	          <ul class="nav navbar-nav">
 
+<<<<<<< HEAD
 	            <li><a href="index.php">Accueil</a></li>
 
 	            <li class="active"><a href="reservation.php">Réservation</a></li>
+=======
+	            <li class="active"><a href="index.php">Accueil</a></li>
+
+	            <li><a href="reservation.php">Réservation</a></li>
+>>>>>>> 044a63d4aa0e23a2c2bc48a720d6314cbe9a8916
 
 	          </ul>
 
