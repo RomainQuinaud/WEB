@@ -7,8 +7,6 @@
  */
 
 
-
-
 $dbName = 'camping';
 $dbUser = 'inscrit';
 $dbPassword = 'as20142015';
