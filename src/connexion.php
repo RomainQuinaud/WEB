@@ -1,5 +1,15 @@
+<?php
+include 'connect.php';
+
+
+
+$sql = '
+    SELECT loginUTILISATEUR,mdpUTILISATEUR
+    FROM utilisateur';
+?>
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +64,7 @@
           </div>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-default">Connexion</button>
+            <button type="submit" onclick="return veriForm()" class="btn btn-default">Connexion</button>
           </div>
 
           <div class="form-group">
@@ -89,6 +99,14 @@
     <script src="../../../../../../Users/Romain%20QUINAUD/Desktop/save/Projet/bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  <script type="text/javascript">
+     function veriForm()
+      {
+
+      alert('toto');return true;
+
+      }
+  </script
 
 
 

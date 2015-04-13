@@ -25,11 +25,9 @@
 
 	          <ul class="nav navbar-nav">
 
-	            <li class="active"><a href="index.php">Accueil</a></li>
+	            <li><a href="index.php">Accueil</a></li>
 
-	            <li><a href="reservation.php">Réservation</a></li>
-
-
+	            <li class="active"><a href="reservation.php">Réservation</a></li>
 
 	          </ul>
 
