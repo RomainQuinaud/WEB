@@ -2,7 +2,7 @@
 session_start();
 $errmsg_arr = array();
 $errflag = false;
-
+$valid=false;
 
 include 'BDD_connect.php';
 
@@ -50,27 +50,28 @@ if(empty($mdp)) {
     $errflag = true;
 }
 
-
-
-
+if(!$errflag) {
 
 
 // query
-$req = $pdo->prepare($sql);
-$req->bindParam(':login', $login);
-$req->bindParam(':nom', $nom);
-$req->bindParam(':prenom', $prenom);
-$req->bindParam(':telephone', $telephone);
-$req->bindParam(':mail', $mail);
-$req->bindParam(':departement', $departement);
-$req->bindParam(':mdp', $password);
-$valid=$req->execute();
-
-if($valid) header("location: connexion.php");
-
-if($errflag) {
-    $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
-    session_write_close();
-    header("location: inscription.php");
-    exit();
+    $req = $pdo->prepare($sql);
+    $req->bindParam(':login', $login);
+    $req->bindParam(':nom', $nom);
+    $req->bindParam(':prenom', $prenom);
+    $req->bindParam(':telephone', $telephone);
+    $req->bindParam(':mail', $mail);
+    $req->bindParam(':departement', $departement);
+    $req->bindParam(':mdp', $password);
+    $valid = $req->execute();
 }
+if($valid) header("location: connexion.php");
+else {
+    if ($errflag) {
+        $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+        session_write_close();
+        header("location: inscription.php");
+        exit();
+    }
+}
+
+?>
