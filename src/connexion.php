@@ -1,12 +1,10 @@
 <?php
-include 'connect.php';
 
-
-
-$sql = '
-    SELECT loginUTILISATEUR,mdpUTILISATEUR
-    FROM utilisateur';
+session_start();
+if(isset($_SESSION['login']))
+    header('Location: index.php');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/html">
@@ -49,22 +47,34 @@ $sql = '
 
 
 
-        <form class="center-block" method="POST" action="index.php">
+        <form class="center-block" method="POST" action="reg.php">
           
           <div class="form-group">
               <img id="img-justice" class="profile-img-card" src="../img/photo-justice.png" />
           </div>
 
           <div class="form-group">
-            <input type="email" class="form-control" id="email" placeholder="Email">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
           </div>
 
           <div class="form-group">
-            <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
           </div>
 
+            <?php
+            if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
+                echo '<div class="text-danger">';
+                foreach($_SESSION['ERRMSG_ARR'] as $msg) {
+                    echo $msg;
+                }
+                echo '</div><br/>';
+                unset($_SESSION['ERRMSG_ARR']);
+            }
+
+            ?>
+
           <div class="form-group">
-            <button type="submit" onclick="return veriForm()" class="btn btn-default">Connexion</button>
+            <button type="submit" class="btn btn-default">Connexion</button>
           </div>
 
           <div class="form-group">

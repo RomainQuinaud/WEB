@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['login']))
+    header('Location: connexion.php');
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -81,7 +88,7 @@
 
               <ul class="nav navbar-nav navbar-right">
 
-                  <li><a href="#">Déconnexion</a></li>
+                  <li><a href="deco.php">Déconnexion</a></li>
 
               </ul>
 
