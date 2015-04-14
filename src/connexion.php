@@ -47,7 +47,7 @@ if(isset($_SESSION['login']))
 
 
 
-        <form class="center-block" method="POST" action="reg.php">
+        <form class="center-block" method="POST" action="WEB_connect.php">
           
           <div class="form-group">
               <img id="img-justice" class="profile-img-card" src="../img/photo-justice.png" />
@@ -65,7 +65,7 @@ if(isset($_SESSION['login']))
             if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
                 echo '<div class="text-danger">';
                 foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-                    echo $msg;
+                    echo $msg.'<br>';
                 }
                 echo '</div><br/>';
                 unset($_SESSION['ERRMSG_ARR']);
@@ -109,14 +109,7 @@ if(isset($_SESSION['login']))
     <script src="../../../../../../Users/Romain%20QUINAUD/Desktop/save/Projet/bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  <script type="text/javascript">
-     function veriForm()
-      {
 
-      alert('toto');return true;
-
-      }
-  </script
 
 
 
