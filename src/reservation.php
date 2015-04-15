@@ -45,7 +45,7 @@
 </head>
 
 <body>
-
+<!--
 <div class="navbar navbar-inverse navbar-fixed-top">
 
     <div class="container">
@@ -86,11 +86,15 @@
             </ul>
 
         </div><!--/.nav-collapse -->
-
+<!--
     </div>
 
 </div>
-
+-->
+<?php
+include_once 'menu.php';
+menu("reservation.php");
+?>
 
   <div class="container">
 

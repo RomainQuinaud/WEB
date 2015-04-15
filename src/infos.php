@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(!isset($_SESSION['login']))
+    header('Location: connexion.php');
+?>
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -45,7 +50,7 @@
 </head>
 
 <body>
-
+<!--
 <div class="navbar navbar-inverse navbar-fixed-top">
 
     <div class="container">
@@ -86,11 +91,15 @@
             </ul>
 
         </div><!--/.nav-collapse -->
-
+<!--
     </div>
 
 </div>
-
+-->
+<?php
+include_once 'menu.php';
+menu("infos.php");
+?>
 
 <div class="container">
 

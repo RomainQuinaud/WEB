@@ -52,7 +52,7 @@ if(!isset($_SESSION['login']))
   </head>
 
   <body>
-
+<!--
   <div class="navbar navbar-inverse navbar-fixed-top">
 
       <div class="container">
@@ -93,11 +93,15 @@ if(!isset($_SESSION['login']))
               </ul>
 
           </div><!--/.nav-collapse -->
-
+<!--
       </div>
 
   </div>
-
+-->
+<?php
+include_once 'menu.php';
+menu("index.php");
+?>
     
     <div class="container">
 

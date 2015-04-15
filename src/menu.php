@@ -1,52 +1,55 @@
+
+<?php
+
+function menu($page)
+{
+?>
+
+
 <div class="navbar navbar-inverse navbar-fixed-top">
 
-    	<div class="container">
+    <div class="container">
 
-	        <div class="navbar-header">
+        <div class="navbar-header">
 
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 
-	            <span class="sr-only">Toggle navigation</span>
-
-	            <span class="icon-bar"></span>
-
-	            <span class="icon-bar"></span>
-
-	            <span class="icon-bar"></span>
+                <span class="sr-only">Toggle navigation</span>
 
                 <span class="icon-bar"></span>
 
-	          </button>
+                <span class="icon-bar"></span>
 
-	          <a class="navbar-brand" href="#">Camping Paradis</a>
+                <span class="icon-bar"></span>
 
-	        </div>
-       
+            </button>
 
-	        <div id="navbar" class="collapse navbar-collapse">
+            <a class="navbar-brand" href="infos.php">Camping Paradis</a>
 
-	          <ul class="nav navbar-nav">
+        </div>
 
-<<<<<<< HEAD
-	            <li><a href="index.php">Accueil</a></li>
 
-	            <li class="active"><a href="reservation.php">Réservation</a></li>
-=======
-	            <li class="active"><a href="index.php">Accueil</a></li>
+        <div id="navbar" class="collapse navbar-collapse">
 
-	            <li><a href="reservation.php">Réservation</a></li>
->>>>>>> 044a63d4aa0e23a2c2bc48a720d6314cbe9a8916
+            <ul class="nav navbar-nav">
 
-	          </ul>
+                <li <?php if($page=='index.php') echo 'class="active"' ?>><a href="index.php">Accueil</a></li>
 
-	          <ul class="nav navbar-nav navbar-right">
+                <li <?php if($page=='reservation.php') echo 'class="active"' ?>><a href="reservation.php">Réservation</a></li>
 
-	          	<li><a href="#">Déconnexion</a></li>
+            </ul>
 
-	          </ul>
+            <ul class="nav navbar-nav navbar-right">
 
-	        </div><!--/.nav-collapse -->
+                <li><a href="deco.php">Déconnexion</a></li>
 
-    	</div>
+            </ul>
+
+        </div><!--/.nav-collapse -->
 
     </div>
+
+</div>
+<?php
+}
+?>
