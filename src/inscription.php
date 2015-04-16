@@ -13,7 +13,7 @@ if(isset($_SESSION['login']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../img/photo-justice.ico">
+    <link rel="icon" href="../img/camping.ico">
 
     <title>Hellaw's</title>
 
@@ -49,52 +49,106 @@ if(isset($_SESSION['login']))
             <form class="center-block" method="POST" action="registration.php">
 
                 <div class="form-group">
-                    <img id="img-justice" class="profile-img-card" src="../img/photo-justice.png"/>
+                    <img id="img-justice" class="profile-img-card" src="../img/camping.png"/>
                 </div>
 
 
                 <div class="form-group">
-                    <input type="text" class="form-control" id="login" name="login" placeholder="Login">
+                    <input type="text" class="form-control" id="login" name="login" placeholder="<?php
+                    if( isset($_SESSION['ERRMSG_LOGIN']) && is_string($_SESSION['ERRMSG_LOGIN']))
+                    {
+
+                        echo 'Veuillez saisir un Login';
+
+                        unset($_SESSION['ERRMSG_LOGIN']);
+                    }
+                    else echo'Login';
+                    ?>
+                    ">
                 </div>
 
                 <div class="form-group">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="<?php
+                    if( isset($_SESSION['ERRMSG_MAIL']) && is_string($_SESSION['ERRMSG_MAIL']))
+                    {
+
+                        echo 'Veuillez saisir un Email';
+
+                        unset($_SESSION['ERRMSG_MAIL']);
+                    }
+                    else echo'Email';
+                    ?>">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="<?php
+                    if( isset($_SESSION['ERRMSG_NOM']) && is_string($_SESSION['ERRMSG_NOM']))
+                    {
+
+                        echo 'Veuillez saisir un Nom';
+
+                        unset($_SESSION['ERRMSG_NOM']);
+                    }
+                    else echo'Nom';
+                    ?>">
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="<?php
+                    if( isset($_SESSION['ERRMSG_PRENOM']) && is_string($_SESSION['ERRMSG_PRENOM']))
+                    {
+
+                        echo 'Veuillez saisir un Prénom';
+
+                        unset($_SESSION['ERRMSG_PRENOM']);
+                    }
+                    else echo'Prénom';
+                    ?>">
                 </div>
 
                 <div class="form-group">
                     <input type="tel"
                            pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
-                           class="form-control" id="telephone" name="telephone" placeholder="Téléphone">
-                </div>
+                           class="form-control" id="telephone" name="telephone" placeholder="<?php
+                    if( isset($_SESSION['ERRMSG_TELEPHONE']) && is_string($_SESSION['ERRMSG_TELEPHONE']))
+                    {
 
-                <div class="form-group">
-                    <input type="text" maxlength="2" class="form-control" id="telephone" name="departement" placeholder="Département">
-                </div>
+                        echo 'Veuillez saisir un Téléphone';
 
-                <div class="form-group">
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
-                </div>
-
-
-                <?php
-                if( isset($_SESSION['ERRMSG_ARR']) && is_array($_SESSION['ERRMSG_ARR']) && count($_SESSION['ERRMSG_ARR']) >0 ) {
-                    echo '<div class="text-danger">';
-                    foreach($_SESSION['ERRMSG_ARR'] as $msg) {
-                        echo $msg.'<br>';
+                        unset($_SESSION['ERRMSG_TELEPHONE']);
                     }
-                    echo '</div><br/>';
-                    unset($_SESSION['ERRMSG_ARR']);
-                }
+                    else echo'Téléphone';
+                    ?>">
+                </div>
 
-                ?>
+                <div class="form-group">
+                    <input type="text" maxlength="2" class="form-control" id="departement" name="departement" placeholder="<?php
+                    if( isset($_SESSION['ERRMSG_DPT']) && is_string($_SESSION['ERRMSG_DPT']))
+                    {
+
+                        echo 'Veuillez saisir un Département';
+
+                        unset($_SESSION['ERRMSG_DPT']);
+                    }
+                    else echo'Département';
+                    ?>">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="<?php
+                    if( isset($_SESSION['ERRMSG_MDP']) && is_string($_SESSION['ERRMSG_MDP']))
+                    {
+
+                        echo 'Veuillez saisir un Mot de Passe';
+
+                        unset($_SESSION['ERRMSG_MDP']);
+                    }
+                    else echo'Mot de Passe';
+                    ?>">
+                </div>
+
+
+
 
 
                 <div class="form-group">
@@ -110,7 +164,7 @@ if(isset($_SESSION['login']))
 
           </div>
 
-      
+
 <footer class="footer">
 
     <p>

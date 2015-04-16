@@ -19,7 +19,7 @@ if(!isset($_SESSION['login']))
 
     <meta name="author" content="">
 
-    <link rel="icon" href="../img/photo-justice.ico">
+    <link rel="icon" href="../img/camping.ico">
 
     <title>Camping paradis</title>
 

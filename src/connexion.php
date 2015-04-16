@@ -14,7 +14,7 @@ if(isset($_SESSION['login']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../img/photo-justice.ico">
+    <link rel="icon" href="../img/camping.ico">
 
     <title>Hellaw's</title>
 
@@ -50,7 +50,7 @@ if(isset($_SESSION['login']))
         <form class="center-block" method="POST" action="WEB_connect.php">
           
           <div class="form-group">
-              <img id="img-justice" class="profile-img-card" src="../img/photo-justice.png" />
+              <img id="img-justice" class="profile-img-card" src="../img/camping.png" />
           </div>
 
           <div class="form-group">

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$errmsg_arr = array();
+
 $errflag = false;
 $valid=false;
 
@@ -20,33 +20,34 @@ $password=password_hash($mdp,PASSWORD_BCRYPT);
 
 
 if(empty($login)) {
-    $errmsg_arr[] = 'Veuillez saisir votre Login';
+    $errmsg_login = 'Veuillez saisir votre Login';
     $errflag = true;
 }
 
+
 if(empty($mail)) {
-    $errmsg_arr[] = 'Veuillez saisir votre Email';
+    $errmsg_mail = 'Veuillez saisir votre Email';
     $errflag = true;
 }
 if(empty($nom)) {
-    $errmsg_arr[] = 'Veuillez saisir votre Nom';
+    $errmsg_nom = 'Veuillez saisir votre Nom';
     $errflag = true;
 }
 if(empty($prenom)) {
-    $errmsg_arr[] = 'Veuillez saisir votre Prénom';
+    $errmsg_prenom = 'Veuillez saisir votre Prénom';
     $errflag = true;
 }
 if(empty($telephone)) {
-    $errmsg_arr[] = 'Veuillez saisir votre Téléphone';
+    $errmsg_telephone= 'Veuillez saisir votre Téléphone';
     $errflag = true;
 }
 
 if(empty($departement)) {
-    $errmsg_arr[] = 'Veuillez saisir votre Département';
+    $errmsg_dpt = 'Veuillez saisir votre Département';
     $errflag = true;
 }
 if(empty($mdp)) {
-    $errmsg_arr[] = 'Veuillez saisir votre Mot de passe';
+    $errmsg_mdp= 'Veuillez saisir votre Mot de passe';
     $errflag = true;
 }
 
@@ -67,7 +68,13 @@ if(!$errflag) {
 if($valid) header("location: connexion.php");
 else {
     if ($errflag) {
-        $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
+        $_SESSION['ERRMSG_LOGIN'] = $errmsg_login;
+        $_SESSION['ERRMSG_MAIL'] = $errmsg_mail;
+        $_SESSION['ERRMSG_NOM'] = $errmsg_nom;
+        $_SESSION['ERRMSG_PRENOM'] = $errmsg_prenom;
+        $_SESSION['ERRMSG_TELEPHONE'] = $errmsg_telephone;
+        $_SESSION['ERRMSG_DPT'] = $errmsg_dpt;
+        $_SESSION['ERRMSG_MDP'] = $errmsg_mdp;
         session_write_close();
         header("location: inscription.php");
         exit();
