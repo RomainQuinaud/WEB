@@ -54,7 +54,7 @@ menu("reservation.php");
   <div class="container">
 
     <div class="starter-template">
-      <h1>Recherche</h1>
+        <h1 class="modal-header">Réservation en ligne</h1>
 
 
     </div>
