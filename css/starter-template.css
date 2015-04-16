@@ -8,7 +8,10 @@
 	background-color:#4B3E94;
 }
 
+.modal-header {
+    font-size: 2.5em;
 
+}
 
 .starter-template {
   padding: 20px 15px;
