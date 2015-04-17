@@ -52,52 +52,7 @@ if(!isset($_SESSION['login']))
   </head>
 
   <body>
-<!--
-  <div class="navbar navbar-inverse navbar-fixed-top">
 
-      <div class="container">
-
-          <div class="navbar-header">
-
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-
-                  <span class="sr-only">Toggle navigation</span>
-
-                  <span class="icon-bar"></span>
-
-                  <span class="icon-bar"></span>
-
-                  <span class="icon-bar"></span>
-
-              </button>
-
-              <a class="navbar-brand" href="infos.php">Camping Paradis</a>
-
-          </div>
-
-
-          <div id="navbar" class="collapse navbar-collapse">
-
-              <ul class="nav navbar-nav">
-
-                  <li class="active"><a href="index.php">Accueil</a></li>
-
-                  <li><a href="reservation.php">Réservation</a></li>
-
-              </ul>
-
-              <ul class="nav navbar-nav navbar-right">
-
-                  <li><a href="deco.php">Déconnexion</a></li>
-
-              </ul>
-
-          </div><!--/.nav-collapse -->
-<!--
-      </div>
-
-  </div>
--->
 <?php
 include_once 'menu.php';
 menu("index.php");
@@ -111,7 +66,7 @@ menu("index.php");
 
         <h1>Bienvenue au Camping Paradis</h1>
 
-        <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br><a href="inscription.php">Inscrivez-vous</a> ou <a href="connexion.php">connectez-vous</a> pour réserver un logement</p>
+          <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br>
 
   <div class="row">
         <div class="col-sm-9 blog-main">
