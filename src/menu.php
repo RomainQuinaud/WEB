@@ -41,7 +41,13 @@ function menu($page)
 
             <ul class="nav navbar-nav navbar-right">
 
+                <div class="nav navbar-nav">
+                    <li class="text-center-vertical">Connecté sous le login
+                    </li
+                        <!--TODO Ajouter le php avec la requete sql pour affiché le login correspondant a la personne connecté -->
                 <li><a href="deco.php">Déconnexion</a></li>
+                </div>
+
 
             </ul>
 
