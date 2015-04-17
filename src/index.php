@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['login']))
+if (!isset($_SESSION['login']))
     header('Location: connexion.php');
 ?>
 
@@ -9,7 +9,7 @@ if(!isset($_SESSION['login']))
 
 <html lang="fr">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
 
@@ -35,7 +35,8 @@ if(!isset($_SESSION['login']))
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
@@ -43,80 +44,79 @@ if(!isset($_SESSION['login']))
 
     <!--[if lt IE 9]>
 
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <![endif]-->
 
-  </head>
+</head>
 
-  <body>
+<body>
 
 <?php
 include_once 'menu.php';
 menu("index.php");
 ?>
-    
-    <div class="container">
 
-      <div class="starter-template">
+<div class="container">
+
+    <div class="starter-template">
 
         <h1>I Camp' Find !</h1>
 
         <h1>Bienvenue au Camping Paradis</h1>
 
-          <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br>
+        <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br>
 
-  <div class="row">
-        <div class="col-sm-9 blog-main">
-          <div class="blog-post">
-            <h2 class="blog-post-titre">Proposition</h2>
-                <p>Exemple random de logment. Fichier image avec prix.</p>
+        <div class="row">
+            <div class="col-sm-9 blog-main">
+                <div class="blog-post">
+                    <h2 class="blog-post-titre">Proposition</h2>
+
+                    <p>Exemple de logement. Affichage IMAGE correspondante</p>
+                </div>
+            </div>
+            <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+                <div class="sidebar-module sidebar-module-inset">
+                    <div class="sidebar-module">
+                        <h2>Notifications</h2>
+
+                        <p>Futur emplacement des notifications liées aux réservations.</p>
+
+                        <p>Peut être un rappel des différentes réservations de la personne connectée</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer class="row">
+                <div class="col-lg-12">
+                    Pied de page
+                </div>
+            </footer>
+
+
         </div>
-        <div class="blog-post">
-          <h2>Devenu Inutile de faire 2 paragraphes?</h2>
-                <p>Le mieux c'est de se faire une liste d'image renvoyant aux annnoces non?<br>BLA... BLA...<br>BLA... BLA...</p>
-          </div>
-      </div>
-        <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
-              <div class="sidebar-module">
-                  <h2>Notifications</h2>
-                    <p>Emplacement du futur emplacement des notifications lié réservation.</p>
-              </div>
-          </div>
-      </div>
+    </div>
 
+</div>
+<!-- /.container -->
 
+<!-- Bootstrap core JavaScript
 
+================================================== -->
 
-    <footer class="row">
-        <div class="col-lg-12">
-          Pied de page
-        </div>
-    </footer> 
+<!-- Placed at the end of the document so the pages load faster -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+<script src="../../../../../../Users/Romain%20QUINAUD/Desktop/save/Projet/bootstrap/js/bootstrap.min.js"></script>
 
-  </div></div>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
-    </div><!-- /.container -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- Bootstrap core JavaScript
-
-    ================================================== -->
-
-    <!-- Placed at the end of the document so the pages load faster -->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <script src="../../../../../../Users/Romain%20QUINAUD/Desktop/save/Projet/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-  </body>
+</body>
 
 </html>
