@@ -2,7 +2,7 @@
 session_start();
 $errmsg_arr = array();
 $errflag = false;
-$sql = "SELECT mailUTILISATEUR,mdpUTILISATEUR
+$sql = "SELECT mailUTILISATEUR,mdpUTILISATEUR,loginUTILISATEUR
     FROM utilisateur ";
 include 'BDD_connect.php';
 
@@ -27,7 +27,8 @@ $result->bindParam(':mail', $user);
 $result->execute();
 $rows = $result->fetch(PDO::FETCH_NUM);
 if($rows > 0 && password_verify($password,$rows[1])) {
-    $_SESSION['login'] = $user;
+
+    $_SESSION['login'] = $rows[2];
     header("Location: index.php");
 
 }
@@ -39,6 +40,7 @@ else {
     if ($errflag) {
         $_SESSION['ERRMSG_ARR'] = $errmsg_arr;
         session_write_close();
+
         header("location: connexion.php");
         exit();
     }
