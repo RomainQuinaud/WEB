@@ -63,7 +63,7 @@ menu("index.php");
 
     <div class="starter-template">
 
-        <h1>I Camp' Find !</h1>
+        <h1 class="modal-header">I Camp' Find !</h1>
 
         <h1>Bienvenue au Camping Paradis</h1>
 
