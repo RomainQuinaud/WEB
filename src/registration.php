@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$errflag = false;
+$flag = false;
 $valid=false;
 
 include 'BDD_connect.php';
@@ -20,38 +20,42 @@ $password=password_hash($mdp,PASSWORD_BCRYPT);
 
 
 if(empty($login)) {
-    $errmsg_login = 'Veuillez saisir votre Login';
-    $errflag = true;
+    $err_login = 'Veuillez saisir votre Login';
+    $flag = true;
 }
-
 
 if(empty($mail)) {
-    $errmsg_mail = 'Veuillez saisir votre Email';
-    $errflag = true;
+    $err_mail = 'Veuillez saisir votre Email';
+    $flag = true;
 }
+
 if(empty($nom)) {
-    $errmsg_nom = 'Veuillez saisir votre Nom';
-    $errflag = true;
+    $err_nom = 'Veuillez saisir votre Nom';
+    $flag = true;
 }
+
 if(empty($prenom)) {
-    $errmsg_prenom = 'Veuillez saisir votre Prénom';
-    $errflag = true;
+    $err_prenom = 'Veuillez saisir votre Prénom';
+    $flag = true;
 }
+
 if(empty($telephone)) {
-    $errmsg_telephone= 'Veuillez saisir votre Téléphone';
-    $errflag = true;
+    $err_telephone = 'Veuillez saisir votre Téléphone';
+    $flag = true;
 }
 
 if(empty($departement)) {
-    $errmsg_dpt = 'Veuillez saisir votre Département';
-    $errflag = true;
-}
-if(empty($mdp)) {
-    $errmsg_mdp= 'Veuillez saisir votre Mot de passe';
-    $errflag = true;
+    $err_dpt = 'Veuillez saisir votre Département';
+    $flag = true;
 }
 
-if(!$errflag) {
+if(empty($mdp)) {
+    $err_mdp = 'Veuillez saisir votre Mot de passe';
+    $flag = true;
+}
+
+
+if (!$flag) {
 
 
 // query
@@ -67,14 +71,17 @@ if(!$errflag) {
 }
 if($valid) header("location: connexion.php");
 else {
-    if ($errflag) {
-        $_SESSION['ERRMSG_LOGIN'] = $errmsg_login;
-        $_SESSION['ERRMSG_MAIL'] = $errmsg_mail;
-        $_SESSION['ERRMSG_NOM'] = $errmsg_nom;
-        $_SESSION['ERRMSG_PRENOM'] = $errmsg_prenom;
-        $_SESSION['ERRMSG_TELEPHONE'] = $errmsg_telephone;
-        $_SESSION['ERRMSG_DPT'] = $errmsg_dpt;
-        $_SESSION['ERRMSG_MDP'] = $errmsg_mdp;
+    if ($flag) {
+        $_SESSION['ERR_LOGIN'] = $err_login;
+        $_SESSION['ERR_MAIL'] = $err_mail;
+        $_SESSION['ERR_NOM'] = $err_nom;
+        $_SESSION['ERR_PRENOM'] = $err_prenom;
+        $_SESSION['ERR_TELEPHONE'] = $err_telephone;
+        $_SESSION['ERR_DPT'] = $err_dpt;
+        $_SESSION['ERR_MDP'] = $err_mdp;
+
+
+
         session_write_close();
         header("location: inscription.php");
         exit();
