@@ -8,11 +8,31 @@
 	background-color:#4B3E94;
 }
 
+.starter-template .modal-header {
+    text-align: center;
+}
+
+.table {
+    text-align: left;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4em;
+}
+
+#push, #footer {
+    height: 4em;
+}
+
+
 
 .starter-template {
   padding: 20px 15px;
   margin-top:20px;
-  text-align: center;
+
 }
 
 .text-center-vertical {
