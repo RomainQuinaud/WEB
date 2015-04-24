@@ -31,6 +31,14 @@ menu("reservation.php");
     <div class="starter-template">
         <h1 class="modal-header">Réservation en ligne</h1>
 
+        <h2>Vos Réservations</h2>
+
+        <?php include 'BDD_connect.php';
+            $result = $pdo->prepare("SELECT ");
+            $result->bindParam(':mail', $user);
+            $result->execute();
+            $rows = $result->fetch(PDO::FETCH_NUM);
+
 
     </div>
   </div>

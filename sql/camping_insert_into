@@ -1,0 +1,2 @@
+INSERT INTO camping (nomcamping,villecamping,adressecamping,departementcamping) values ("Les Flots Bleus","taratata les bains","10 rue de la plage",10);
+INSERT INTO categorie (libellecategorie) VALUES ("Bungallow"),("Tente"),("Caravane");
