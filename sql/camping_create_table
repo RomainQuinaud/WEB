@@ -58,7 +58,7 @@ CREATE TABLE logement -- cree la table logement
 
 		CONSTRAINT PK_logement PRIMARY KEY (idlogement),
 		CONSTRAINT FK_logement_camping FOREIGN KEY (idcamping) references camping(idcamping),
-		CONSTRAINT FK_logement_categorie FOREIGN KEY (idcategorie) references categorie(idcategorie),
+		CONSTRAINT FK_logement_categorie FOREIGN KEY (idcategorie) references categorie(idcategorie)
 
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
@@ -109,3 +109,20 @@ create table reservation -- cree la table reservation
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
 -- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
+
+
+-- -------------------------------------------------------------- --
+-- 						prix periode                      								  --
+-- -------------------------------------------------------------- --
+
+
+drop table if exists prix_periode; -- supprime la table reservation si elle existe
+create table prix_periode -- cree la table reservation
+(
+		mois varchar(30) DEFAULT NULL,
+		ajout int(11)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
+-- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
+
+

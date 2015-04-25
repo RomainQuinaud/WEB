@@ -2,7 +2,7 @@ INSERT INTO camping (nomcamping,villecamping,adressecamping,departementcamping) 
 INSERT INTO categorie (libellecategorie) VALUES ("Bungallow"),("Tente"),("Caravane");
 
 
-INSERT INTO logement(idcategorie,nomlogement,idcamping,idstatut) values (1,'La Perruche','1','1')
+INSERT INTO logement(idcategorie,nomlogement,idcamping) values (1,'La Perruche',1);
 
 INSERT INTO prix_periode (mois, ajout) VALUES
 ('Janvier', 10),
@@ -19,14 +19,8 @@ INSERT INTO prix_periode (mois, ajout) VALUES
 ('Décembre', 50);
 
 INSERT INTO reservation (idUTILISATEUR,idlogement,datereservation,datedebut,datefin)
-VALUES((SELECT idUTILISATEUR from utilisateur where loginUTILISATEUR='admin'),1,CURRENT_TIMESTAMP,'01-07-2015','08-07-2015');
+VALUES((SELECT idUTILISATEUR from utilisateur where loginUTILISATEUR='ADMIN'),1,CURRENT_TIMESTAMP,'2015-07-01','2015-07-08');
 
 SELECT datedebut,datefin,nomlogement,libellecategorie,nomcamping, villecamping,adressecamping,departementcamping
-from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur='admin';
+from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur='ADMIN';
 
-
-INSERT INTO statut (idstatut, libellestatut) VALUES
-(1, 'Occupé'),
-(2, 'Disponible'),
-(3, 'En réparation'),
-(4, 'En rénovation');
