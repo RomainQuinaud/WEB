@@ -30,7 +30,7 @@ menu("infos.php");
 
     <div class="starter-template">
 
-        <h1 class="modal-header">Bienvenue au CampFind</h1>
+        <h1 class="modal-header">Bienvenue sur CampFind</h1>
 
         <p> Page d'information</p>
 
