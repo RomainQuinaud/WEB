@@ -8,49 +8,12 @@
     background-color: #4B3E94;
 }
 
-.starter-template .modal-header {
-    text-align: center;
-}
+
 
 .table {
     text-align: left;
 }
 
-#wrap {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -4em;
-}
-
-#push, #footer {
-    height: 4em;
-}
-
-
-.starter-template {
-    padding: 20px 15px;
-    margin-top: 20px;
-    text-align: center;
-
-
-}
-
-.text-center-vertical {
-    min-height: 16.42857143px;
-    padding: 15px;
-    color: #C8C8C8;
-}
-.col-sm-9 {
-/ / border : 1 px solid black;
-}
-
-.col-sm-2 {
-/ / border : 1 px solid black;
-}
-.histo {
-    border: 1px solid black;
-}
 
 .center-block
 {
@@ -64,7 +27,6 @@
     -o-box-shadow: 5px 5px 5px 0px #656565;
     box-shadow: 5px 5px 5px 0px #656565;
     filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
-
 }
 
 .form-group a
@@ -72,12 +34,38 @@
     color: black;
 }
 
-.footer
-{
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-top: 40px;
-    border-top: 1px solid #EEE;
+html, body {
+    height: 100%;
+
 }
 
+#wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -50px;
+    padding: 0 0 50px;
+}
 
+#footer {
+    height: 50px;
+    background-color: #f5f5f5;
+
+}
+
+.container {
+    width: auto;
+    max-width: 100%;
+    padding-top: 20px;
+}
+
+#footer .container {
+    max-width: 700px;
+    padding-top: 10px;
+
+}
+
+.container .credit {
+    font-size: 0.9em;
+    height: 100%;
+
+}

@@ -21,33 +21,31 @@ if(!isset($_SESSION['login']))
 
 <body>
 
-<?php
-include_once 'menu.php';
-menu("infos.php");
-?>
 
-<div class="container">
+<div id="wrap">
+    <?php
+    include_once 'menu.php';
+    menu("infos.php");
+    ?>
 
-    <div class="starter-template">
+    <div class="container">
 
-        <h1 class="modal-header">Bienvenue sur CampFind</h1>
+        <div class="text-center">
+            <h1 class="modal-header">Bienvenue sur CampFind</h1>
 
-        <p> Page d'information</p>
-
-
-
-
-            <footer class="row">
-                <div class="col-lg-12">
-                    Pied de page
-                </div>
-            </footer>
+            <p> Page d'information</p>
+        </div>
 
 
-        </div></div>
+    </div>
 
-</div><!-- /.container -->
+</div>
 
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>
+    </div>
+</div>
 <!-- Bootstrap core JavaScript
 
 ================================================== -->
@@ -56,7 +54,7 @@ menu("infos.php");
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script src="../../../../../../Users/Romain%20QUINAUD/Desktop/save/Projet/bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
