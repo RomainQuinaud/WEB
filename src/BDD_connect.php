@@ -23,5 +23,3 @@ $dbPassword = 'as20142015';
  */
 $pdo = new PDO('mysql:dbname=' . $dbName . ';host=localhost', $dbUser, $dbPassword);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-?>
