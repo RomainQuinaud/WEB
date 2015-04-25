@@ -14,7 +14,7 @@ if(isset($_SESSION['login']))
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../img/camping.ico">
-    <title>Camping Paradis</title>
+    <title>CampFind</title>
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -26,10 +26,11 @@ if(isset($_SESSION['login']))
 <div class="container">
 
     <div class="starter-template">
-        <h1>Camping Paradis</h1>
+        <h1>CampFind</h1>
 
         <p class="lead"> Les vacances en quelques clics
-            <br><br> Merci de remplir le formulaire suivant pour vous inscrire et accéder à la réservation en ligne du Camping Paradis</p>
+            <br><br> Merci de remplir le formulaire suivant pour vous inscrire et accéder à la réservation en ligne du
+            CampFind</p>
 
 
         <form class="center-block" method="POST" action="registration.php">

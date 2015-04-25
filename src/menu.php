@@ -26,7 +26,7 @@ function menu($page)
 
             </button>
 
-            <a class="navbar-brand" href="infos.php">Camping Paradis</a>
+            <a class="navbar-brand" href="infos.php">CampFind</a>
 
         </div>
 

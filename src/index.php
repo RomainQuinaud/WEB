@@ -14,7 +14,7 @@ if (!isset($_SESSION['login']))
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../img/camping.ico">
-    <title>Camping Paradis</title>
+    <title>CampFind</title>
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -32,9 +32,9 @@ menu("index.php");
 
     <div class="starter-template">
 
-        <h1 class="modal-header">I Camp' Find !</h1>
+        <h1 class="modal-header">CampFind</h1>
 
-        <h1>Bienvenue au Camping Paradis</h1>
+        <h1>Bienvenue sur CampFind</h1>
 
         <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br>
 
