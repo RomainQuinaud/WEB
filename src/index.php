@@ -30,7 +30,7 @@ menu("index.php");
 
 <div class="container">
 
-    <div class="starter-template">
+    <div class="text-center">
 
         <h1 class="modal-header">CampFind</h1>
 

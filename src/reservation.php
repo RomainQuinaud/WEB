@@ -36,64 +36,55 @@ menu("reservation.php");
 
 <div class="container">
 
-    <div class="starter-template">
+    <div class="text-center">
         <h1 class="modal-header">Réservation en ligne</h1>
 
-        <h2 class="text-center">Vos Réservations</h2>
-
-
+        <h2>Vos Réservations</h2>
 
         <?php if ($reservationStatements->rowCount() == 0) {
             ?> <p> Pas de réservations en cours</p>
         <?php
         } else {
             ?>
-            <div class="left">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Date de début</th>
-                        <th>Date de fin</th>
-                        <th>Nom du logement</th>
-                        <th>Type de logement</th>
-                        <th>Nom du Camping</th>
-                        <th>Ville</th>
-                        <th>Adresse</th>
-                        <th>Département</th>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Date de début</th>
+                    <th>Date de fin</th>
+                    <th>Nom du logement</th>
+                    <th>Type de logement</th>
+                    <th>Nom du Camping</th>
+                    <th>Ville</th>
+                    <th>Adresse</th>
+                    <th>Département</th>
 
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
+                </tr>
+                </thead>
+                <tbody>
+                <?php
 
-                    while ($reservation = $reservationStatements->fetch()) {
-                        ?>
-                        <tr>
-                            <?php
-                            for ($i = 0; $i < 8; $i++)
-                                echo '<td>' . $reservation[$i] . '</td>';
-                            /*foreach ($reservation as &$liste) {
-                                echo '<td>' . $liste . '</td>';
-                            }*/
-                            ?>
-                        </tr>
-                    <?php
-                    }
+                while ($reservation = $reservationStatements->fetch()) {
                     ?>
-                    </tbody>
+                    <tr>
+                        <?php
+                        for ($i = 0; $i < 8; $i++)
+                            echo '<td>' . $reservation[$i] . '</td>';
+                        /*foreach ($reservation as &$liste) {
+                            echo '<td>' . $liste . '</td>';
+                        }*/
+                        ?>
+                    </tr>
+                <?php
+                }
+                ?>
+                </tbody>
 
-                </table>
-
-            </div>
+            </table>
         <?php
         }
         ?>
-
-
-
-
-
 
     </div>
 </div>
