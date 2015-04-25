@@ -40,7 +40,7 @@ if(isset($_SESSION['login']))
 
 
             <div class="form-group">
-                <input type="text" class="form-control" id="login" name="login" placeholder="Login">
+                <input type="text" maxlength="40" class="form-control" id="login" name="login" placeholder="Login">
                 <?php
                 if (isset($_SESSION['ERR_LOGIN']) && is_string($_SESSION['ERR_LOGIN'])) {
                     echo '<span class="text-danger">' . $_SESSION['ERR_LOGIN'] . '</span>';
@@ -50,7 +50,7 @@ if(isset($_SESSION['login']))
 
 
             <div class="form-group">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                <input type="email" maxlength="40" class="form-control" id="email" name="email" placeholder="Email">
                 <?php
                 if (isset($_SESSION['ERR_MAIL']) && is_string($_SESSION['ERR_MAIL'])) {
 
@@ -61,7 +61,7 @@ if(isset($_SESSION['login']))
 
 
             <div class="form-group">
-                <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                <input type="text" maxlength="60" class="form-control" id="nom" name="nom" placeholder="Nom">
                 <?php
                 if (isset($_SESSION['ERR_NOM']) && is_string($_SESSION['ERR_NOM'])) {
                     echo '<span class="text-danger">' . $_SESSION['ERR_NOM'] . '</span>';
@@ -70,7 +70,7 @@ if(isset($_SESSION['login']))
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+                <input type="text" maxlength="60" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
                 <?php
                 if (isset($_SESSION['ERR_PRENOM']) && is_string($_SESSION['ERR_PRENOM'])) {
                     echo '<span class="text-danger">' . $_SESSION['ERR_PRENOM'] . '</span>';
@@ -81,7 +81,7 @@ if(isset($_SESSION['login']))
             <div class="form-group">
                 <input type="tel"
                        pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
-                       class="form-control" id="telephone" name="telephone" placeholder="Téléphone">
+                       class="form-control" maxlength="20" id="telephone" name="telephone" placeholder="Téléphone">
                 <?php
                 if (isset($_SESSION['ERR_TELEPHONE']) && is_string($_SESSION['ERR_TELEPHONE'])) {
                     echo '<span class="text-danger">' . $_SESSION['ERR_TELEPHONE'] . '</span>';
@@ -90,7 +90,7 @@ if(isset($_SESSION['login']))
             </div>
 
             <div class="form-group">
-                <input type="text" maxlength="2" class="form-control" id="departement" name="departement"
+                <input type="text" maxlength="3" class="form-control" id="departement" name="departement"
                        placeholder="Département">
                 <?php
                 if (isset($_SESSION['ERR_DPT']) && is_string($_SESSION['ERR_DPT'])) {
@@ -100,7 +100,8 @@ if(isset($_SESSION['login']))
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de Passe">
+                <input type="password" maxlength="100" class="form-control" id="password" name="password"
+                       placeholder="Mot de Passe">
                 <?php
                 if (isset($_SESSION['ERR_MDP']) && is_string($_SESSION['ERR_MDP'])) {
                     echo '<span class="text-danger">' . $_SESSION['ERR_MDP'] . '</span>';
