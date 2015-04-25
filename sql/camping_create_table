@@ -27,22 +27,6 @@ create table camping -- cree la table camping
 -- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
 
 
--- ------------------------------------------------------------- --
--- 						statut 									 --
--- ------------------------------------------------------------- --
-
-
-drop table if exists statut; -- supprime la table statut si elle existe
-create table statut -- cree la table statut
-(
-		idstatut int(11) AUTO_INCREMENT not null,
-		libellestatut varchar(50),
-
-		CONSTRAINT PK_statut primary key (idstatut)
-
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
--- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
-
 
 -- ------------------------------------------------------------- --
 -- 						categorie 								 --
@@ -68,15 +52,14 @@ DROP TABLE IF EXISTS logement; -- supprime la table logement si elle existe
 CREATE TABLE logement -- cree la table logement
 (
 		idlogement INT(11) AUTO_INCREMENT NOT NULL,
-		idcategorie int(5) DEFAULT NULL,
-		nomlogement varchar(50) DEFAULT NULL,
+		idcategorie int(5),
+		nomlogement varchar(50),
 		idcamping int(11),
-		idstatut int(11),
 
 		CONSTRAINT PK_logement PRIMARY KEY (idlogement),
 		CONSTRAINT FK_logement_camping FOREIGN KEY (idcamping) references camping(idcamping),
 		CONSTRAINT FK_logement_categorie FOREIGN KEY (idcategorie) references categorie(idcategorie),
-		CONSTRAINT FK_logement_statut foreign key (idstatut) references statut(idstatut)
+
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci; 
 -- UTILISE LE MOTEUR InnoDB: DANS NOTRE CAS, PERMET L'AFFICHAGE DES RELATIONS DANS LE CONCEPTEUR
@@ -116,7 +99,7 @@ create table reservation -- cree la table reservation
 		numreservation int(11) AUTO_INCREMENT not null,
 		idUTILISATEUR int(11),
 		idlogement int(11),
-		datereservation DATE,
+		datereservation DATETIME,
 		datedebut DATE,
 		datefin DATE,
 

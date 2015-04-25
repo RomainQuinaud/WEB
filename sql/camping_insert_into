@@ -22,4 +22,11 @@ INSERT INTO reservation (idUTILISATEUR,idlogement,datereservation,datedebut,date
 VALUES((SELECT idUTILISATEUR from utilisateur where loginUTILISATEUR='admin'),1,CURRENT_TIMESTAMP,'01-07-2015','08-07-2015');
 
 SELECT datedebut,datefin,nomlogement,libellecategorie,nomcamping, villecamping,adressecamping,departementcamping
-from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur='admin'
+from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur='admin';
+
+
+INSERT INTO statut (idstatut, libellestatut) VALUES
+(1, 'Occupé'),
+(2, 'Disponible'),
+(3, 'En réparation'),
+(4, 'En rénovation');
