@@ -23,52 +23,52 @@ if (!isset($_SESSION['login']))
 
 <body>
 
-<?php
-include_once 'menu.php';
-menu("index.php");
-?>
+<div id="wrap">
 
-<div class="container">
+    <?php
+    include_once 'menu.php';
+    menu("index.php");
+    ?>
 
-    <div class="text-center">
+    <div class="container">
 
-        <h1 class="modal-header">CampFind</h1>
+        <div class="text-center">
 
-        <h1>Bienvenue sur CampFind</h1>
+            <h1 class="modal-header">CampFind</h1>
 
-        <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br>
+            <h1>Bienvenue sur CampFind</h1>
 
-        <div class="row">
-            <div class="col-sm-9 blog-main">
-                <div class="blog-post">
-                    <h2 class="blog-post-titre">Proposition</h2>
+            <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br>
 
-                    <p>Exemple de logement. Affichage IMAGE correspondante</p>
+            <div class="row">
+                <div class="col-sm-9 blog-main">
+                    <div class="blog-post">
+                        <h2 class="blog-post-titre">Proposition</h2>
+
+                        <p>Exemple de logement. Affichage IMAGE correspondante</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
-                <div class="sidebar-module sidebar-module-inset">
-                    <div class="sidebar-module">
-                        <h2>Notifications</h2>
+                <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+                    <div class="sidebar-module sidebar-module-inset">
+                        <div class="sidebar-module">
+                            <h2>Notifications</h2>
 
-                        <p>Futur emplacement des notifications liées aux réservations.</p>
+                            <p>Futur emplacement des notifications liées aux réservations.</p>
 
-                        <p>Peut être un rappel des différentes réservations de la personne connectée</p>
+                            <p>Peut être un rappel des différentes réservations de la personne connectée</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-
-            <footer class="row">
-                <div class="col-lg-12">
-                    Pied de page
-                </div>
-            </footer>
-
-
         </div>
     </div>
+</div>
 
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>
+    </div>
 </div>
 <!-- /.container -->
 
@@ -80,7 +80,7 @@ menu("index.php");
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script src="../../../../../../Users/Romain%20QUINAUD/Desktop/save/Projet/bootstrap/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 

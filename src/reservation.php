@@ -29,64 +29,76 @@ $reservationStatements->execute();
 
 <body>
 
-<?php
-include_once 'menu.php';
-menu("reservation.php");
-?>
+<div id="wrap">
+    <?php
+    include_once 'menu.php';
+    menu("reservation.php");
+    ?>
 
-<div class="container">
+    <div class="container">
 
-    <div class="text-center">
-        <h1 class="modal-header">Réservation en ligne</h1>
+        <div class="text-center">
+            <h1 class="modal-header">Réservation en ligne</h1>
 
-        <h2>Vos Réservations</h2>
+            <h2>Vos Réservations</h2>
 
-        <?php if ($reservationStatements->rowCount() == 0) {
-            ?> <p> Pas de réservations en cours</p>
-        <?php
-        } else {
+            <?php if ($reservationStatements->rowCount() == 0) {
+                ?> <p> Pas de réservations en cours</p>
+            <?php
+            } else {
+                ?>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Date de début</th>
+                        <th>Date de fin</th>
+                        <th>Nom du logement</th>
+                        <th>Type de logement</th>
+                        <th>Nom du Camping</th>
+                        <th>Ville</th>
+                        <th>Adresse</th>
+                        <th>Département</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+
+                    while ($reservation = $reservationStatements->fetch()) {
+                        ?>
+                        <tr>
+                            <?php
+                            for ($i = 0; $i < 8; $i++)
+                                echo '<td>' . $reservation[$i] . '</td>';
+
+                            ?>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                    </tbody>
+
+                </table>
+            <?php
+            }
             ?>
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Date de début</th>
-                    <th>Date de fin</th>
-                    <th>Nom du logement</th>
-                    <th>Type de logement</th>
-                    <th>Nom du Camping</th>
-                    <th>Ville</th>
-                    <th>Adresse</th>
-                    <th>Département</th>
-
-
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-
-                while ($reservation = $reservationStatements->fetch()) {
-                    ?>
-                    <tr>
-                        <?php
-                        for ($i = 0; $i < 8; $i++)
-                            echo '<td>' . $reservation[$i] . '</td>';
-                        /*foreach ($reservation as &$liste) {
-                            echo '<td>' . $liste . '</td>';
-                        }*/
-                        ?>
-                    </tr>
-                <?php
-                }
-                ?>
-                </tbody>
-
-            </table>
-        <?php
-        }
-        ?>
-
+        </div>
     </div>
 </div>
+
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 </html>
