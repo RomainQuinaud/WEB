@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table camping
 --
 
-CREATE TABLE IF NOT EXISTS camping (
+CREATE TABLE IF NOT EXISTS camping ON DELETE CASCADE  (
   idcamping int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   nomcamping varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   villecamping varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -49,7 +49,7 @@ INSERT INTO camping (nomcamping, villecamping, adressecamping, departementcampin
 -- Structure de la table categorie
 --
 
-CREATE TABLE IF NOT EXISTS categorie (
+CREATE TABLE IF NOT EXISTS categorie ON DELETE CASCADE (
   idcategorie int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   libellecategorie varchar(50),
   prixcategorie int(5)
@@ -71,7 +71,7 @@ INSERT INTO categorie (libellecategorie,prixcategorie) VALUES
 -- Structure de la table logement
 --
 
-CREATE TABLE IF NOT EXISTS logement (
+CREATE TABLE IF NOT EXISTS logement ON DELETE CASCADE (
   idlogement int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   idcategorie int(5) DEFAULT NULL,
   nomlogement varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -118,7 +118,7 @@ INSERT INTO logement (idcategorie, nomlogement, idcamping) VALUES
 -- Structure de la table prix_periode
 --
 
-CREATE TABLE IF NOT EXISTS prix_periode (
+CREATE TABLE IF NOT EXISTS prix_periode ON DELETE CASCADE (
   mois varchar(30) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   ajout int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
@@ -147,7 +147,7 @@ INSERT INTO prix_periode (mois, ajout) VALUES
 -- Structure de la table reservation
 --
 
-CREATE TABLE IF NOT EXISTS reservation (
+CREATE TABLE IF NOT EXISTS reservation ON DELETE CASCADE  (
   numreservation int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   idUTILISATEUR int(11) DEFAULT NULL,
   idlogement int(11) DEFAULT NULL,
@@ -169,7 +169,7 @@ INSERT INTO reservation (idUTILISATEUR, idlogement, datereservation, datedebut, 
 -- Structure de la table utilisateur
 --
 
-CREATE TABLE IF NOT EXISTS utilisateur (
+CREATE TABLE IF NOT EXISTS utilisateur ON DELETE CASCADE  (
   idUTILISATEUR int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   loginUTILISATEUR varchar(40) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   nomUTILISATEUR varchar(60) COLLATE utf8_unicode_520_ci DEFAULT NULL,
