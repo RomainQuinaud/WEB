@@ -40,12 +40,9 @@ if(!isset($_SESSION['login']))
                 <div class="pageGauche col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1">
                     <h2> D'où vient l'idée ? </h2>
 
-                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non dapibus magna, sit amet
-                        viverra lorem. Integer eget diam ut urna placerat blandit. Vivamus vitae metus accumsan,
-                        venenatis ante in, luctus arcu. Sed et neque eget enim dictum pellentesque eu ac augue. In vitae
-                        massa in eros pretium auctor ut quis purus. Phasellus sed enim sit amet dui gravida fringilla ac
-                        vitae tortor. Fusce aliquam orci lacus, at lacinia nisl interdum sed. Pellentesque velit elit,
-                        placerat sed elementum eget, semper at odio. </p>
+                    <p> L'idée de réaliser un projet sur la réservation d'un camping est venue d'un constat: Les sites
+                        de réservations de camping sont parfois un peu complexe et nous voulions en faire un simple, où
+                        n'importe quelle personne peut réserver un logement simplement </p>
                 </div>
                 <div class="pageDroite col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-1">
                     <h2> Le but pédagogique </h2>
