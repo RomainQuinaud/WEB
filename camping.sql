@@ -49,17 +49,19 @@ INSERT INTO `camping` (`idcamping`, `nomcamping`, `villecamping`, `adressecampin
 
 CREATE TABLE IF NOT EXISTS `categorie` (
   `idcategorie` int(11) NOT NULL,
-  `libellecategorie` varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL
+  `libellecategorie` varchar(50),
+  `prixcategorie` int(5)
+  COLLATE utf8_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Contenu de la table `categorie`
 --
 
-INSERT INTO `categorie` (`idcategorie`, `libellecategorie`) VALUES
-(1, 'Bungallow'),
-(2, 'Tente'),
-(3, 'Caravane');
+INSERT INTO `categorie` (`idcategorie`, `libellecategorie`,`prixcategorie`) VALUES
+(1, 'Bungallow',50),
+(2, 'Tente',25),
+(3, 'Caravane',150);
 
 -- --------------------------------------------------------
 

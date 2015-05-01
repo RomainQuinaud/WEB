@@ -2,8 +2,15 @@
 session_start();
 if (!isset($_SESSION['login']))
     header('Location: connexion.php');
-?>
 
+
+include 'BDD_connect.php';
+$propositionSatements = $pdo->prepare("
+SELECT nomcamping,nomlogement,libellecategorie,prixcategorie
+FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login ");
+$propositionSatements->bindParam(':login', $_SESSION['login']);
+$propositionSatements->execute();
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,7 +51,43 @@ if (!isset($_SESSION['login']))
                 <div class="col-sm-9 blog-main">
                     <div class="blog-post">
                         <h2 class="blog-post-titre">Proposition</h2>
+                        <?php if ($propositionStatements->rowCount() == 0) {
+                            ?> <p> Il n'y a aucune proposition à afficher</p>
+                        <?php
+                        } else {
+                            ?>
 
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Nom du Camping</th>
+                                    <th>Nom du Logement</th>
+                                    <th>Type de Logemment</th>
+                                    <th>À partir de: (Prix par nuit)</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+
+                                while ($proposition = $propositionStatements->fetch()) {
+                                    ?>
+                                    <tr>
+                                        <?php
+                                        for ($i = 0; $i < 4; $i++)
+                                            echo '<td>' . $proposiion[$i] . '</td>';
+
+                                        ?>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                                </tbody>
+
+                            </table>
+                        <?php
+                        }
+                        ?>
                         <p>Exemple de logement. Affichage IMAGE correspondante</p>
                     </div>
                 </div>
