@@ -33,7 +33,21 @@ if(!isset($_SESSION['login']))
         <div class="text-center">
             <h1 class="modal-header">Bienvenue sur CampFind</h1>
 
-            <p> Page d'information</p>
+            <div id="page">
+
+                <div id="pageGauche">
+                    <p> toto</p>
+
+                </div>
+
+                <div id="pageDroite">
+
+                    <p> tata </p>
+
+
+                </div>
+
+            </div>
         </div>
 
 
