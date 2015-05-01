@@ -13,7 +13,7 @@ SET time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET @OLD_COLLalalalalalalalalTION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
 --
@@ -40,10 +40,7 @@ CREATE TABLE IF NOT EXISTS camping (
 
 INSERT INTO camping (nomcamping, villecamping, adressecamping, departementcamping) VALUES
 ('Les Flots Bleus', 'taratata les bains', '10 rue de la plage', 10);
-INSERT INTO camping (nomcamping, villecamping, adressecamping, departementcamping) VALUES
-('La coquille', 'Art attack', '95 rue de l''océan', 13);
-INSERT INTO camping (nomcamping, villecamping, adressecamping, departementcamping) VALUES
-('Chez Yvette', 'Bures sur l''Yonne', '120 boulevard des palmies', 85);
+
 
 
 -- --------------------------------------------------------
@@ -86,8 +83,35 @@ CREATE TABLE IF NOT EXISTS logement (
 --
 
 INSERT INTO logement (idcategorie, nomlogement, idcamping) VALUES
-(1, 'La Perruche', 1);
-
+(1, 'Requin', 1);
+(1, 'Dauphin', 1);
+(1, 'Baleine', 1);
+(1, 'Manchot', 1);
+(1, 'Calamar', 1);
+(1, 'Phoque', 1);
+(1, 'Méduse', 1);
+(1, 'Corail', 1);
+(1, 'Epaulard', 1);
+(1, 'Marsouin', 1);
+(2, 'Lion de mer', 1);
+(2, 'Pieuvre', 1);
+(2, 'Étoile de mer', 1);
+(2, 'Orque', 1);
+(2, 'Mérou céleste', 1);
+(2, 'Baliste strié', 1);
+(2, 'Thon à dents de chien', 1);
+(2, 'Poisson-papillon côtelé de Mer Rouge', 1);
+(2, 'Labre-cigare', 1);
+(2, 'Grégoire noir', 1);
+(2, 'Gobie à six tâches', 1);
+(3, 'Balibot rayé', 1);
+(3, 'Murène ondulée', 1);
+(3, 'Poisson papillon raton-laveur', 1);
+(3, 'Vivaneau à tâche noire', 1);
+(3, 'Poisson-lime gribouillé ', 1);
+(3, 'Poisson faucon de Forster', 1);
+(3, 'Baliste à joue barrée – Sufflamen ', 1);
+(3, 'Mérou croissant à queue jaune', 1);
 -- --------------------------------------------------------
 
 --
