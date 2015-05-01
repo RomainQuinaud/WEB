@@ -4,18 +4,22 @@ if (!isset($_SESSION['login']))
     header('Location: connexion.php');
 
 
-include 'BDD_connect.php';
-$propositionStatements = $pdo->prepare("
-SELECT nomcamping,nomlogement,libellecategorie,prixcategorie
-FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login "); // ajouter WHERE idlogmement=rand()...
-$propositionStatements->bindParam(':login', $_SESSION['login']);
-$propositionStatements->execute();
-
 $reservationStatements = $pdo->prepare("
                 SELECT datedebut,datefin,nomlogement,libellecategorie,nomcamping, villecamping,adressecamping,departementcamping
                 from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur=:login ");
 $reservationStatements->bindParam(':login', $_SESSION['login']);
 $reservationStatements->execute();
+
+$randomId = rand(1, $reservationStatements->rowCount());
+
+include 'BDD_connect.php';
+$propositionStatements = $pdo->prepare("
+SELECT nomcamping,nomlogement,libellecategorie,prixcategorie
+FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login AND idlogement=:random"); // ajouter WHERE idlogmement=rand()...
+$propositionStatements->bindParam(':login', $_SESSION['login']);
+$propositionStatements->bindParam(':random', $randomId);
+$propositionStatements->execute();
+
 
 
 ?>
