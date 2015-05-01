@@ -2,7 +2,17 @@
 session_start();
 if (!isset($_SESSION['login']))
     header('Location: connexion.php');
+
+
+include 'BDD_connect.php';
+$reservationStatements = $pdo->prepare("
+select nomcamping,villecamping,adressecamping,departementcamping,libellecategorie,prixcategorie,idlogement,nomlogement
+from camping natural join categorie natural join logement");
+$reservationStatements->bindParam(':login', $_SESSION['login']);
+$reservationStatements->execute();
 ?>
+?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
