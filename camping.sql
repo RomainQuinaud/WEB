@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS camping (
-  idcamping int(11) AUTO_INCREMENT NOT NULL,
+  idcamping int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   nomcamping varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   villecamping varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   adressecamping varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -53,7 +53,7 @@ INSERT INTO camping (nomcamping, villecamping, adressecamping, departementcampin
 --
 
 CREATE TABLE IF NOT EXISTS categorie (
-  idcategorie int(11) AUTO_INCREMENT NOT NULL,
+  idcategorie int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   libellecategorie varchar(50),
   prixcategorie int(5)
   COLLATE utf8_unicode_520_ci DEFAULT NULL
@@ -75,7 +75,7 @@ INSERT INTO categorie (libellecategorie,prixcategorie) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS logement (
-  idlogement int(11) AUTO_INCREMENT NOT NULL,
+  idlogement int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   idcategorie int(5) DEFAULT NULL,
   nomlogement varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   idcamping int(11) DEFAULT NULL
@@ -124,7 +124,7 @@ INSERT INTO prix_periode (mois, ajout) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS reservation (
-  numreservation int(11) AUTO_INCREMENT NOT NULL,
+  numreservation int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   idUTILISATEUR int(11) DEFAULT NULL,
   idlogement int(11) DEFAULT NULL,
   datereservation datetime DEFAULT NULL,
@@ -146,7 +146,7 @@ INSERT INTO reservation (idUTILISATEUR, idlogement, datereservation, datedebut, 
 --
 
 CREATE TABLE IF NOT EXISTS utilisateur (
-  idUTILISATEUR int(11) AUTO_INCREMENT NOT NULL,
+  idUTILISATEUR int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   loginUTILISATEUR varchar(40) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   nomUTILISATEUR varchar(60) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   prenomUTILISATEUR varchar(60) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -170,32 +170,30 @@ INSERT INTO utilisateur (loginUTILISATEUR, nomUTILISATEUR, prenomUTILISATEUR, te
 --
 -- Index pour la table camping
 --
+/*
 ALTER TABLE camping
-  ADD PRIMARY KEY (idcamping);
+  ADD PRIMARY KEY (idcamping);*/
 
 --
 -- Index pour la table categorie
 --
-ALTER TABLE categorie
-  ADD PRIMARY KEY (idcategorie);
+
 
 --
 -- Index pour la table logement
 --
 ALTER TABLE logement
-  ADD PRIMARY KEY (idlogement), ADD KEY FK_logement_camping (idcamping), ADD KEY FK_logement_categorie (idcategorie);
+  ADD KEY FK_logement_camping (idcamping), ADD KEY FK_logement_categorie (idcategorie);
 
 --
 -- Index pour la table reservation
 --
 ALTER TABLE reservation
-  ADD PRIMARY KEY (numreservation), ADD KEY FK_reservation_utilisateur (idUTILISATEUR), ADD KEY FK_reservation_logement (idlogement);
+  ADD KEY FK_reservation_utilisateur (idUTILISATEUR), ADD KEY FK_reservation_logement (idlogement);
 
 --
 -- Index pour la table utilisateur
 --
-ALTER TABLE utilisateur
-  ADD PRIMARY KEY (idUTILISATEUR);
 
 
 --
