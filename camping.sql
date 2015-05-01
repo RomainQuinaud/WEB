@@ -13,7 +13,7 @@ SET time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLalalalalalalalalTION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
 --
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table camping
 --
 
-CREATE TABLE IF NOT EXISTS camping ON DELETE CASCADE  (
+CREATE TABLE IF NOT EXISTS camping(
   idcamping int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   nomcamping varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   villecamping varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -49,7 +49,7 @@ INSERT INTO camping (nomcamping, villecamping, adressecamping, departementcampin
 -- Structure de la table categorie
 --
 
-CREATE TABLE IF NOT EXISTS categorie ON DELETE CASCADE (
+CREATE TABLE IF NOT EXISTS categorie (
   idcategorie int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   libellecategorie varchar(50),
   prixcategorie int(5)
@@ -71,7 +71,7 @@ INSERT INTO categorie (libellecategorie,prixcategorie) VALUES
 -- Structure de la table logement
 --
 
-CREATE TABLE IF NOT EXISTS logement ON DELETE CASCADE (
+CREATE TABLE IF NOT EXISTS logement (
   idlogement int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   idcategorie int(5) DEFAULT NULL,
   nomlogement varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -83,34 +83,34 @@ CREATE TABLE IF NOT EXISTS logement ON DELETE CASCADE (
 --
 
 INSERT INTO logement (idcategorie, nomlogement, idcamping) VALUES
-(1, 'Requin', 1);
-(1, 'Dauphin', 1);
-(1, 'Baleine', 1);
-(1, 'Manchot', 1);
-(1, 'Calamar', 1);
-(1, 'Phoque', 1);
-(1, 'Méduse', 1);
-(1, 'Corail', 1);
-(1, 'Epaulard', 1);
-(1, 'Marsouin', 1);
-(2, 'Lion de mer', 1);
-(2, 'Pieuvre', 1);
-(2, 'Étoile de mer', 1);
-(2, 'Orque', 1);
-(2, 'Mérou céleste', 1);
-(2, 'Baliste strié', 1);
-(2, 'Thon à dents de chien', 1);
-(2, 'Poisson-papillon côtelé de Mer Rouge', 1);
-(2, 'Labre-cigare', 1);
-(2, 'Grégoire noir', 1);
-(2, 'Gobie à six tâches', 1);
-(3, 'Balibot rayé', 1);
-(3, 'Murène ondulée', 1);
-(3, 'Poisson papillon raton-laveur', 1);
-(3, 'Vivaneau à tâche noire', 1);
-(3, 'Poisson-lime gribouillé ', 1);
-(3, 'Poisson faucon de Forster', 1);
-(3, 'Baliste à joue barrée – Sufflamen ', 1);
+(1, 'Requin', 1),
+(1, 'Dauphin', 1),
+(1, 'Baleine', 1),
+(1, 'Manchot', 1),
+(1, 'Calamar', 1),
+(1, 'Phoque', 1),
+(1, 'Méduse', 1),
+(1, 'Corail', 1),
+(1, 'Epaulard', 1),
+(1, 'Marsouin', 1),
+(2, 'Lion de mer', 1),
+(2, 'Pieuvre', 1),
+(2, 'Étoile de mer', 1),
+(2, 'Orque', 1),
+(2, 'Mérou céleste', 1),
+(2, 'Baliste strié', 1),
+(2, 'Thon à dents de chien', 1),
+(2, 'Poisson-papillon côtelé de Mer Rouge', 1),
+(2, 'Labre-cigare', 1),
+(2, 'Grégoire noir', 1),
+(2, 'Gobie à six tâches', 1),
+(3, 'Balibot rayé', 1),
+(3, 'Murène ondulée', 1),
+(3, 'Poisson papillon raton-laveur', 1),
+(3, 'Vivaneau à tâche noire', 1),
+(3, 'Poisson-lime gribouillé ', 1),
+(3, 'Poisson faucon de Forster', 1),
+(3, 'Baliste à joue barrée – Sufflamen ', 1),
 (3, 'Mérou croissant à queue jaune', 1);
 -- --------------------------------------------------------
 
@@ -118,7 +118,7 @@ INSERT INTO logement (idcategorie, nomlogement, idcamping) VALUES
 -- Structure de la table prix_periode
 --
 
-CREATE TABLE IF NOT EXISTS prix_periode ON DELETE CASCADE (
+CREATE TABLE IF NOT EXISTS prix_periode (
   mois varchar(30) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   ajout int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
@@ -147,7 +147,7 @@ INSERT INTO prix_periode (mois, ajout) VALUES
 -- Structure de la table reservation
 --
 
-CREATE TABLE IF NOT EXISTS reservation ON DELETE CASCADE  (
+CREATE TABLE IF NOT EXISTS reservation (
   numreservation int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   idUTILISATEUR int(11) DEFAULT NULL,
   idlogement int(11) DEFAULT NULL,
@@ -169,7 +169,7 @@ INSERT INTO reservation (idUTILISATEUR, idlogement, datereservation, datedebut, 
 -- Structure de la table utilisateur
 --
 
-CREATE TABLE IF NOT EXISTS utilisateur ON DELETE CASCADE  (
+CREATE TABLE IF NOT EXISTS utilisateur (
   idUTILISATEUR int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   loginUTILISATEUR varchar(40) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   nomUTILISATEUR varchar(60) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -228,15 +228,15 @@ ALTER TABLE reservation
 -- Contraintes pour la table logement
 --
 ALTER TABLE logement
-ADD CONSTRAINT FK_logement_camping FOREIGN KEY (idcamping) REFERENCES camping (idcamping),
-ADD CONSTRAINT FK_logement_categorie FOREIGN KEY (idcategorie) REFERENCES categorie (idcategorie);
+ADD CONSTRAINT FK_logement_camping FOREIGN KEY (idcamping) REFERENCES camping (idcamping) ON DELETE CASCADE,
+ADD CONSTRAINT FK_logement_categorie FOREIGN KEY (idcategorie) REFERENCES categorie (idcategorie) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table reservation
 --
 ALTER TABLE reservation
-ADD CONSTRAINT FK_reservation_logement FOREIGN KEY (idlogement) REFERENCES logement (idlogement),
-ADD CONSTRAINT FK_reservation_utilisateur FOREIGN KEY (idUTILISATEUR) REFERENCES utilisateur (idUTILISATEUR);
+ADD CONSTRAINT FK_reservation_logement FOREIGN KEY (idlogement) REFERENCES logement (idlogement) ON DELETE CASCADE,
+ADD CONSTRAINT FK_reservation_utilisateur FOREIGN KEY (idUTILISATEUR) REFERENCES utilisateur (idUTILISATEUR) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
