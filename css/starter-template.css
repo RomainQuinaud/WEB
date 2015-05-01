@@ -74,5 +74,25 @@ html, body {
 
 /* Romain */
 
+#pageGauche {
+    display: inline-block;
+    float: left;
+    background-color: red;
+
+}
+
+#pageDroite {
+    display: inline-block;
+    float: right;
+    background-color: blue;
+
+}
+
+#pageEx {
+    background-color: yellow;
+}
+
+
+
 /* Philippe */
 
