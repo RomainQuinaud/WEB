@@ -75,7 +75,7 @@ $propositionStatements->execute();
                                     <tr>
                                         <?php
                                         for ($i = 0; $i < 4; $i++)
-                                            echo '<td>' . $proposiion[$i] . '</td>';
+                                            echo '<td>' . $proposition[$i] . '</td>';
 
                                         ?>
                                     </tr>
