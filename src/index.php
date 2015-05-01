@@ -7,9 +7,17 @@ if (!isset($_SESSION['login']))
 include 'BDD_connect.php';
 $propositionStatements = $pdo->prepare("
 SELECT nomcamping,nomlogement,libellecategorie,prixcategorie
-FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login ");
+FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login "); // ajouter WHERE idlogmement=rand()...
 $propositionStatements->bindParam(':login', $_SESSION['login']);
 $propositionStatements->execute();
+
+$reservationStatements = $pdo->prepare("
+                SELECT datedebut,datefin,nomlogement,libellecategorie,nomcamping, villecamping,adressecamping,departementcamping
+                from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur=:login ");
+$reservationStatements->bindParam(':login', $_SESSION['login']);
+$reservationStatements->execute();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -88,7 +96,6 @@ $propositionStatements->execute();
                         <?php
                         }
                         ?>
-                        <p>Exemple de logement. Affichage IMAGE correspondante</p>
                     </div>
                 </div>
                 <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
@@ -96,9 +103,7 @@ $propositionStatements->execute();
                         <div class="sidebar-module">
                             <h2>Notifications</h2>
 
-                            <p>Futur emplacement des notifications liées aux réservations.</p>
-
-                            <p>Peut être un rappel des différentes réservations de la personne connectée</p>
+                            <p>Vous avez <?php echo $reservationStatements->rowCount() ?> réservation(s) en cours.</p>
                         </div>
                     </div>
                 </div>
