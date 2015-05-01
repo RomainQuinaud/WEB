@@ -21,5 +21,5 @@ $dbPassword = 'as20142015';
  * d'afficher les erreurs clairement sans les ignorer (en production, il est généralement mieux de les ignorer pour
  * aviter de déranger les utilisateurs).
  */
-$pdo = new PDO('mysql:dbname=' . $dbName . ';host=localhost', $dbUser, $dbPassword);
+$pdo = new PDO('mysql:dbname=' . $dbName . ';host=localhost;charset=utf8', $dbUser, $dbPassword);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
