@@ -42,6 +42,7 @@ $reservationStatements->execute();
 
             <h2>Vos Réservations</h2>
 
+            <div class="text-left mesreservations">
             <?php if ($reservationStatements->rowCount() == 0) {
                 ?> <p> Pas de réservations en cours</p>
             <?php
@@ -84,7 +85,7 @@ $reservationStatements->execute();
             <?php
             }
             ?>
-
+            </div>
         </div>
     </div>
 </div>
