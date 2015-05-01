@@ -40,7 +40,8 @@ function menu($page)
                 <ul class="nav navbar-nav">
 
                     <li <?php if ($page == 'index.php') echo 'class="active"' ?>><a href="index.php">Accueil</a></li>
-
+                    <li <?php if ($page == 'catalogue.php') echo 'class="active"' ?>><a
+                            href="catalogue.php">Catalogue</a></li>
                     <li <?php if ($page == 'reservation.php') echo 'class="active"' ?>><a href="reservation.php">Réservation</a>
                     </li>
 
