@@ -85,7 +85,12 @@ $reservationStatements->execute();
             <?php
             }
             ?>
+                <br></br>
+
+                <h2>Effectuer une réservations</h2>
+
             </div>
+
         </div>
     </div>
 </div>
