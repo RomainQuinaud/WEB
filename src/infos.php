@@ -51,7 +51,22 @@ if(!isset($_SESSION['login']))
                     <p> Ce projet est une application de toutes les notions que nous avons vues cette annéee. Nous avons
                         utilisé un framework CSS nommé Bootstrap Twitter® pour un design simple et épuré. </p>
                 </div>
+                <div class="pageBas col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1">
+                    <h2> D'où vient l'idée ? </h2>
+
+                    <p> L'idée de réaliser un projet sur la réservation d'un camping est venue d'un constat: <br>Les
+                        sites
+                        de réservations de camping sont parfois un peu complexe et nous voulions en faire un simple, où
+                        n'importe quelle personne peut réserver un logement simplement </p>
+                </div>
+                <div class="pageBas col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-1">
+                    <h2> Le but pédagogique </h2>
+
+                    <p> Ce projet est une application de toutes les notions que nous avons vues cette annéee. Nous avons
+                        utilisé un framework CSS nommé Bootstrap Twitter® pour un design simple et épuré. </p>
+                </div>
             </div>
+
         </div>
 
 
