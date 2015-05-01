@@ -5,11 +5,11 @@ if (!isset($_SESSION['login']))
 
 
 include 'BDD_connect.php';
-$propositionSatements = $pdo->prepare("
+$propositionStatements = $pdo->prepare("
 SELECT nomcamping,nomlogement,libellecategorie,prixcategorie
 FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login ");
-$propositionSatements->bindParam(':login', $_SESSION['login']);
-$propositionSatements->execute();
+$propositionStatements->bindParam(':login', $_SESSION['login']);
+$propositionStatements->execute();
 ?>
 
 <!DOCTYPE html>
