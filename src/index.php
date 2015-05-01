@@ -103,8 +103,8 @@ $reservationStatements->execute();
                         <div class="sidebar-module">
                             <h2>Notifications</h2>
 
-                            <p>Vous avez <a href=<?php echo $reservationStatements->rowCount() ?> réservation(s) en
-                                            cours.</p>
+                            <p>Vous avez <a href=reservation.php> <?php echo $reservationStatements->rowCount() ?> </a>
+                                réservation(s) en cours.</p>
                         </div>
                     </div>
                 </div>
