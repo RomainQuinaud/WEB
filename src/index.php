@@ -16,14 +16,19 @@ $catalogueStatements = $pdo->prepare("
 $catalogueStatements->bindParam(':login', $_SESSION['login']);
 $catalogueStatements->execute();
 
-$randomId = rand(1, $catalogueStatements->rowCount());
+$randomId1 = rand(1, $catalogueStatements->rowCount());
+$randomId2 = rand(1, $catalogueStatements->rowCount());
+$randomId3 = rand(1, $catalogueStatements->rowCount());
+
 
 
 $propositionStatements = $pdo->prepare("
                 SELECT nomcamping,nomlogement,libellecategorie,prixcategorie
-                FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login AND idlogement=:random"); // ajouter WHERE idlogmement=rand()...
+                FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login AND (idlogement=:random1 OR idlogement=:random2 OR idlogement=:random3)"); // ajouter WHERE idlogmement=rand()...
 $propositionStatements->bindParam(':login', $_SESSION['login']);
-$propositionStatements->bindParam(':random', $randomId);
+$propositionStatements->bindParam(':random1', $randomId1);
+$propositionStatements->bindParam(':random2', $randomId2);
+$propositionStatements->bindParam(':random3', $randomId3);
 $propositionStatements->execute();
 
 
