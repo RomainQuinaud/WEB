@@ -6,7 +6,7 @@ if (!isset($_SESSION['login']))
 
 include 'BDD_connect.php';
 $catalogueStatements = $pdo->prepare("
-                SELECT nomlogment,libellecategorie,prixcategorie
+                SELECT nomlogement,libellecategorie,prixcategorie
                 FROM logement NATURAL JOIN categorie");
 $catalogueStatements->execute();
 ?>
@@ -29,7 +29,6 @@ $catalogueStatements->execute();
 </head>
 
 <body>
-
 <div id="wrap">
     <?php
     include_once 'menu.php';
@@ -40,46 +39,29 @@ $catalogueStatements->execute();
 
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
-
             <?php if ($catalogueStatements->rowCount() == 0) {
                 ?>
-                <p> Le catalogue est indisponible actuellement. </p>
+                <p> Le catalogue est actuellement indisponible. </p>
             <?php
             } else {
-                ?>
-
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Nom du Camping</th>
-                    <th>Nom du Logement</th>
-                    <th>Type de Logemment</th>
-                    <th>À partir de: (Prix par nuit)</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-
-                while ($proposition = $propositionStatements->fetch()) {
-                    ?>
-                    <tr>
-                        <?php
-                        for ($i = 0; $i < 4; $i++)
-                            echo '<td>' . $proposition[$i] . '</td>';
-
+                while ($catalogue = $catalogueStatements->fetch()) {
+                    for ($i = 0; $i < 2; $i++)
                         ?>
-                    </tr>
+                        <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                    <?php
+                    echo '<th>' . $catalogue[$i] . '</th>';
+                    ?>
+                </tr>
+                    </tbody>
+                    </table>
                 <?php
                 }
-                }
-                ?>
-                </tbody>
+            }
+            ?>
 
-            </table>
         </div>
-
-
     </div>
 </div>
 
