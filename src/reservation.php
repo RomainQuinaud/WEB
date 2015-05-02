@@ -64,13 +64,13 @@ $reservationStatements->execute();
 
                     </tr>
                     <tr>
-                        <th>Date de début</th>
+                        <th>Champs1</th>
                     </tr>
                     <tr>
-                        <th>Date de début</th>
+                        <th>Champ2</th>
                     </tr>
                     <tr>
-                        <th>Date de début</th>
+                        <th>Champs3</th>
                     </tr>
 
                     </thead>
