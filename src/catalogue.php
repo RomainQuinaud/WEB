@@ -59,42 +59,42 @@ $categorie->execute();
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
 
-                <form class="form-inline" method="POST" action="catalogue.php">
+            <form class="form-inline" method="POST" action="catalogue.php">
 
 
-                    <div class="form-group">
-                        <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
-                               placeholder="Nom du Logement">
+                <div class="form-group">
+                    <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
+                           placeholder="Nom du Logement">
 
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <select class="form-control" id="categorie" name="categorie">
-
-                            <?php while ($libelle = $categorie->fetch()) { ?>
-
-                                <option value="<?php echo $libelle[0] ?>"> <?php echo $libelle[0] ?> </option>
-
-                            <?php } ?>
-
-                        </select>
-                    </div>
-
-                    <div class="input-daterange input-group" id="datepicker">
-                        <span class="input-group-addon">Du</span>
-                        <input type="text" class="input-sm form-control" name="start"/>
-                        <span class="input-group-addon">Au</span>
-                        <input type="text" class="input-sm form-control" name="end"/>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-default">Rechercher</button>
-                    </div>
+                </div>
 
 
-                </form>
+                <div class="form-group">
+
+                    <select class="form-control" id="categorie" name="categorie">
+
+                        <?php while ($libelle = $categorie->fetch()) { ?>
+
+                            <option value="<?php echo $libelle[0] ?>"> <?php echo $libelle[0] ?> </option>
+
+                        <?php } ?>
+
+                    </select>
+                </div>
+
+                <div class="input-daterange input-group" id="datepicker">
+                    <span class="input-group-addon">Du</span>
+                    <input type="text" class="input-sm form-control" name="start"/>
+                    <span class="input-group-addon">Au</span>
+                    <input type="text" class="input-sm form-control" name="end"/>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Rechercher</button>
+                </div>
+
+
+            </form>
 
 
             <div class="row">
@@ -109,14 +109,14 @@ $categorie->execute();
 
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img src=" <?php echo $toto[3] ?> " height="500px" width="400px"
+                                <img class="img-responsive" src=" <?php echo $toto[3] ?> "
                                      alt="Photographie du logement <?php echo $toto[0] ?>">
 
                                 <div class="caption">
                                     <h3><?php echo $toto[0] ?></h3>
-                            <?php
-                            for ($i = 1; $i < 3; $i++)
-                                echo $toto[$i] . '<br>'; ?>
+                                    <?php
+                                    for ($i = 1; $i < 3; $i++)
+                                        echo $toto[$i] . '<br>'; ?>
 
                                 </div>
 
@@ -125,7 +125,7 @@ $categorie->execute();
                                                                                                    role="button">Button</a>
                                 </p>
                             </div>
-                </div>
+                        </div>
 
                     <?php }
                 } ?>
