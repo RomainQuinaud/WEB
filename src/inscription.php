@@ -155,7 +155,10 @@ if(isset($_SESSION['login']))
 <script src="../../../../../../Users/Romain%20QUINAUD/Desktop/save/Projet/bootstrap/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-<script src="../js/jquery-1.9.1.min.js"></script>
+<!--<script src="../js/jquery-1.9.1.min.js"></script>-->
+
+
+
 <script src="../js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
     // When the document is ready
@@ -170,7 +173,6 @@ if(isset($_SESSION['login']))
             daysOfWeekDisabled: "0,1,2,3,4,5",
             autoclose: true,
             todayHighlight: true,
-
             datesDisabled: ['05/06/2015', '05/21/2015']
         });
 
