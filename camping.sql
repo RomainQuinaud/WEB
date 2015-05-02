@@ -76,43 +76,46 @@ CREATE TABLE IF NOT EXISTS logement (
   idlogement int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
   idcategorie int(5) DEFAULT NULL,
   nomlogement varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
-  idcamping int(11) DEFAULT NULL
+  idcamping int(11) DEFAULT NULL,
+  image varchar(100)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Contenu de la table logement
 --
 
-INSERT INTO logement (idcategorie, nomlogement, idcamping) VALUES
-(1, 'Requin', 1),
-(1, 'Dauphin', 1),
-(1, 'Baleine', 1),
-(1, 'Manchot', 1),
-(1, 'Calamar', 1),
-(1, 'Phoque', 1),
-(1, 'Méduse', 1),
-(1, 'Corail', 1),
-(1, 'Epaulard', 1),
-(1, 'Marsouin', 1),
-(2, 'Lion de mer', 1),
-(2, 'Pieuvre', 1),
-(2, 'Étoile de mer', 1),
-(2, 'Orque', 1),
-(2, 'Mérou céleste', 1),
-(2, 'Baliste strié', 1),
-(2, 'Thon à dents de chien', 1),
-(2, 'Poisson-papillon côtelé de Mer Rouge', 1),
-(2, 'Labre-cigare', 1),
-(2, 'Grégoire noir', 1),
-(2, 'Gobie à six tâches', 1),
-(3, 'Balibot rayé', 1),
-(3, 'Murène ondulée', 1),
-(3, 'Poisson papillon raton-laveur', 1),
-(3, 'Vivaneau à tâche noire', 1),
-(3, 'Poisson-lime gribouillé ', 1),
-(3, 'Poisson faucon de Forster', 1),
-(3, 'Baliste à joue barrée – Sufflamen ', 1),
-(3, 'Mérou croissant à queue jaune', 1);
+INSERT INTO logement (idcategorie, nomlogement, idcamping,image) VALUES
+(1, 'Requin', 1,'../img/logement/logement-requin.jpg');
+
+INSERT INTO logement (idcategorie, nomlogement, idcamping,image) VALUES
+(1, 'Dauphin', 1,NULL),
+(1, 'Baleine', 1,NULL),
+(1, 'Manchot', 1,NULL),
+(1, 'Calamar', 1,NULL),
+(1, 'Phoque', 1,NULL),
+(1, 'Méduse', 1,NULL),
+(1, 'Corail', 1,NULL),
+(1, 'Epaulard', 1,NULL),
+(1, 'Marsouin', 1,NULL),
+(2, 'Lion de mer', 1,NULL),
+(2, 'Pieuvre', 1,NULL),
+(2, 'Étoile de mer', 1,NULL),
+(2, 'Orque', 1,NULL),
+(2, 'Mérou céleste', 1,NULL),
+(2, 'Baliste strié', 1,NULL),
+(2, 'Thon à dents de chien', 1,NULL),
+(2, 'Poisson-papillon côtelé de Mer Rouge', 1,NULL),
+(2, 'Labre-cigare', 1,NULL),
+(2, 'Grégoire noir', 1,NULL),
+(2, 'Gobie à six tâches', 1,NULL),
+(3, 'Balibot rayé', 1,NULL),
+(3, 'Murène ondulée', 1,NULL),
+(3, 'Poisson papillon raton-laveur', 1,NULL),
+(3, 'Vivaneau à tâche noire', 1,NULL),
+(3, 'Poisson-lime gribouillé ', 1,NULL),
+(3, 'Poisson faucon de Forster', 1,NULL),
+(3, 'Baliste à joue barrée – Sufflamen ', 1,NULL),
+(3, 'Mérou croissant à queue jaune', 1,NULL);
 -- --------------------------------------------------------
 
 --
