@@ -74,6 +74,10 @@ html, body {
 
 /* Romain */
 
+.nav .navbar-nav .navbar-right {
+    float: right;
+    margin-right: -15px;
+}
 
 
 /* Philippe */
