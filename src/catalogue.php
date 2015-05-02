@@ -9,24 +9,31 @@ $sql = "SELECT nomlogement,libellecategorie,prixcategorie,image
                 FROM logement NATURAL JOIN categorie";
 $catalogueStatements = $pdo->prepare($sql);
 
+
 if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
-    $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE '%" . $_POST['nomLogement'] . "%'";
+    $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement";
     $catalogueStatements = $pdo->prepare($sql);
     $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
+
+    $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':nomlogement' => '%' . $_POST['nomLogement'] . '%'));
+
 
 } else if (!empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
     $sql .= " WHERE libellecategorie=:categorie";
     $catalogueStatements = $pdo->prepare($sql);
     $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
+    $catalogueStatements->execute();
 } else if (!empty($_POST['nomLogement'])) {
-    $sql .= " WHERE nomlogement LIKE '%:nomlogement%'";
-    $catalogueStatements = $pdo->prepare($sql);
-    $catalogueStatements->bindParam(':nomlogement', $_POST['nomLogement']);
+    $sql .= " WHERE nomlogement LIKE ?";
 
+    $catalogueStatements = $pdo->prepare($sql);
+    $catalogueStatements->execute(array('%' . $_POST['nomLogement'] . '%'));
+} else {
+    $catalogueStatements->execute();
 }
 
 
-$catalogueStatements->execute();
+
 
 
 $categorie = $pdo->prepare("
@@ -131,10 +138,39 @@ $categorie->execute();
 
                                 </div>
 
-                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#"
-                                                                                                   class="btn btn-default"
-                                                                                                   role="button">Button</a>
-                                </p>
+                                <!--<p><a href="insert_reservation.php?nom=<?php echo $toto[0] ?>" class="btn btn-primary" role="button">Réserver ce logement</a>
+                                </p>-->
+                                <!--   <li class="dropdown" id="menuLogin">
+                                       <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
+                                       <div class="dropdown-menu" style="padding:17px;">
+                                           <form class="form" id="formLogin">
+                                               <input name="username" id="username" placeholder="Username" type="text">
+                                               <input name="password" id="password" placeholder="Password" type="password"><br>
+                                               <button type="button" id="btnLogin" class="btn">Login</button>
+                                           </form>
+                                       </div>
+                                   </li>-->
+                                <div class="dropdown">
+                                    <button class="btn btn-default" type="button" id="dropdownMenu1"
+                                            data-toggle="dropdown" aria-expanded="true">
+                                        Dropdown
+                                        <span class="caret"></span>
+                                    </button>
+
+                                    <form class="form-inline">
+                                        <div class="input-daterange input-group" id="datepicker">
+                                            <span class="input-group-addon">Du</span>
+                                            <input type="text" class="input-sm form-control" name="start"/>
+                                            <span class="input-group-addon">Au</span>
+                                            <input type="text" class="input-sm form-control" name="end"/>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default">Rechercher</button>
+                                        </div>
+                                    </form>
+
+                                </div>
                             </div>
 
 
@@ -186,5 +222,7 @@ $categorie->execute();
 
     });
 </script>
+
+
 </body>
 </html>
