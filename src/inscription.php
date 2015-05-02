@@ -19,7 +19,6 @@ if(isset($_SESSION['login']))
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/signin-template.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/datepicker.css">
 
 
 </head>
@@ -114,12 +113,6 @@ if(isset($_SESSION['login']))
                 } ?>
             </div>
 
-            <div class="input-daterange input-group" id="datepicker">
-                <span class="input-group-addon">Du</span>
-                <input type="text" class="input-sm form-control" name="start"/>
-                <span class="input-group-addon">au</span>
-                <input type="text" class="input-sm form-control" name="end"/>
-            </div>
 
 
             <div class="form-group">
@@ -160,25 +153,6 @@ if(isset($_SESSION['login']))
 
 
 
-<script src="../js/bootstrap-datepicker.js"></script>
-<script type="text/javascript">
-    // When the document is ready
-    $(document).ready(function () {
-
-        $('.input-daterange').datepicker({
-            format: "yyyy-mm-dd",
-            todayBtn: "linked",
-            clearBtn: true,
-            language: "fr",
-            forceParse: false,
-            daysOfWeekDisabled: "0,1,2,3,4,5",
-            autoclose: true,
-            todayHighlight: true,
-            datesDisabled: ['05/06/2015', '05/21/2015']
-        });
-
-    });
-</script>
 
 
 </body>

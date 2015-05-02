@@ -26,6 +26,7 @@ $catalogueStatements->execute();
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/datepicker.css">
 </head>
 
 <body>
@@ -40,6 +41,19 @@ $catalogueStatements->execute();
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
 
+            <div class="jumbotron">
+                <form class="center-block" method="POST" action="registration.php">
+
+                    <div class="input-daterange input-group" id="datepicker">
+                        <span class="input-group-addon">Du</span>
+                        <input type="text" class="input-sm form-control" name="start"/>
+                        <span class="input-group-addon">au</span>
+                        <input type="text" class="input-sm form-control" name="end"/>
+                    </div>
+
+
+                </form>
+        </div>
             <div class="row">
 
                 <h2></h2>
@@ -83,5 +97,26 @@ $catalogueStatements->execute();
 <script src="../js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script src="../js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    // When the document is ready
+    $(document).ready(function () {
+
+        $('.input-daterange').datepicker({
+            format: "yyyy-mm-dd",
+            todayBtn: "linked",
+            clearBtn: true,
+            language: "fr",
+            forceParse: false,
+            daysOfWeekDisabled: "0,1,2,3,4,5",
+            autoclose: true,
+            todayHighlight: true,
+            datesDisabled: ['05/06/2015', '05/21/2015']
+        });
+
+    });
+</script>
 </body>
 </html>
