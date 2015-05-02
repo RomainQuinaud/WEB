@@ -43,8 +43,8 @@ $catalogueStatements->execute();
             <h1 class="modal-header">Catalogue des logements</h1>
 
             <?php if ($catalogueStatements->rowCount() == 0) {
-                ?> <p> Le catalogue est indisponible actuellement. </p>
-                ?> <p> Le catalogue est indisponible actuellement.</p>
+                ?>
+                <p> Le catalogue est indisponible actuellement. </p>
             <?php
             } else {
                 ?>
@@ -53,36 +53,21 @@ $catalogueStatements->execute();
                     <thead>
                     <tr>
                         <th>Nom du Logement</th>
+                        <th>Date de début</th>
+                        <th>Date de fin</th>
+                        <th>Nom du logement</th>
+                        <th>Type de logement</th>
+                        <th>Nom du Camping</th>
+                        <th>Ville</th>
+                        <th>Adresse</th>
+                        <th>Département</th>
+
                     </tr>
 
 
                     </thead>
                     <tbody>
-                    /*
-                    <?php
-
-                    while ($reservation = $reservationStatements->fetch()) {
-                        ?>
-                        <tr>
-                            <?php
-                            for ($i = 0; $i < 8; $i++)
-                                echo '<td>' . $reservation[$i] . '</td>';
-
-                            ?>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-                    </tbody>
-
                 </table>
-            <?php
-            }
-            ?>
-
-            */
-
-
         </div>
 
     </div>
