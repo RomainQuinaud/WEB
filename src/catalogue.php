@@ -68,26 +68,34 @@ $catalogueStatements->execute();
 
                 <h2></h2>
 
-                <div class="pageGauche col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1">
-                    <p> IMAGE </p>
-                </div>
+
                 <div class="pageDroite col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-1">
                     <?php if ($catalogueStatements->rowCount() == 0) {
                         ?>
                         <p> Le catalogue est actuellement indisponible. </p>
                     <?php
                     } else {
-                        while ($catalogue = $catalogueStatements->fetch()) {
+                        while ($toto = $catalogueStatements->fetch()) {
                             for ($i = 0; $i < 3; $i++)
-                                echo $catalogue[$i] . '<br>';
+                                echo $toto[$i] . '<br>';
+
                             ?>
-                            <img src="<?php $catalogue[$i] ?>"><?php
+                            <img src="
+                            <?php echo $toto[$i] ?>
+                            ">
+                            <?php
+
+
 
                             echo '<br>';
                         }
                     }
                     ?>
                 </div>
+                <div class="pageGauche col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1">
+                    <p>  <?php echo $toto[3]; ?> </p>
+                </div>
+
 
             </div>
 
