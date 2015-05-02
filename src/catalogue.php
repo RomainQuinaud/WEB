@@ -6,7 +6,7 @@ if (!isset($_SESSION['login']))
 
 include 'BDD_connect.php';
 $catalogueStatements = $pdo->prepare("
-                SELECT nomlogement,libellecategorie,prixcategorie
+                SELECT nomlogement,libellecategorie,prixcategorie,image
                 FROM logement NATURAL JOIN categorie");
 $catalogueStatements->execute();
 ?>
@@ -80,6 +80,8 @@ $catalogueStatements->execute();
                         while ($catalogue = $catalogueStatements->fetch()) {
                             for ($i = 0; $i < 3; $i++)
                                 echo $catalogue[$i] . '<br>';
+                            ?>
+                            <img src="<?php $catalogue[$i] ?>"><?php
 
                             echo '<br>';
                         }
