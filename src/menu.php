@@ -9,7 +9,7 @@ function menu($page)
 
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="toto">
+        <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false"
                         data-target="#navbar" data-toggle="collapse" type="button">
@@ -44,7 +44,6 @@ function menu($page)
                 <ul class="nav navbar-nav navbar-right">
                     <li><a> Connecté en tant que: <?php echo $_SESSION['login']?> </a></li>
                     <li><a href="deco.php">Déconnexion</a></li>
-
                 </ul>
 
             </div>
