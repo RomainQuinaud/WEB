@@ -45,25 +45,17 @@ $catalogueStatements->execute();
                 <p> Le catalogue est indisponible actuellement. </p>
             <?php
             } else {
-            while ($catalogue = $catalogueStatements->fetch()) {
             ?>
-
             <table class="table table-striped">
                 <thead>
-                <tr>
-                    <th>Nom du Logement</th>
-                    <td><?php echo $catalogue[0] ?></td>
-                </tr>
-                <tr>
-                    <th>Type de Logemment</th>
-                    <td><?php echo $catalogue[1] ?></td>
-                </tr>
-                <tr>
-                    <th>Prix par nuit :</th>
-                    <td><?php echo $catalogue[2] ?></td>
-                </tr>
+                <?php while ($catalogue = $catalogueStatements->fetch()) {
+                    for ($i = 0; $i < 3; $i++)
+                        echo '<tr>' . '<td>' . $catalogue[$i] . '</td>' . '</tr>';
+                }
+                }
+                ?>
                 </thead>
-            </table>
+                <tbody>
         </div>
     </div>
 </div>
