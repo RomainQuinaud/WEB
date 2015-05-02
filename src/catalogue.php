@@ -105,11 +105,15 @@ $categorie->execute();
 
                 <?php
                 } else {
+                    ?>
+
+                    <div class="center-block">
+                        <?php
                     while ($toto = $catalogueStatements->fetch()) { ?>
 
-                        <div class="center-block">
+
                             <div class="thumbnail">
-                                <img class="img-responsive" src=" <?php echo $toto[3] ?> "
+                                <img class="imgCatalogue" src=" <?php echo $toto[3] ?> "
                                      alt="Photographie du logement <?php echo $toto[0] ?>">
 
                                 <div class="caption">
@@ -125,9 +129,12 @@ $categorie->execute();
                                                                                                    role="button">Button</a>
                                 </p>
                             </div>
-                        </div>
+
 
                     <?php }
+                        ?>
+                    </div>
+                <?php
                 } ?>
 
             </div>

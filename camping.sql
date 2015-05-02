@@ -102,18 +102,18 @@ INSERT INTO logement (idcategorie, nomlogement, idcamping,image) VALUES
 (2, 'Mérou céleste', 1,'../img/logement/logement_merou_celeste.jpg'),
 (2, 'Baliste strié', 1,'../img/logement/logement_balliste_strie.jpg'),
 (2, 'Thon à dents de chien', 1,'../img/logement/logement_thon.jpg'),
-(2, 'Poisson-papillon côtelé de Mer Rouge', 1,'../img/logement/logement_poisson_papillon.jpg'),
+(2, 'Poisson Papillon', 1,'../img/logement/logement_poisson_papillon.jpg'),
 (2, 'Labre-cigare', 1,'../img/logement/logement_larbre_cigare.jpg'),
 (2, 'Grégoire noir', 1,'../img/logement/logement_gregoire_noir.jpg'),
 (2, 'Gobie à six tâches', 1,'../img/logement/logement_gobie.jpg'),
 (3, 'Balibot rayé', 1,'../img/logement/logement_balibot.jpg'),
 (3, 'Murène ondulée', 1,'../img/logement/logement_murene.jpg'),
-(3, 'Poisson papillon raton-laveur', 1,'../img/logement/logement_poisson_papillon_raton_laveur.jpg'),
+(3, 'Poisson raton-laveur', 1,'../img/logement/logement_poisson_papillon_raton_laveur.jpg'),
 (3, 'Vivaneau à tâche noire', 1,'../img/logement/logement_vivano.jpg'),
 (3, 'Poisson-lime gribouillé ', 1,'../img/logement/logement_poisson_lime.jpg'),
 (3, 'Poisson faucon de Forster', 1,'../img/logement/logement_poisson_faucon.jpg'),
-(3, 'Baliste à joue barrée – Sufflamen ', 1,'../img/logement/logement_balliste_a_joue.jpg'),
-(3, 'Mérou croissant à queue jaune', 1,'../img/logement/logement_merou.jpg');
+(3, 'Baliste à joue barrée', 1,'../img/logement/logement_balliste_a_joue.jpg'),
+(3, 'Mérou', 1,'../img/logement/logement_merou.jpg');
 -- --------------------------------------------------------
 
 --

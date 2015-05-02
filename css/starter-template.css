@@ -28,11 +28,10 @@ form .center-block
 }
 
 div .center-block {
-
-    display: inline-block;
-    width: 400px;
+    width: 900px;
     border: 1px solid #F5F4F4;
     padding: 20px;
+
     background-color: #F5F4F4;
     border-radius: 1px 1px 4px 4px;
     -moz-box-shadow: 1px 1px 1px 0px #656565;
@@ -40,6 +39,19 @@ div .center-block {
     -o-box-shadow: 1px 1px 1px 0px #656565;
     box-shadow: 1px 1px 1px 0px #656565;
     filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+}
+
+.imgCatalogue {
+    max-height: 200px;
+    min-height: 200px;
+    height: 200px;
+    width: auto;
+}
+
+.thumbnail {
+    width: 330px;
+    display: inline-block;
+    margin: 30px;
 }
 
 .form-group a
