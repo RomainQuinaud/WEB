@@ -63,6 +63,16 @@ $reservationStatements->execute();
 
 
                     </tr>
+                    <tr>
+                        <th>Date de début</th>
+                    </tr>
+                    <tr>
+                        <th>Date de début</th>
+                    </tr>
+                    <tr>
+                        <th>Date de début</th>
+                    </tr>
+
                     </thead>
                     <tbody>
                     <?php

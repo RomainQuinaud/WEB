@@ -47,15 +47,11 @@ $catalogueStatements->execute();
                 while ($catalogue = $catalogueStatements->fetch()) {
                     for ($i = 0; $i < 2; $i++)
                         ?>
-                        <table class="table table-striped">
-                        <tbody>
                         <tr>
                     <?php
-                    echo '<th>' . $catalogue[$i] . '</th>';
+                    echo '<th>' . $catalogue[$i] . '</th';
                     ?>
-                </tr>
-                    </tbody>
-                    </table>
+                    </tr>
                 <?php
                 }
             }
