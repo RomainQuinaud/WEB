@@ -86,7 +86,8 @@ CREATE TABLE IF NOT EXISTS logement (
 
 INSERT INTO logement (idcategorie, nomlogement, idcamping,image) VALUES
 (1, 'Requin', 1,'../img/logement/logement_requin.jpg'),
-(1, 'Dauphin', 1,NULL),
+
+(1, 'Dauphin', 1,'../img/logement/logement_dauphin.jpg'),
 (1, 'Baleine', 1,NULL),
 (1, 'Manchot', 1,NULL),
 (1, 'Calamar', 1,NULL),

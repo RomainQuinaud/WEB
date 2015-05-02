@@ -41,7 +41,6 @@ $catalogueStatements->execute();
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
 
-            <div>
                 <form class="form-inline" method="POST" action="catalogue.php">
 
 
@@ -57,54 +56,56 @@ $catalogueStatements->execute();
                     <div class="input-daterange input-group" id="datepicker">
                         <span class="input-group-addon">Du</span>
                         <input type="text" class="input-sm form-control" name="start"/>
-                        <span class="input-group-addon">au</span>
+                        <span class="input-group-addon">Au</span>
                         <input type="text" class="input-sm form-control" name="end"/>
                     </div>
 
 
                 </form>
-        </div>
+
+
             <div class="row">
 
-                <h2></h2>
-
-
-                <div class="pageDroite col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-1">
-                    <?php if ($catalogueStatements->rowCount() == 0) {
-                        ?>
-                        <p> Le catalogue est actuellement indisponible. </p>
-                    <?php
-                    } else {
-                        while ($toto = $catalogueStatements->fetch()) {
-                            for ($i = 0; $i < 3; $i++)
-                                echo $toto[$i] . '<br>';
-
-                            ?>
-                            <img src="
-                            <?php echo $toto[$i] ?>
-                            ">
-                            <?php
-
-
-
-                            echo '<br>';
-                        }
-                    }
+                <?php if ($catalogueStatements->rowCount() == 0) {
                     ?>
-                </div>
-                <div class="pageGauche col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1">
-                    <p>  <?php echo $toto[3]; ?> </p>
+                    <p> Le catalogue est actuellement indisponible. </p>
+
+                <?php
+                } else {
+                    while ($toto = $catalogueStatements->fetch()) { ?>
+
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src=" <?php echo $toto[3] ?> " height="500px" width="400px"
+                                     alt="Photographie du logement <?php echo $toto[0] ?>">
+
+                                <div class="caption">
+                                    <h3><?php echo $toto[0] ?></h3>
+                            <?php
+                            for ($i = 1; $i < 3; $i++)
+                                echo $toto[$i] . '<br>'; ?>
+
+                                </div>
+
+                                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#"
+                                                                                                   class="btn btn-default"
+                                                                                                   role="button">Button</a>
+                                </p>
+                            </div>
                 </div>
 
+                    <?php }
+                } ?>
 
             </div>
 
+
         </div>
-                </thead>
-                <tbody>
-        </div>
+
     </div>
+
 </div>
+
 
 <div id="footer">
     <div class="container">

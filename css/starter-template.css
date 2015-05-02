@@ -73,9 +73,10 @@ html, body {
 
 .form-inline {
 
-    border: 1px solid #F5F4F4;
+    border: 1px solid #B6BED6;
     padding: 20px;
-    background-color: #F5F4F4;
+    margin-bottom: 20px;
+    background-color: #B6BED6;
     border-radius: 1px 1px 4px 4px;
     -moz-box-shadow: 1px 1px 1px 0px #656565;
     -webkit-box-shadow: 1px 1px 1px 0px #656565;
@@ -83,5 +84,6 @@ html, body {
     box-shadow: 1px 1px 1px 0px #656565;
     filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
 }
+
 /* Philippe */
 
