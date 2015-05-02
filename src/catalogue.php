@@ -81,3 +81,24 @@ $catalogueStatements->execute();
             ?>
 
             */
+
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
