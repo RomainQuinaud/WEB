@@ -1081,7 +1081,7 @@
         // Check if "de-DE" style date is available, if not language should
         // fallback to 2 letter code eg "de"
         if (!dates[lang]) {
-            lang = lang.split('-')[0]
+            lang = lang.split('-')[0];
             if (!dates[lang])
                 return;
         }
@@ -1160,9 +1160,9 @@
     $.fn.datepicker.Constructor = Datepicker;
     var dates = $.fn.datepicker.dates = {
         en: {
-            days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-            daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+            days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"],
+            daysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
+            daysMin: ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa", "Di"],
             months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"],
             monthsShort: ["Jan", "Fev", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Dec"],
             today: "Aujourd'hui",
