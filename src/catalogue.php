@@ -41,7 +41,7 @@ $catalogueStatements->execute();
             <h1 class="modal-header">Catalogue des logements</h1>
             <?php if ($catalogueStatements->rowCount() == 0) {
                 ?>
-                <p> Le catalogue est indisponible actuellement. </p>
+                <p> Le catalogue est actuellement indisponible. </p>
             <?php
             } else {
                 while ($catalogue = $catalogueStatements->fetch()) {
