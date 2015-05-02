@@ -9,6 +9,12 @@ $catalogueStatements = $pdo->prepare("
                 SELECT nomlogement,libellecategorie,prixcategorie,image
                 FROM logement NATURAL JOIN categorie");
 $catalogueStatements->execute();
+
+
+$categorie = $pdo->prepare("
+SELECT libellecategorie
+FROM categorie");
+$categorie->execute();
 ?>
 
 
@@ -45,20 +51,37 @@ $catalogueStatements->execute();
 
 
                     <div class="form-group">
-                        <input type="text" maxlength="40" class="form-control" id="login" name="login"
-                               placeholder="Login">
+                        <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
+                               placeholder="Nom du Logement">
                         <?php
                         if (isset($_SESSION['ERR_LOGIN']) && is_string($_SESSION['ERR_LOGIN'])) {
                             echo '<span class="text-danger">' . $_SESSION['ERR_LOGIN'] . '</span>';
                             unset($_SESSION['ERR_LOGIN']);
                         } ?>
                     </div>
+
+
+                    <div class="form-group">
+
+                        <select class="form-control">
+
+                            <?php while ($libelle = $categorie->fetch()) { ?>
+
+                                <option value="<?php echo $libelle[0] ?>"> <?php echo $libelle[0] ?> </option>
+
+                            <?php } ?>
+
+                        </select>
+                    </div>
+
                     <div class="input-daterange input-group" id="datepicker">
                         <span class="input-group-addon">Du</span>
                         <input type="text" class="input-sm form-control" name="start"/>
                         <span class="input-group-addon">Au</span>
                         <input type="text" class="input-sm form-control" name="end"/>
                     </div>
+
+                    <div class=""
 
 
                 </form>
