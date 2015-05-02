@@ -39,22 +39,28 @@ $catalogueStatements->execute();
 
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
-
             <?php if ($catalogueStatements->rowCount() == 0) {
                 ?>
                 <p> Le catalogue est indisponible actuellement. </p>
             <?php
             } else {
+                while ($catalogue = $catalogueStatements->fetch()) {
+                    for ($i = 0; $i < 2; $i++)
+                        ?>
+                        <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                    <?php
+                    echo '<th>' . $catalogue[$i] . '</th>';
+                    ?>
+                </tr>
+                    </tbody>
+                    </table>
+                <?php
+                }
+            }
             ?>
-            <table class="table table-striped">
-                <tbody>
-                <?php while ($catalogue = $catalogueStatements->fetch()) {
-                    for ($i = 0; $i < 3; $i++)
-                        echo '<tr>' . '<td>' . $catalogue[$i] . '</td>' . '</tr>';
-                }
-                }
-                ?>
-                </tbody>
+
         </div>
     </div>
 </div>
