@@ -46,7 +46,7 @@ function menu($page)
                     </li>
 
 
-                    <li><a class="disableFocus"><?php echo $_SESSION['login']?> </a></li>
+                    <li><a> Connecté en tant que: <?php echo $_SESSION['login']?> </a></li>
 
                     <li><a href="deco.php">Déconnexion</a></li>
 
