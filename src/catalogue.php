@@ -19,8 +19,9 @@ if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['cate
     $catalogueStatements = $pdo->prepare($sql);
     $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
 } else if (!empty($_POST['nomLogement'])) {
-    $sql .= " WHERE nomlogement LIKE '%" . $_POST['nomLogement'] . "%'";
+    $sql .= " WHERE nomlogement LIKE '%:nomlogement%'";
     $catalogueStatements = $pdo->prepare($sql);
+    $catalogueStatements->bindParam(':nomlogement', $_POST['nomLogement']);
 
 }
 
