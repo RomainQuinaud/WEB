@@ -8,7 +8,6 @@ include 'BDD_connect.php';
 $catalogueStatements = $pdo->prepare("
                 SELECT nomlogment,libellecategorie,prixcategorie
                 FROM logement NATURAL JOIN categorie");
-$catalogueStatements->bindParam(':login', $_SESSION['login']);
 $catalogueStatements->execute();
 ?>
 
@@ -49,29 +48,39 @@ $catalogueStatements->execute();
             } else {
                 ?>
 
-                <table class="table table-striped">
-                    <thead>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nom du Camping</th>
+                    <th>Nom du Logement</th>
+                    <th>Type de Logemment</th>
+                    <th>À partir de: (Prix par nuit)</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                while ($proposition = $propositionStatements->fetch()) {
+                    ?>
                     <tr>
-                        <th>Nom du Logement</th>
-                        <th>Date de début</th>
-                        <th>Date de fin</th>
-                        <th>Nom du logement</th>
-                        <th>Type de logement</th>
-                        <th>Nom du Camping</th>
-                        <th>Ville</th>
-                        <th>Adresse</th>
-                        <th>Département</th>
+                        <?php
+                        for ($i = 0; $i < 4; $i++)
+                            echo '<td>' . $proposition[$i] . '</td>';
 
+                        ?>
                     </tr>
+                <?php
+                }
+                }
+                ?>
+                </tbody>
 
-
-                    </thead>
-                    <tbody>
-                </table>
+            </table>
         </div>
 
+
     </div>
-</div>
 </div>
 
 <div id="footer">
