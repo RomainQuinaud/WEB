@@ -28,6 +28,8 @@ form .center-block
 }
 
 div .center-block {
+
+    display: inline-block;
     width: 400px;
     border: 1px solid #F5F4F4;
     padding: 20px;
