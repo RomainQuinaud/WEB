@@ -8,15 +8,20 @@ include 'BDD_connect.php';
 $sql = "SELECT nomlogement,libellecategorie,prixcategorie,image
                 FROM logement NATURAL JOIN categorie";
 $catalogueStatements = $pdo->prepare($sql);
-if (!empty($_POST['categorie'])) {
+
+if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
+    $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE '%" . $_POST['nomLogement'] . "%'";
+    $catalogueStatements = $pdo->prepare($sql);
+    $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
+
+} else if (!empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
     $sql .= " WHERE libellecategorie=:categorie";
     $catalogueStatements = $pdo->prepare($sql);
     $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
-}
-if (!empty($_POST['nomLogement'])) {
-    $sql .= " WHERE nomlogement=:nomlogement";
+} else if (!empty($_POST['nomLogement'])) {
+    $sql .= " WHERE nomlogement LIKE '%" . $_POST['nomLogement'] . "%'";
     $catalogueStatements = $pdo->prepare($sql);
-    $catalogueStatements->bindParam(':nomlogement', $_POST['nomLogement']);
+
 }
 
 
@@ -73,6 +78,7 @@ $categorie->execute();
 
                     <select class="form-control" id="categorie" name="categorie">
 
+                        <option value="TOUS"> Tous</option>
                         <?php while ($libelle = $categorie->fetch()) { ?>
 
                             <option value="<?php echo $libelle[0] ?>"> <?php echo $libelle[0] ?> </option>

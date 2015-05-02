@@ -31,9 +31,10 @@ div .center-block {
     width: 900px;
     border: 1px solid #F5F4F4;
     padding: 20px;
+    margin-bottom: 20px;
 
     background-color: #F5F4F4;
-    border-radius: 1px 1px 4px 4px;
+    border-radius: 1px 1px 5px 5px;
     -moz-box-shadow: 1px 1px 1px 0px #656565;
     -webkit-box-shadow: 1px 1px 1px 0px #656565;
     -o-box-shadow: 1px 1px 1px 0px #656565;
@@ -106,7 +107,7 @@ html, body {
 
     margin-bottom: 20px;
     background-color: #B6BED6;
-    border-radius: 1px 1px 4px 4px;
+    border-radius: 0px 15px 0px 15px;
     -moz-box-shadow: 1px 1px 1px 0px #656565;
     -webkit-box-shadow: 1px 1px 1px 0px #656565;
     -o-box-shadow: 1px 1px 1px 0px #656565;
