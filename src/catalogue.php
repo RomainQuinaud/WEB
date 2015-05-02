@@ -5,9 +5,21 @@ if (!isset($_SESSION['login']))
 
 
 include 'BDD_connect.php';
-$catalogueStatements = $pdo->prepare("
-                SELECT nomlogement,libellecategorie,prixcategorie,image
-                FROM logement NATURAL JOIN categorie");
+$sql = "SELECT nomlogement,libellecategorie,prixcategorie,image
+                FROM logement NATURAL JOIN categorie";
+$catalogueStatements = $pdo->prepare($sql);
+if (!empty($_POST['categorie'])) {
+    $sql .= " WHERE libellecategorie=:categorie";
+    $catalogueStatements = $pdo->prepare($sql);
+    $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
+}
+if (!empty($_POST['nomLogement'])) {
+    $sql .= " WHERE nomlogement=:nomlogement";
+    $catalogueStatements = $pdo->prepare($sql);
+    $catalogueStatements->bindParam(':nomlogement', $_POST['nomLogement']);
+}
+
+
 $catalogueStatements->execute();
 
 
@@ -53,17 +65,13 @@ $categorie->execute();
                     <div class="form-group">
                         <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
                                placeholder="Nom du Logement">
-                        <?php
-                        if (isset($_SESSION['ERR_LOGIN']) && is_string($_SESSION['ERR_LOGIN'])) {
-                            echo '<span class="text-danger">' . $_SESSION['ERR_LOGIN'] . '</span>';
-                            unset($_SESSION['ERR_LOGIN']);
-                        } ?>
+
                     </div>
 
 
                     <div class="form-group">
 
-                        <select class="form-control">
+                        <select class="form-control" id="categorie" name="categorie">
 
                             <?php while ($libelle = $categorie->fetch()) { ?>
 
