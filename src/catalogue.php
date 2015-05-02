@@ -107,7 +107,7 @@ $categorie->execute();
                 } else {
                     while ($toto = $catalogueStatements->fetch()) { ?>
 
-                        <div class="col-sm-6 col-md-4">
+                        <div class="center-block">
                             <div class="thumbnail">
                                 <img class="img-responsive" src=" <?php echo $toto[3] ?> "
                                      alt="Photographie du logement <?php echo $toto[0] ?>">
