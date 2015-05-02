@@ -1,0 +1,17 @@
+ !!!!!!!! Gérer les prix !!!!!!!!!!!!
+	!!!!!!!!!!!!!!!!!!
+
+Date debut- Date fin  : DATEPICKER
+Recherche type categorie
+Recherche par nom du logement
+
+
+/* Tri par nom logement Croissant/Décroissant
+Tri par Prix Croissant/Décroissant*/
+
+
+/* Recherche par fourchette de tri */
+
+
+
+
