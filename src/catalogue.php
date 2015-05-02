@@ -81,7 +81,9 @@ $categorie->execute();
                         <input type="text" class="input-sm form-control" name="end"/>
                     </div>
 
-                    <div class=""
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default">Rechercher</button>
+                    </div>
 
 
                 </form>
