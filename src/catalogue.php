@@ -40,15 +40,13 @@ $catalogueStatements->execute();
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
 
-            <div class="jumbotron">
-                <p>
 
-                    Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari,
-                    itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi
-                    reseratae sunt insidiarum latebrae omnes, et Barbatio repente apparuit comes, qui sub eo domesticis
-                    praefuit, cum Apodemio agente in rebus milites ducens, quos beneficiis suis oppigneratos elegerat
-                    imperator certus nec praemiis nec miseratione ulla posse deflecti.
-                </p>
+            Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari,
+            itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae
+            sunt insidiarum latebrae omnes, et Barbatio repente apparuit comes, qui sub eo domesticis praefuit, cum
+            Apodemio agente in rebus milites ducens, quos beneficiis suis oppigneratos elegerat imperator certus nec
+            praemiis nec miseratione ulla posse deflecti.
+        </div>
             <div class="row">
 
                 <h2></h2>
