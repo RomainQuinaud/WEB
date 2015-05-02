@@ -41,9 +41,19 @@ $catalogueStatements->execute();
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
 
-            <div class="jumbotron">
-                <form class="center-block" method="POST" action="registration.php">
+            <div>
+                <form class="form-inline" method="POST" action="catalogue.php">
 
+
+                    <div class="form-group">
+                        <input type="text" maxlength="40" class="form-control" id="login" name="login"
+                               placeholder="Login">
+                        <?php
+                        if (isset($_SESSION['ERR_LOGIN']) && is_string($_SESSION['ERR_LOGIN'])) {
+                            echo '<span class="text-danger">' . $_SESSION['ERR_LOGIN'] . '</span>';
+                            unset($_SESSION['ERR_LOGIN']);
+                        } ?>
+                    </div>
                     <div class="input-daterange input-group" id="datepicker">
                         <span class="input-group-addon">Du</span>
                         <input type="text" class="input-sm form-control" name="start"/>
