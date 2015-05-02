@@ -6,7 +6,7 @@ if (!isset($_SESSION['login']))
 
 include 'BDD_connect.php';
 $catalogueStatements = $pdo->prepare("
-                SELECT nomlogment,libellecategorie,prixcategorie
+                SELECT nomlogement,libellecategorie,prixcategorie
                 FROM logement NATURAL JOIN categorie");
 $catalogueStatements->execute();
 ?>
@@ -29,7 +29,6 @@ $catalogueStatements->execute();
 </head>
 
 <body>
-
 <div id="wrap">
     <?php
     include_once 'menu.php';
@@ -46,40 +45,26 @@ $catalogueStatements->execute();
                 <p> Le catalogue est indisponible actuellement. </p>
             <?php
             } else {
-                ?>
+            while ($catalogue = $catalogueStatements->fetch()) {
+            ?>
 
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Nom du Camping</th>
                     <th>Nom du Logement</th>
+                    <td><?php echo $catalogue[0] ?></td>
+                </tr>
+                <tr>
                     <th>Type de Logemment</th>
-                    <th>À partir de: (Prix par nuit)</th>
-
+                    <td><?php echo $catalogue[1] ?></td>
+                </tr>
+                <tr>
+                    <th>Prix par nuit :</th>
+                    <td><?php echo $catalogue[2] ?></td>
                 </tr>
                 </thead>
-                <tbody>
-                <?php
-
-                while ($proposition = $propositionStatements->fetch()) {
-                    ?>
-                    <tr>
-                        <?php
-                        for ($i = 0; $i < 4; $i++)
-                            echo '<td>' . $proposition[$i] . '</td>';
-
-                        ?>
-                    </tr>
-                <?php
-                }
-                }
-                ?>
-                </tbody>
-
             </table>
         </div>
-
-
     </div>
 </div>
 
