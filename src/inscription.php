@@ -19,6 +19,8 @@ if(isset($_SESSION['login']))
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/signin-template.css" rel="stylesheet">
+
+
 </head>
 
 <body>
