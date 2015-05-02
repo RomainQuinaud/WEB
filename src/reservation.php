@@ -85,9 +85,6 @@ $reservationStatements->execute();
             <?php
             }
             ?>
-                <br></br>
-
-
             </div>
 
         </div>

@@ -5,12 +5,11 @@ if (!isset($_SESSION['login']))
 
 
 include 'BDD_connect.php';
-$reservationStatements = $pdo->prepare("
-select nomcamping,villecamping,adressecamping,departementcamping,libellecategorie,prixcategorie,idlogement,nomlogement
-from camping natural join categorie natural join logement");
-$reservationStatements->bindParam(':login', $_SESSION['login']);
-$reservationStatements->execute();
-?>
+$catalogueStatements = $pdo->prepare("
+                SELECT nomlogment,libellecategorie,prixcategorie
+                FROM logement NATURAL JOIN categorie");
+$catalogueStatements->bindParam(':login', $_SESSION['login']);
+$catalogueStatements->execute();
 ?>
 
 
@@ -43,5 +42,42 @@ $reservationStatements->execute();
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
 
+            <?php if ($catalogueStatements->rowCount() == 0) {
+                ?> <p> Le catalogue est indisponible actuellement. </p>
+                ?> <p> Le catalogue est indisponible actuellement.</p>
+            <?php
+            } else {
+                ?>
+
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Nom du Logement</th>
+                    </tr>
 
 
+                    </thead>
+                    <tbody>
+                    /*
+                    <?php
+
+                    while ($reservation = $reservationStatements->fetch()) {
+                        ?>
+                        <tr>
+                            <?php
+                            for ($i = 0; $i < 8; $i++)
+                                echo '<td>' . $reservation[$i] . '</td>';
+
+                            ?>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                    </tbody>
+
+                </table>
+            <?php
+            }
+            ?>
+
+            */
