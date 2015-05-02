@@ -39,30 +39,33 @@ $catalogueStatements->execute();
 
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
-            <?php if ($catalogueStatements->rowCount() == 0) {
-                ?>
-                <p> Le catalogue est actuellement indisponible. </p>
-            <?php
-            } else {
-            while ($catalogue = $catalogueStatements->fetch()) { ?>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th><?php echo $catalogue[0]; ?></th>
-                </tr>
-                <tr>
-                    <th><?php echo $catalogue[1]; ?></th>
-                </tr>
-                <tr>
-                    <th><?php echo $catalogue[2]; ?></th>
-                </tr>
 
+            <div class="row">
 
-                <?php for ($i = 0; $i < 3; $i++)
-                    echo '<tr>' . '<td>' . $catalogue[$i] . '</td>' . '</tr>';
-                }
-            }
-            ?>
+                <h2></h2>
+
+                <div class="pageGauche col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1">
+                    <p> IMAGE </p>
+                </div>
+                <div class="pageDroite col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-1">
+                    <?php if ($catalogueStatements->rowCount() == 0) {
+                        ?>
+                        <p> Le catalogue est actuellement indisponible. </p>
+                    <?php
+                    } else {
+                        while ($catalogue = $catalogueStatements->fetch()) {
+                            for ($i = 0; $i < 3; $i++)
+                                echo $catalogue[$i] . '<br>';
+
+                            echo '<br>';
+                        }
+                    }
+                    ?>
+                </div>
+
+            </div>
+
+        </div>
                 </thead>
                 <tbody>
         </div>
