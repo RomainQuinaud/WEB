@@ -63,15 +63,7 @@ $reservationStatements->execute();
 
 
                     </tr>
-                    <tr>
-                        <th>Champs1</th>
-                    </tr>
-                    <tr>
-                        <th>Champ2</th>
-                    </tr>
-                    <tr>
-                        <th>Champs3</th>
-                    </tr>
+
 
                     </thead>
                     <tbody>
