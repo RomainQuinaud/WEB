@@ -12,8 +12,22 @@
 .table {
 
 }
-.center-block
+
+form .center-block
 {
+    width: 400px;
+    border: 1px solid #F5F4F4;
+    padding: 20px;
+    background-color: #F5F4F4;
+    border-radius: 1px 1px 4px 4px;
+    -moz-box-shadow: 1px 1px 1px 0px #656565;
+    -webkit-box-shadow: 1px 1px 1px 0px #656565;
+    -o-box-shadow: 1px 1px 1px 0px #656565;
+    box-shadow: 1px 1px 1px 0px #656565;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=5);
+}
+
+div .center-block {
     width: 400px;
     border: 1px solid #F5F4F4;
     padding: 20px;
