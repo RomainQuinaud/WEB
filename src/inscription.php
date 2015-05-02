@@ -115,8 +115,9 @@ if(isset($_SESSION['login']))
             </div>
 
             <div class="input-daterange input-group" id="datepicker">
+                <span class="input-group-addon">Du</span>
                 <input type="text" class="input-sm form-control" name="start"/>
-                <span class="input-group-addon">to</span>
+                <span class="input-group-addon">au</span>
                 <input type="text" class="input-sm form-control" name="end"/>
             </div>
 
