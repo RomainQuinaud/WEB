@@ -151,7 +151,7 @@ $categorie->execute();
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-default">Rechercher</button>
+                                                <button type="submit" class="btn btn-default">Réserver</button>
                                             </div>
 
 
@@ -199,12 +199,13 @@ $categorie->execute();
 
         if (document.getElementById("resaMenu_" + toto).className.match("visible")) {
             document.getElementById("resaMenu_" + toto).className = ("hidden");
+            document.getElementById("resaMenu_" + toto).setAttribute("style", "z-index:10;position:absolute;");
         }
 
 
-        else if
-        (document.getElementById("resaMenu_" + toto).className.match("hidden")) {
+        else if (document.getElementById("resaMenu_" + toto).className.match("hidden")) {
             document.getElementById("resaMenu_" + toto).className = ("visible");
+            document.getElementById("resaMenu_" + toto).setAttribute("style", "z-index:10;position:absolute;");
         }
 
 
