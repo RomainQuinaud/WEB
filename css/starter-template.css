@@ -126,11 +126,29 @@ html, body {
     visibility: hidden;
 }
 
-.text-muted {
+form .text-muted {
     margin-top: 5px;
     color: #21146B;
     font-size: 15px;
 }
 
+.legend {
+    float: right;
+
+}
+
+.bg-success, .bg-danger {
+    padding: 5px;
+    margin-bottom: 3px;
+    border-radius: 10px 0px 10px 0px;
+}
+
+.text-center .legend {
+    margin-top: 50px;
+    background-color: #F0F0F0;
+    padding: 5px;
+    border-radius: 10px 0px 10px 0px;
+
+}
 /* Philippe */
 
