@@ -88,7 +88,7 @@ $propositionStatements->execute();
                                 <div class="thumbnail">
 
 
-                                    <a href="http://localhost/MesPhp/Projet/projetWEB/src/catalogue.php?nomLogement=<?php echo urlencode($proposition[2]) ?>&categorie=Tous&startSearch=&endSearch=">
+                                    <a href="catalogue.php?nomLogement=<?php echo urlencode($proposition[2]) ?>&categorie=Tous&startSearch=&endSearch=">
 
 
                                         <img class="imgCatalogue" src=" <?php echo $proposition[0] ?> "
@@ -133,6 +133,7 @@ $propositionStatements->execute();
 
     </div>
 </div>
+
 <div id="footer">
     <div class="container">
         <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>

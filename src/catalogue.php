@@ -110,7 +110,7 @@ $categorie->execute();
                 <div class="form-group">
                     <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
 
-                           placeholder="Nom du Logement" <?php if (!empty($_GET['nomLogement'])) echo "value=\" . urldecode($_GET['nomLogement']) . \" "; ?>>
+                           placeholder="Nom du Logement" <?php if (!empty($_GET['nomLogement'])) echo "value=\"" . urldecode($_GET['nomLogement']) . "\""; ?>>
 
                 </div>
 
