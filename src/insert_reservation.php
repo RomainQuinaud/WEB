@@ -19,9 +19,27 @@ $verifdateStatements->bindParam(':mondebut', $_POST['start']);
 $verifdateStatements->bindParam(':mafin', $_POST['end']);
 $verifdateStatements->bindParam(':logement', $_POST['logement']);
 $verifdateStatements->execute();
-if ($verifdateStatements->rowCOunt() > 0)
+if ($verifdateStatements->rowCOunt() > 0) {
     echo 'Disponible';
-else echo 'Non Disponible';
+    $insert = $pdo->prepare("
+            INSERT INTO reservation(idutilisateur,idlogement,datereservation,datedebut,datefin)
+            VALUES (  (SELECT idutilisateur FROM utilisateur WHERE loginutilisateur=:login),
+                      (SELECT nomlogement FROM logement WHERE nomlogement=:logement),
+                      CURRENT_TIMESTAMP,
+                      :mondebut,
+                      :mafin
+                    )");
+    $insert->bindParam(':login', $_SESSION['login']);
+    $insert->bindParam(':mondebut', $_POST['start']);
+    $insert->bindParam(':mafin', $_POST['end']);
+    $insert->bindParam(':logement', $_POST['logement']);
+    $insert->execute();
+} else {
+    header('Location: index.php');
+}
+
+
+
 
 
 
