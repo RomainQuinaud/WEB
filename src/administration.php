@@ -51,6 +51,7 @@ $utilisateurTable->execute();
         <div class="text-center">
             <h1 class="modal-header">Base de Données</h1>
             <table class="table table-striped">
+                <h3>Table Camping</h3>
                 <thead>
                 <tr>
                     <th>idcamping</th>
@@ -81,6 +82,166 @@ $utilisateurTable->execute();
                 </tbody>
 
             </table>
+            <table class="table table-striped">
+                <h3>Table Categorie</h3>
+                <thead>
+                <tr>
+                    <th>idcateorie</th>
+                    <th>libellecategorie</th>
+                    <th>prixcategorie</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                while ($categorie = $categorieTable->fetch()) {
+                    ?>
+                    <tr>
+                        <?php
+                        for ($i = 0; $i < 3; $i++) {
+                            ?>
+                            <td> <?php echo $categorie[$i]; ?> </td>
+                        <?php
+                        }
+                        ?>
+                    </tr>
+                <?php
+                }
+                ?>
+
+                </tbody>
+
+            </table>
+            <table class="table table-striped">
+                <h3>Table Logement</h3>
+                <thead>
+                <tr>
+                    <th>idlogement</th>
+                    <th>nomcategorie</th>
+                    <th>nomlogement</th>
+                    <th>idcamping</th>
+                    <th>image</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                while ($logement = $logementTable->fetch()) {
+                    ?>
+                    <tr>
+                        <?php
+                        for ($i = 0; $i < 4; $i++) {
+                            ?>
+                            <td> <?php echo $logement[$i]; ?> </td>
+                        <?php
+                        }
+                        ?>
+                    </tr>
+                <?php
+                }
+                ?>
+
+                </tbody>
+
+            </table>
+            <table class="table table-striped">
+                <h3>Table Prix_Periode</h3>
+                <thead>
+                <tr>
+                    <th>mois</th>
+                    <th>jour</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                while ($prix_periode = $prix_periodeTable->fetch()) {
+                    ?>
+                    <tr>
+                        <?php
+                        for ($i = 0; $i < 2; $i++) {
+                            ?>
+                            <td> <?php echo $prix_periode[$i]; ?> </td>
+                        <?php
+                        }
+                        ?>
+                    </tr>
+                <?php
+                }
+                ?>
+
+                </tbody>
+
+            </table>
+            <table class="table table-striped">
+                <h3>Table Reservation</h3>
+                <thead>
+                <tr>
+                    <th>numreservation</th>
+                    <th>idUTILISATEUR</th>
+                    <th>idlogement</th>
+                    <th>datereservation</th>
+                    <th>datedebut</th>
+                    <th>datefin</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                while ($reservation = $reservationTable->fetch()) {
+                    ?>
+                    <tr>
+                        <?php
+                        for ($i = 0; $i < 6; $i++) {
+                            ?>
+                            <td> <?php echo $reservation[$i]; ?> </td>
+                        <?php
+                        }
+                        ?>
+                    </tr>
+                <?php
+                }
+                ?>
+
+                </tbody>
+
+            </table>
+            <table class="table table-striped">
+                <h3>Table Utilisateur</h3>
+                <thead>
+                <tr>
+                    <th>idUTILISATEUR</th>
+                    <th>loginUTILISATEUR</th>
+                    <th>nomUTILISATEUR</th>
+                    <th>prenomUTILISATEUR</th>
+                    <th>telephoneUTILISATEUR</th>
+                    <th>mailUTILISATEUR</th>
+                    <th>departementUTILISATEUR</th>
+                    <th>mdpUTILISATEUR</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+
+                while ($utilisateur = $utilisateurTable->fetch()) {
+                    ?>
+                    <tr>
+                        <?php
+                        for ($i = 0; $i < 8; $i++) {
+                            ?>
+                            <td> <?php echo $utilisateur[$i]; ?> </td>
+                        <?php
+                        }
+                        ?>
+                    </tr>
+                <?php
+                }
+                ?>
+
+                </tbody>
+
+            </table>
+
         </div>
     </div>
 </div>
