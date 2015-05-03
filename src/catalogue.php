@@ -135,8 +135,10 @@ $categorie->execute();
                                     <div class="hidden" id="resaMenu_<?php echo $toto[0] ?>">
                                         <form class="form-inline" id="date" method="POST"
                                               action="insert_reservation.php">
-
-
+                                            <div class="form-group">
+                                                <input type="text" id="logement" name="logement"
+                                                       value="<?php echo $toto[0] ?>" class="hidden" readonly>
+                                            </div>
                                             <div class="input-daterange input-group" id="datepicker">
                                                 <span class="input-group-addon">Du</span>
                                                 <input type="text" class="input-sm form-control" name="start"/>
@@ -214,10 +216,10 @@ $categorie->execute();
             clearBtn: true,
             language: "fr",
             forceParse: false,
-            daysOfWeekDisabled: "0,1,2,3,4,5",
+            /* daysOfWeekDisabled: "0,1,2,3,4,5",*/
             autoclose: true,
             todayHighlight: true,
-            datesDisabled: ['05/06/2015', '05/21/2015']
+            /* datesDisabled: ['05/06/2015', '05/21/2015']*/
         });
 
     });
