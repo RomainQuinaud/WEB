@@ -73,9 +73,11 @@ $reservationStatements->execute();
                         ?>
                         <tr>
                             <?php
-                            for ($i = 0; $i < 8; $i++)
-                                echo '<td>' . $reservation[$i] . '</td>';
-
+                            for ($i = 0; $i < 8; $i++) {
+                                ?>
+                                <td <?php if ($reservation[1] - DateTime > 0) echo 'class="success"'; else echo 'class="warning"'; ?> > <?php echo $reservation[$i] ?> </td>
+                            <?php
+                            }
                             ?>
                         </tr>
                     <?php

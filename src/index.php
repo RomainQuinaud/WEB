@@ -6,7 +6,7 @@ if (!isset($_SESSION['login']))
 include 'BDD_connect.php';
 $reservationStatements = $pdo->prepare("
                 SELECT datedebut,datefin,nomlogement,libellecategorie,nomcamping, villecamping,adressecamping,departementcamping
-                from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur=:login ");
+                from utilisateur natural join reservation natural join logement natural join categorie natural join camping where loginUtilisateur=:login and DATEDIFF(datefin,CURRENT_DATE )> 0");
 $reservationStatements->bindParam(':login', $_SESSION['login']);
 $reservationStatements->execute();
 
