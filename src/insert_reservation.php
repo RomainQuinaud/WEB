@@ -12,17 +12,17 @@ $idlogement=$logementStatements->fetch();
 
 
 //Cette requete donne tous les logements non reserve
-$verifdateStatements = $pdo->prepare("SELECT * FROM logement NATURAL JOIN reservation WHERE nomlogement=:logement AND :mondebut<:mafin and MOD(DATEDIFF(:mafin,:mondebut),7)=0
-                                                      AND ((:mondebut>datedebut AND :mondebut<datefin)
-                                                      OR (:mafin>datedebut AND :mafin<datefin))");
+$verifdateStatements = $pdo->prepare("SELECT * FROM logement NATURAL JOIN reservation WHERE nomlogement=:logement AND :mondebut < :mafin and MOD(DATEDIFF(:mafin,:mondebut),7)=0
+                                                      AND ((:mondebut>datedebut AND :mondebut < datefin)
+                                                      OR (:mafin>datedebut AND :mafin < datefin))");
 
 $verifdateStatements->bindParam(':mondebut', $_POST['start']);
 $verifdateStatements->bindParam(':mafin', $_POST['end']);
 $verifdateStatements->bindParam(':logement', $_POST['logement']);
 $verifdateStatements->execute();
 
-echo $verifdateStatements->rowCOunt();
-if ($verifdateStatements->rowCOunt() == 0) {
+echo $verifdateStatements->rowCount();
+if ($verifdateStatements->rowCount() == 0) {
     echo 'Disponible';
     $insert = $pdo->prepare("
             INSERT INTO reservation(idutilisateur,idlogement,datereservation,datedebut,datefin)
