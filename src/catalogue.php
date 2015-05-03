@@ -15,50 +15,50 @@ $queryDispo = "SELECT idlogement FROM logement NATURAL JOIN reservation WHERE :m
                                                         OR (datedebut = :mondebut AND :mafin = datefin) OR (datedebut < :mafin and datedebut> :mondebut) or (datefin > :mondebut and datefin < :mafin))";
 
 
-if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS" && !empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+if (!empty($_GET['nomLogement']) && !empty($_GET['categorie']) && $_GET['categorie'] != "Tous" && !empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement and idlogement not in (" . $queryDispo . ")";
 
     $catalogueStatements = $pdo->prepare($sql);
 
-    $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':nomlogement' => '%' . $_POST['nomLogement'] . '%', ':mondebut' => $_POST['startSearch'], ':mafin' => $_POST['endSearch']));
-} else if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
+    $catalogueStatements->execute(array(':categorie' => $_GET['categorie'], ':nomlogement' => '%' . $_GET['nomLogement'] . '%', ':mondebut' => $_GET['startSearch'], ':mafin' => $_GET['endSearch']));
+} else if (!empty($_GET['nomLogement']) && !empty($_GET['categorie']) && $_GET['categorie'] != "Tous") {
     $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement";
 
     $catalogueStatements = $pdo->prepare($sql);
 
-    $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':nomlogement' => '%' . $_POST['nomLogement'] . '%'));
-} else if (!empty($_POST['categorie']) && $_POST['categorie'] != "TOUS" && !empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+    $catalogueStatements->execute(array(':categorie' => $_GET['categorie'], ':nomlogement' => '%' . $_GET['nomLogement'] . '%'));
+} else if (!empty($_GET['categorie']) && $_GET['categorie'] != "Tous" && !empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE libellecategorie=:categorie and idlogement not in (" . $queryDispo . ")";
 
     $catalogueStatements = $pdo->prepare($sql);
 
-    $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':mondebut' => $_POST['startSearch'], ':mafin' => $_POST['endSearch']));
-} else if (!empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
+    $catalogueStatements->execute(array(':categorie' => $_GET['categorie'], ':mondebut' => $_GET['startSearch'], ':mafin' => $_GET['endSearch']));
+} else if (!empty($_GET['categorie']) && $_GET['categorie'] != "Tous") {
     $sql .= " WHERE libellecategorie=:categorie";
 
     $catalogueStatements = $pdo->prepare($sql);
 
-    $catalogueStatements->execute(array(':categorie' => $_POST['categorie']));
-} else if (!empty($_POST['nomLogement']) && !empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+    $catalogueStatements->execute(array(':categorie' => $_GET['categorie']));
+} else if (!empty($_GET['nomLogement']) && !empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE nomlogement LIKE :nomlogement and idlogement not in (" . $queryDispo . ")";
 
     $catalogueStatements = $pdo->prepare($sql);
 
-    $catalogueStatements->execute(array(':nomlogement' => '%' . $_POST['nomLogement'] . '%', ':mondebut' => $_POST['startSearch'], ':mafin' => $_POST['endSearch']));
-} else if (!empty($_POST['nomLogement'])) {
+    $catalogueStatements->execute(array(':nomlogement' => '%' . $_GET['nomLogement'] . '%', ':mondebut' => $_GET['startSearch'], ':mafin' => $_GET['endSearch']));
+} else if (!empty($_GET['nomLogement'])) {
     $sql .= " WHERE nomlogement LIKE :nomlogement and idlogement";
 
     $catalogueStatements = $pdo->prepare($sql);
 
-    $catalogueStatements->execute(array(':nomlogement' => '%' . $_POST['nomLogement'] . '%'));
-} else if (!empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+    $catalogueStatements->execute(array(':nomlogement' => '%' . $_GET['nomLogement'] . '%'));
+} else if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE idlogement not in (" . $queryDispo . ")";
 
     $catalogueStatements = $pdo->prepare($sql);
 
-    $catalogueStatements->bindParam(':mondebut', $_POST['startSearch']);
+    $catalogueStatements->bindParam(':mondebut', $_GET['startSearch']);
 
-    $catalogueStatements->bindParam(':mafin', $_POST['endSearch']);
+    $catalogueStatements->bindParam(':mafin', $_GET['endSearch']);
 
     $catalogueStatements->execute();
 } else {
@@ -103,13 +103,14 @@ $categorie->execute();
         <div class="text-center">
             <h1 class="modal-header">Catalogue des logements</h1>
 
-            <form class="form-inline" method="POST" action="catalogue.php">
+            <form class="form-inline" method="GET" action="catalogue.php">
 
 
 
                 <div class="form-group">
                     <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
-                           placeholder="Nom du Logement" <?php if (!empty($_POST['nomLogement'])) echo "value=" . $_POST['nomLogement'] . ""; ?>>
+
+                           placeholder="Nom du Logement" <?php if (!empty($_GET['nomLogement'])) echo "value=" . urldecode($_GET['nomLogement']) . ""; ?>>
 
                 </div>
 
@@ -119,13 +120,13 @@ $categorie->execute();
                     <select class="form-control" id="categorie" name="categorie">
 
                         <option
-                            value="TOUS" <?php if (!empty($_POST['categorie']) && $_POST['categorie'] == "TOUS") echo "selected"; ?> >
+                            value="Tous" <?php if (!empty($_GET['categorie']) && $_GET['categorie'] == "Tous") echo "selected"; ?> >
                             Tous
                         </option>
                         <?php while ($libelle = $categorie->fetch()) { ?>
 
                             <option
-                                value="<?php echo $libelle[0] ?>" <?php if (!empty($_POST['categorie']) && $_POST['categorie'] == $libelle[0]) echo "selected"; ?> > <?php echo $libelle[0] ?> </option>
+                                value="<?php echo $libelle[0] ?>" <?php if (!empty($_GET['categorie']) && $_GET['categorie'] == $libelle[0]) echo "selected"; ?> > <?php echo $libelle[0] ?> </option>
 
                         <?php } ?>
 
@@ -135,10 +136,10 @@ $categorie->execute();
                 <div class="input-daterange input-group" id="datepicker">
                     <span class="input-group-addon">Du</span>
                     <input type="text" class="input-sm form-control"
-                           name="startSearch" <?php if (!empty($_POST['startSearch'])) echo "value=" . $_POST['startSearch'] . ""; ?>>
+                           name="startSearch" <?php if (!empty($_GET['startSearch'])) echo "value=" . $_GET['startSearch'] . ""; ?>>
                     <span class="input-group-addon">Au</span>
                     <input type="text" class="input-sm form-control"
-                           name="endSearch" <?php if (!empty($_POST['endSearch'])) echo "value=" . $_POST['endSearch'] . ""; ?>>
+                           name="endSearch" <?php if (!empty($_GET['endSearch'])) echo "value=" . $_GET['endSearch'] . ""; ?>>
                 </div>
 
                 <div class="form-group">

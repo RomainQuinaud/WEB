@@ -78,26 +78,40 @@ $propositionStatements->execute();
                             ?> <p> Il n'y a aucune proposition à afficher</p>
                         <?php
                         } else {
-
+                            ?>
+                            <div class="center-block">
+                                <?php
                             while ($proposition = $propositionStatements->fetch()) { ?>
 
+
+
                                 <div class="thumbnail">
-                                    <h1><?php echo $proposition[1] ?></h1>
-                                    <img class="imgCatalogue" src=" <?php echo $proposition[0] ?> "
+
+
+                                    <a href="http://localhost/MesPhp/Projet/projetWEB/src/catalogue.php?nomLogement=<?php echo urlencode($proposition[2]) ?>&categorie=Tous&startSearch=&endSearch=">
+
+
+                                        <img class="imgCatalogue" src=" <?php echo $proposition[0] ?> "
                                          alt="Photographie du logement <?php echo $proposition[2] ?>">
 
                                     <div class="caption">
                                         <h3><?php echo $proposition[2] ?></h3>
-                                <?php
-                                for ($i = 3; $i < 4; $i++)
-                                    echo $proposition[$i] . '<br>';
-                                ?>
+                                        <?php
+                                        for ($i = 3; $i < 4; $i++)
+                                            echo $proposition[$i] . '<br>';
+                                        ?>
                                     </div>
+
+                                    </a>
                                 </div>
-                                <?php
+
+
+
+                            <?php
                             }
+                                ?> </div> <?php
                         }
-                                ?>
+                        ?>
 
 
                     </div>
