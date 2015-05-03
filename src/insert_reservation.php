@@ -20,9 +20,9 @@ $verifdateStatements->bindParam(':mafin', $_POST['end']);
 $verifdateStatements->bindParam(':logement', $_POST['logement']);
 $verifdateStatements->execute();
 
-echo $verifdateStatements->rowCount();
+
 if ($verifdateStatements->rowCount() == 0) {
-    echo 'Disponible';
+
     $insert = $pdo->prepare("
             INSERT INTO reservation(idutilisateur,idlogement,datereservation,datedebut,datefin)
             VALUES (  (SELECT idutilisateur FROM utilisateur WHERE loginutilisateur=:login),
