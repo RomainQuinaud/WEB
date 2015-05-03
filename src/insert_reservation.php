@@ -1,10 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Romain QUINAUD
- * Date: 02/05/2015
- * Time: 19:12
- */
+session_start();
+
+include 'BDD_connect.php';
 
 
-echo $_GET['nom'];
+//Cette requetedonne tous les logements deja reservés pour cette période
+$verifdate = $pdo->prepare("SELECT idlogement FROM logement NATURAL JOIN reservation
+                          WHERE (datedebut<:mondebut AND datefin>:mafin)
+                          OR (datefin>:mondebut AND datefin<:mafin)
+                          OR (datedebut<:mondebut AND datedebut>:mafin)");
+$verifdate->bindParam(':mondebut', $_POST['start']);
+$verifdate->bindParam(':mafin', $_POST['end']);
+$verifdate->execute();
+

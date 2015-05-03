@@ -27,9 +27,6 @@ if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['cate
 }
 
 
-
-
-
 $categorie = $pdo->prepare("
 SELECT libellecategorie
 FROM categorie");
@@ -130,17 +127,14 @@ $categorie->execute();
                                     for ($i = 1; $i < 3; $i++)
                                         echo $toto[$i] . '<br>'; ?>
 
-
-
-
-
                                     <button onClick="reserver('<?php echo $toto[0] ?>')" class="btn btn-default "
                                             type="button" id="appearMenu">
                                         Réserver ce logement
 
                                     </button>
                                     <div class="hidden" id="resaMenu_<?php echo $toto[0] ?>">
-                                        <form class="form-inline" id="date">
+                                        <form class="form-inline" id="date" method="POST"
+                                              action="insert_reservation.php">
 
 
                                             <div class="input-daterange input-group" id="datepicker">
