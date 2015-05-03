@@ -23,12 +23,11 @@ $randomId3 = rand(1, $catalogueStatements->rowCount());
 
 
 $propositionStatements = $pdo->prepare("
-                SELECT nomcamping,nomlogement,libellecategorie,prixcategorie
-                FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login AND (idlogement=:random1 OR idlogement=:random2 OR idlogement=:random3)"); // ajouter WHERE idlogmement=rand()...
+                SELECT image,nomcamping,nomlogement,libellecategorie,prixcategorie
+                FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login AND (idlogement=:random1 OR idlogement=:random2)");
 $propositionStatements->bindParam(':login', $_SESSION['login']);
 $propositionStatements->bindParam(':random1', $randomId1);
 $propositionStatements->bindParam(':random2', $randomId2);
-$propositionStatements->bindParam(':random3', $randomId3);
 $propositionStatements->execute();
 
 
@@ -68,88 +67,77 @@ $propositionStatements->execute();
 
             <h1>Bienvenue sur CampFind</h1>
 
-            <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br>
+            <p class="lead">La réservation d'un logement n'a jamais été aussi simple<br></p>
 
             <div class="row">
                 <div class="col-sm-9 blog-main">
                     <div class="blog-post">
                         <h2 class="blog-post-titre">Proposition</h2>
+
                         <?php if ($propositionStatements->rowCount() == 0) {
                             ?> <p> Il n'y a aucune proposition à afficher</p>
                         <?php
                         } else {
-                            ?>
 
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Nom du Camping</th>
-                                    <th>Nom du Logement</th>
-                                    <th>Type de Logemment</th>
-                                    <th>À partir de: (Prix par nuit)</th>
+                            while ($proposition = $propositionStatements->fetch()) { ?>
 
-                                </tr>
-                                </thead>
-                                <tbody>
+                                <div class="thumbnail">
+                                    <h1><?php echo $proposition[1] ?></h1>
+                                    <img class="imgCatalogue" src=" <?php echo $proposition[0] ?> "
+                                         alt="Photographie du logement <?php echo $proposition[2] ?>">
+
+                                    <div class="caption">
+                                        <h3><?php echo $proposition[2] ?></h3>
                                 <?php
-
-                                while ($proposition = $propositionStatements->fetch()) {
-                                    ?>
-                                    <tr>
-                                        <?php
-                                        for ($i = 0; $i < 4; $i++)
-                                            echo '<td>' . $proposition[$i] . '</td>';
-
-                                        ?>
-                                    </tr>
-                                <?php
-                                }
+                                for ($i = 3; $i < 4; $i++)
+                                    echo $proposition[$i] . '<br>';
                                 ?>
-                                </tbody>
-
-                            </table>
-                        <?php
+                                    </div>
+                                </div>
+                                <?php
+                            }
                         }
-                        ?>
-                    </div>
-                </div>
-                <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
-                    <div class="sidebar-module sidebar-module-inset">
-                        <div class="sidebar-module">
-                            <h2>Notifications</h2>
+                                ?>
 
-                            <p>Vous avez <a href=reservation.php> <?php echo $reservationStatements->rowCount() ?> </a>
-                                réservation(s) en cours.</p>
+
+                    </div>
+                    <div class="col-sm-2 col-sm-offset-1 blog-sidebar">
+                        <div class="sidebar-module sidebar-module-inset">
+                            <div class="sidebar-module">
+                                <h2>Notifications</h2>
+
+                                <p>Vous avez <a
+                                        href=reservation.php> <?php echo $reservationStatements->rowCount() ?> </a>
+                                    réservation(s) en cours.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>
+                    </div>
+                </div>
+        <!-- /.container -->
+
+        <!-- Bootstrap core JavaScript
+
+        ================================================== -->
+
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <script src="../js/bootstrap.min.js"></script>
+
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+        <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     </div>
 </div>
-
-<div id="footer">
-    <div class="container">
-        <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>
-    </div>
-</div>
-<!-- /.container -->
-
-<!-- Bootstrap core JavaScript
-
-================================================== -->
-
-<!-- Placed at the end of the document so the pages load faster -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<script src="../js/bootstrap.min.js"></script>
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
 </body>
 
 </html>
