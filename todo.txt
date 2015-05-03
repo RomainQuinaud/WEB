@@ -1,17 +1,3 @@
- !!!!!!!! GÈrer les prix !!!!!!!!!!!!
-	!!!!!!!!!!!!!!!!!!
-
-Date debut- Date fin  : DATEPICKER
-Recherche type categorie
-Recherche par nom du logement
-
-
-/* Tri par nom logement Croissant/DÈcroissant
-Tri par Prix Croissant/DÈcroissant*/
-
-
-/* Recherche par fourchette de tri */
-
-
-
-
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!ATTENTION A LA RECHERCHE SI RESERVATION DU 1 AU 8 et du 8 au 15, r√©servation du 1 au 15 FONCTIONNE !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

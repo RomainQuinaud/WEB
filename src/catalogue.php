@@ -10,6 +10,15 @@ $sql = "SELECT nomlogement,libellecategorie,prixcategorie,image
 $catalogueStatements = $pdo->prepare($sql);
 
 
+$queryDispo = "SELECT idlogement FROM logement NATURAL JOIN reservation WHERE :mondebut < :mafin and MOD(DATEDIFF(:mafin,:mondebut),7)=0
+                                                     AND ((datedebut < :mondebut AND :mondebut < datefin ) OR (datedebut < :mafin AND :mafin < datefin)
+                                                        OR (datedebut = :mondebut AND :mafin = datefin))";
+
+
+
+
+
+
 if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
     $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement";
     $catalogueStatements = $pdo->prepare($sql);
@@ -22,9 +31,16 @@ if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['cate
     $sql .= " WHERE nomlogement LIKE ?";
     $catalogueStatements = $pdo->prepare($sql);
     $catalogueStatements->execute(array('%' . $_POST['nomLogement'] . '%'));
+} else if (!empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+    $sql .= " WHERE idlogement not in (" . $queryDispo . ")";
+    $catalogueStatements = $pdo->prepare($sql);
+    $catalogueStatements->bindParam(':mondebut', $_POST['startSearch']);
+    $catalogueStatements->bindParam(':mafin', $_POST['endSearch']);
+    $catalogueStatements->execute();
 } else {
     $catalogueStatements->execute();
 }
+
 
 
 $categorie = $pdo->prepare("
@@ -90,9 +106,9 @@ $categorie->execute();
 
                 <div class="input-daterange input-group" id="datepicker">
                     <span class="input-group-addon">Du</span>
-                    <input type="text" class="input-sm form-control" name="start"/>
+                    <input type="text" class="input-sm form-control" name="startSearch"/>
                     <span class="input-group-addon">Au</span>
-                    <input type="text" class="input-sm form-control" name="end"/>
+                    <input type="text" class="input-sm form-control" name="endSearch"/>
                 </div>
 
                 <div class="form-group">
