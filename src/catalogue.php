@@ -117,62 +117,62 @@ $categorie->execute();
 
                     <div class="center-block">
                         <?php
-                    while ($toto = $catalogueStatements->fetch()) { ?>
+                        while ($toto = $catalogueStatements->fetch()) { ?>
 
 
-                        <div class="thumbnail">
-                            <img class="imgCatalogue" src=" <?php echo $toto[3] ?> "
-                                 alt="Photographie du logement <?php echo $toto[0] ?>">
+                            <div class="thumbnail">
+                                <img class="imgCatalogue" src=" <?php echo $toto[3] ?> "
+                                     alt="Photographie du logement <?php echo $toto[0] ?>">
 
-                            <div class="caption">
-                                <h3><?php echo $toto[0] ?></h3>
-                                <?php
-                                for ($i = 1; $i < 3; $i++)
-                                    echo $toto[$i] . '<br>'; ?>
-
-
+                                <div class="caption">
+                                    <h3><?php echo $toto[0] ?></h3>
+                                    <?php
+                                    for ($i = 1; $i < 3; $i++)
+                                        echo $toto[$i] . '<br>'; ?>
 
 
 
-                                <button onClick="reserver(<?php $toto[0] ?>" )
-                                " class="btn btn-default " type="button" id="appearMenu">
-                                Réserver ce logement
-
-                                </button>
-                                <div id="resaMenu_<?php echo $toto[0] ?>">
-                                    <form class="form-inline" id="date">
 
 
-                                        <div class="input-daterange input-group" id="datepicker">
-                                            <span class="input-group-addon">Du</span>
-                                            <input type="text" class="input-sm form-control" name="start"/>
-                                            <span class="input-group-addon">Au</span>
-                                            <input type="text" class="input-sm form-control" name="end"/>
-                                        </div>
+                                    <button onClick="reserver('<?php echo $toto[0] ?>')" class="btn btn-default "
+                                            type="button" id="appearMenu">
+                                        Réserver ce logement
 
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-default">Rechercher</button>
+                                    </button>
+                                    <div class="hidden" id="resaMenu_<?php echo $toto[0] ?>">
+                                        <form class="form-inline" id="date">
+
+
+                                            <div class="input-daterange input-group" id="datepicker">
+                                                <span class="input-group-addon">Du</span>
+                                                <input type="text" class="input-sm form-control" name="start"/>
+                                                <span class="input-group-addon">Au</span>
+                                                <input type="text" class="input-sm form-control" name="end"/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-default">Rechercher</button>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+
+
                                 </div>
-
-
-                                    </form>
-                                </div>
-
-
                             </div>
-                        </div>
 
 
-                    <?php }
+                        <?php }
                         ?>
-            </div>
+                    </div>
                 <?php
                 } ?>
 
+            </div>
+
+
         </div>
-
-
-    </div>
 
     </div>
 
@@ -195,10 +195,19 @@ $categorie->execute();
 <script src="../js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
 
-    function reserver(id) {
+    function reserver(toto) {
 
-        alert('id');
-        document.getElementById("resaMenu_").style.visibility = "hidden";
+        if (document.getElementById("resaMenu_" + toto).className.match("visible")) {
+            document.getElementById("resaMenu_" + toto).className = ("hidden");
+        }
+
+
+        else if
+        (document.getElementById("resaMenu_" + toto).className.match("hidden")) {
+            document.getElementById("resaMenu_" + toto).className = ("visible");
+        }
+
+
     }
 
     // When the document is ready

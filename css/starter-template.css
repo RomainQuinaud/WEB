@@ -120,5 +120,9 @@ html, body {
     padding-right: 15px;
 }
 
+.cache {
+    visibility: hidden;
+}
+
 /* Philippe */
 
