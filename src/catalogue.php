@@ -9,33 +9,57 @@ $sql = "SELECT nomlogement,libellecategorie,prixcategorie,image
                 FROM logement NATURAL JOIN categorie";
 $catalogueStatements = $pdo->prepare($sql);
 
-
+// affiche les case problématiques ( en concommittance avec les plages de reservation)
 $queryDispo = "SELECT idlogement FROM logement NATURAL JOIN reservation WHERE :mondebut < :mafin and MOD(DATEDIFF(:mafin,:mondebut),7)=0
                                                      AND ((datedebut < :mondebut AND :mondebut < datefin ) OR (datedebut < :mafin AND :mafin < datefin)
-                                                        OR (datedebut = :mondebut AND :mafin = datefin))";
+                                                        OR (datedebut = :mondebut AND :mafin = datefin) OR (datedebut < :mafin and datedebut> :mondebut) or (datefin > :mondebut and datefin < :mafin))";
 
 
+if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS" && !empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+    $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement and idlogement not in (" . $queryDispo . ")";
 
-
-
-
-if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
-    $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement";
     $catalogueStatements = $pdo->prepare($sql);
+
+    $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':nomlogement' => '%' . $_POST['nomLogement'] . '%', ':mondebut' => $_POST['startSearch'], ':mafin' => $_POST['endSearch']));
+} else if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
+    $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement";
+
+    $catalogueStatements = $pdo->prepare($sql);
+
     $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':nomlogement' => '%' . $_POST['nomLogement'] . '%'));
+} else if (!empty($_POST['categorie']) && $_POST['categorie'] != "TOUS" && !empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+    $sql .= " WHERE libellecategorie=:categorie and idlogement not in (" . $queryDispo . ")";
+
+    $catalogueStatements = $pdo->prepare($sql);
+
+    $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':mondebut' => $_POST['startSearch'], ':mafin' => $_POST['endSearch']));
 } else if (!empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
     $sql .= " WHERE libellecategorie=:categorie";
+
     $catalogueStatements = $pdo->prepare($sql);
+
     $catalogueStatements->execute(array(':categorie' => $_POST['categorie']));
-} else if (!empty($_POST['nomLogement'])) {
-    $sql .= " WHERE nomlogement LIKE ?";
+} else if (!empty($_POST['nomLogement']) && !empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
+    $sql .= " WHERE nomlogement LIKE :nomlogement and idlogement not in (" . $queryDispo . ")";
+
     $catalogueStatements = $pdo->prepare($sql);
-    $catalogueStatements->execute(array('%' . $_POST['nomLogement'] . '%'));
+
+    $catalogueStatements->execute(array(':nomlogement' => '%' . $_POST['nomLogement'] . '%', ':mondebut' => $_POST['startSearch'], ':mafin' => $_POST['endSearch']));
+} else if (!empty($_POST['nomLogement'])) {
+    $sql .= " WHERE nomlogement LIKE :nomlogement and idlogement";
+
+    $catalogueStatements = $pdo->prepare($sql);
+
+    $catalogueStatements->execute(array(':nomlogement' => '%' . $_POST['nomLogement'] . '%'));
 } else if (!empty($_POST['startSearch']) && !empty($_POST['endSearch'])) {
     $sql .= " WHERE idlogement not in (" . $queryDispo . ")";
+
     $catalogueStatements = $pdo->prepare($sql);
+
     $catalogueStatements->bindParam(':mondebut', $_POST['startSearch']);
+
     $catalogueStatements->bindParam(':mafin', $_POST['endSearch']);
+
     $catalogueStatements->execute();
 } else {
     $catalogueStatements->execute();
@@ -85,7 +109,7 @@ $categorie->execute();
 
                 <div class="form-group">
                     <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
-                           placeholder="Nom du Logement">
+                           placeholder="Nom du Logement" <?php if (!empty($_POST['nomLogement'])) echo "value=" . $_POST['nomLogement'] . ""; ?>>
 
                 </div>
 
@@ -94,10 +118,14 @@ $categorie->execute();
 
                     <select class="form-control" id="categorie" name="categorie">
 
-                        <option value="TOUS"> Tous</option>
+                        <option
+                            value="TOUS" <?php if (!empty($_POST['categorie']) && $_POST['categorie'] == "TOUS") echo "selected"; ?> >
+                            Tous
+                        </option>
                         <?php while ($libelle = $categorie->fetch()) { ?>
 
-                            <option value="<?php echo $libelle[0] ?>"> <?php echo $libelle[0] ?> </option>
+                            <option
+                                value="<?php echo $libelle[0] ?>" <?php if (!empty($_POST['categorie']) && $_POST['categorie'] == $libelle[0]) echo "selected"; ?> > <?php echo $libelle[0] ?> </option>
 
                         <?php } ?>
 
@@ -106,9 +134,11 @@ $categorie->execute();
 
                 <div class="input-daterange input-group" id="datepicker">
                     <span class="input-group-addon">Du</span>
-                    <input type="text" class="input-sm form-control" name="startSearch"/>
+                    <input type="text" class="input-sm form-control"
+                           name="startSearch" <?php if (!empty($_POST['startSearch'])) echo "value=" . $_POST['startSearch'] . ""; ?>>
                     <span class="input-group-addon">Au</span>
-                    <input type="text" class="input-sm form-control" name="endSearch"/>
+                    <input type="text" class="input-sm form-control"
+                           name="endSearch" <?php if (!empty($_POST['endSearch'])) echo "value=" . $_POST['endSearch'] . ""; ?>>
                 </div>
 
                 <div class="form-group">
@@ -237,10 +267,9 @@ $categorie->execute();
             clearBtn: true,
             language: "fr",
             forceParse: false,
-            /* daysOfWeekDisabled: "0,1,2,3,4,5",*/
+            daysOfWeekDisabled: "0,1,2,3,4,5",
             autoclose: true,
-            todayHighlight: true,
-            /* datesDisabled: ['05/06/2015', '05/21/2015']*/
+            todayHighlight: true
         });
 
     });
