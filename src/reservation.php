@@ -75,7 +75,7 @@ $reservationStatements->execute();
                             <?php
                             for ($i = 0; $i < 8; $i++) {
                                 ?>
-                                <td <?php if ($reservation[1] - DateTime > 0) echo 'class="success"'; else echo 'class="warning"'; ?> > <?php echo $reservation[$i] ?> </td>
+                                <td <?php if (DateTime::createFromFormat("Y-m-d", $reservation[1]) > new DateTime()) echo "class= \" success \" "; else echo "class=\"danger\""; ?> > <?php echo $reservation[$i] ?> </td>
                             <?php
                             }
                             ?>
@@ -89,11 +89,24 @@ $reservationStatements->execute();
             <?php
             }
             ?>
+                <div class="text-center legend">
+                    Légendes
+                    <div class="bg-success">
+
+                        Réservations à venir
+                    </div>
+                    <div class="bg-danger">
+
+                        Réservations passées
+                    </div>
+                </div>
             </div>
+
 
         </div>
     </div>
 </div>
+
 
 <div id="footer">
     <div class="container">
