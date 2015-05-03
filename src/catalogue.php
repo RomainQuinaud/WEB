@@ -13,19 +13,13 @@ $catalogueStatements = $pdo->prepare($sql);
 if (!empty($_POST['nomLogement']) && !empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
     $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement";
     $catalogueStatements = $pdo->prepare($sql);
-    $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
-
     $catalogueStatements->execute(array(':categorie' => $_POST['categorie'], ':nomlogement' => '%' . $_POST['nomLogement'] . '%'));
-
-
 } else if (!empty($_POST['categorie']) && $_POST['categorie'] != "TOUS") {
     $sql .= " WHERE libellecategorie=:categorie";
     $catalogueStatements = $pdo->prepare($sql);
-    $catalogueStatements->bindParam(':categorie', $_POST['categorie']);
-    $catalogueStatements->execute();
+    $catalogueStatements->execute(array(':categorie' => $_POST['categorie']));
 } else if (!empty($_POST['nomLogement'])) {
     $sql .= " WHERE nomlogement LIKE ?";
-
     $catalogueStatements = $pdo->prepare($sql);
     $catalogueStatements->execute(array('%' . $_POST['nomLogement'] . '%'));
 } else {
@@ -126,38 +120,29 @@ $categorie->execute();
                     while ($toto = $catalogueStatements->fetch()) { ?>
 
 
-                            <div class="thumbnail">
-                                <img class="imgCatalogue" src=" <?php echo $toto[3] ?> "
-                                     alt="Photographie du logement <?php echo $toto[0] ?>">
+                        <div class="thumbnail">
+                            <img class="imgCatalogue" src=" <?php echo $toto[3] ?> "
+                                 alt="Photographie du logement <?php echo $toto[0] ?>">
 
-                                <div class="caption">
-                                    <h3><?php echo $toto[0] ?></h3>
-                                    <?php
-                                    for ($i = 1; $i < 3; $i++)
-                                        echo $toto[$i] . '<br>'; ?>
+                            <div class="caption">
+                                <h3><?php echo $toto[0] ?></h3>
+                                <?php
+                                for ($i = 1; $i < 3; $i++)
+                                    echo $toto[$i] . '<br>'; ?>
 
-                                </div>
 
-                                <!--<p><a href="insert_reservation.php?nom=<?php echo $toto[0] ?>" class="btn btn-primary" role="button">Réserver ce logement</a>
-                                </p>-->
-                                <!--   <li class="dropdown" id="menuLogin">
-                                       <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login</a>
-                                       <div class="dropdown-menu" style="padding:17px;">
-                                           <form class="form" id="formLogin">
-                                               <input name="username" id="username" placeholder="Username" type="text">
-                                               <input name="password" id="password" placeholder="Password" type="password"><br>
-                                               <button type="button" id="btnLogin" class="btn">Login</button>
-                                           </form>
-                                       </div>
-                                   </li>-->
-                                <div class="dropdown">
-                                    <button class="btn btn-default" type="button" id="dropdownMenu1"
-                                            data-toggle="dropdown" aria-expanded="true">
-                                        Dropdown
-                                        <span class="caret"></span>
-                                    </button>
 
-                                    <form class="form-inline">
+
+
+                                <button onClick="reserver(<?php $toto[0] ?>" )
+                                " class="btn btn-default " type="button" id="appearMenu">
+                                Réserver ce logement
+
+                                </button>
+                                <div id="resaMenu_<?php echo $toto[0] ?>">
+                                    <form class="form-inline" id="date">
+
+
                                         <div class="input-daterange input-group" id="datepicker">
                                             <span class="input-group-addon">Du</span>
                                             <input type="text" class="input-sm form-control" name="start"/>
@@ -167,23 +152,27 @@ $categorie->execute();
 
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-default">Rechercher</button>
-                                        </div>
-                                    </form>
-
                                 </div>
+
+
+                                    </form>
+                                </div>
+
+
                             </div>
+                        </div>
 
 
                     <?php }
                         ?>
-                    </div>
+            </div>
                 <?php
                 } ?>
 
-            </div>
-
-
         </div>
+
+
+    </div>
 
     </div>
 
@@ -205,6 +194,13 @@ $categorie->execute();
 
 <script src="../js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
+
+    function reserver(id) {
+
+        alert('id');
+        document.getElementById("resaMenu_").style.visibility = "hidden";
+    }
+
     // When the document is ready
     $(document).ready(function () {
 
@@ -221,6 +217,8 @@ $categorie->execute();
         });
 
     });
+
+
 </script>
 
 
