@@ -11,19 +11,18 @@ $idlogement=$logementStatements->fetch();
 */
 
 
-
-//Cette requete donne tous les logements deja reservés pour la période sélectionnée
+//Cette requete donne tous les logements non reserve
 $verifdateStatements = $pdo->prepare("SELECT nomlogement FROM logement NATURAL JOIN reservation
-                          WHERE nomlogement=:logement AND ((datedebut<:mondebut AND datefin>:mafin)
-                          OR (datefin>:mondebut AND datefin<:mafin)
-                          OR (datedebut<:mondebut AND datedebut>:mafin))");
+                          WHERE nomlogement=:logement AND :mondebut<:mafin
+                                                      AND ((:mondebut<=datedebut AND :mafin<=datedebut)
+                                                      OR (:mondebut>=datedebut AND :mafin>=datefin))");
 $verifdateStatements->bindParam(':mondebut', $_POST['start']);
 $verifdateStatements->bindParam(':mafin', $_POST['end']);
 $verifdateStatements->bindParam(':logement', $_POST['logement']);
 $verifdateStatements->execute();
 if ($verifdateStatements->rowCOunt() > 0)
-    echo 'Non Disponible';
-else echo 'Disponible';
+    echo 'Disponible';
+else echo 'Non Disponible';
 
 
 
