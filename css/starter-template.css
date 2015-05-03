@@ -125,5 +125,11 @@ html, body {
     visibility: hidden;
 }
 
+.text-muted {
+    margin-top: 5px;
+    color: #21146B;
+    font-size: 15px;
+}
+
 /* Philippe */
 

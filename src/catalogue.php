@@ -66,6 +66,7 @@ $categorie->execute();
             <form class="form-inline" method="POST" action="catalogue.php">
 
 
+
                 <div class="form-group">
                     <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
                            placeholder="Nom du Logement">
@@ -97,7 +98,9 @@ $categorie->execute();
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Rechercher</button>
                 </div>
-
+                <div class="text-muted">Veuillez remplir ces champs pour connaitre la disponibilité des différents
+                    logements du camping
+                </div>
 
             </form>
 
@@ -135,7 +138,9 @@ $categorie->execute();
                                     <div class="hidden" id="resaMenu_<?php echo $toto[0] ?>">
                                         <form class="form-inline" id="date" method="POST"
                                               action="insert_reservation.php">
-                                            <div class="form-group">
+
+
+                                        <div class="form-group">
                                                 <input type="text" id="logement" name="logement"
                                                        value="<?php echo $toto[0] ?>" class="hidden" readonly>
                                             </div>
