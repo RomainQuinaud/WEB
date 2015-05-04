@@ -29,7 +29,6 @@ if(isset($_SESSION['login']))
       <div class="starter-template">
           <h1>CampFind</h1>
         <p class="lead"> Les vacances en quelques clics
-            <br><br> Connectez vous pour accéder à la réservation en ligne du CampFind</p>
 
 
 
