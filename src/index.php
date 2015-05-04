@@ -32,6 +32,7 @@ $propositionStatements->execute();
 
 
 
+
 ?>
 
 <!DOCTYPE html>

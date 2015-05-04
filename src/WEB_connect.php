@@ -2,7 +2,7 @@
 session_start();
 $errmsg_arr = array();
 $errflag = false;
-$sql = "SELECT mailUTILISATEUR,mdpUTILISATEUR,loginUTILISATEUR
+$sql = "SELECT mailUTILISATEUR,mdpUTILISATEUR,loginUTILISATEUR,admin
     FROM utilisateur ";
 include 'BDD_connect.php';
 
@@ -29,6 +29,7 @@ $rows = $result->fetch(PDO::FETCH_NUM);
 if($rows > 0 && password_verify($password,$rows[1])) {
 
     $_SESSION['login'] = $rows[2];
+    $_SESSION['admin'] = $rows[3];
     header("Location: index.php");
 
 }
