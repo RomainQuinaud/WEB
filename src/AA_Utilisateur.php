@@ -40,36 +40,36 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom </label>
-                    <input type="text" class="form-control" id="nom"
-                           value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
+                    <input type="text" class="form-control" id="nom" name="nom"
+                           value="<?php if (!empty($_GET['nom'])) echo $_GET['nom']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Prénom</label>
-                    <input type="text" class="form-control" id="mois"
-                           value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
+                    <input type="text" class="form-control" id="prenom" name="prenom"
+                           value="<?php if (!empty($_GET['prenom'])) echo $_GET['prenom']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Téléphone</label>
-                    <input type="text" class="form-control" id="mois"
-                           value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
+                    <input type="text" class="form-control" id="telephone" name="telephone"
+                           value="<?php if (!empty($_GET['telephone'])) echo $_GET['telephone']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Mail</label>
-                    <input type="text" class="form-control" id="mois"
-                           value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
+                    <input type="text" class="form-control" id="mail" name="mail"
+                           value="<?php if (!empty($_GET['mail'])) echo $_GET['mail']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Département</label>
-                    <input type="text" class="form-control" id="mois"
-                           value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
+                    <input type="text" class="form-control" id="departement" name="departement"
+                           value="<?php if (!empty($_GET['departement'])) echo $_GET['departement']; ?>"
                         >
                 </div>
 
