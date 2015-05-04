@@ -175,8 +175,7 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
                                             $somme += $ajout[0] + $toto[2];
 
 
-
-                                    }
+                                        }
                                         echo ($somme) . '€<br>';
 
                                     } else
