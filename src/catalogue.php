@@ -5,7 +5,7 @@ if (!isset($_SESSION['login']))
 
 
 include 'BDD_connect.php';
-$sql = "SELECT nomlogement,libellecategorie,prixcategorie,image
+$sql = "SELECT nomlogement,libellecategorie,image,prixcategorie
                 FROM logement NATURAL JOIN categorie";
 $catalogueStatements = $pdo->prepare($sql);
 
@@ -71,6 +71,10 @@ $categorie = $pdo->prepare("
 SELECT libellecategorie
 FROM categorie");
 $categorie->execute();
+if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
+    $datedebut = DateTime::createFromFormat("Y-m-d", $_GET['startSearch']);
+    $datefin = DateTime::createFromFormat("Y-m-d", $_GET['endSearch']);
+}
 ?>
 
 
@@ -154,7 +158,16 @@ $categorie->execute();
 
             <div class="row">
 
-                <?php if ($catalogueStatements->rowCount() == 0) {
+                <?php
+
+                $i = $_GET['startSearch'];
+                while ($i < $_GET['endSearch']) {
+                    //echo $i = $_GET['startSearch'];
+                    echo substr($i, 4, 5);
+                    //echo date("Y-m-d",$i = strtotime("+1 day", strtotime($i)));
+                }
+
+                if ($catalogueStatements->rowCount() == 0) {
                     ?>
                     <p> Le catalogue est actuellement indisponible. </p>
 
@@ -168,14 +181,29 @@ $categorie->execute();
 
 
                             <div class="thumbnail">
-                                <img class="imgCatalogue" src=" <?php echo $toto[3] ?> "
+                                <img class="imgCatalogue" src=" <?php echo $toto[2] ?> "
                                      alt="Photographie du logement <?php echo $toto[0] ?>">
 
                                 <div class="caption">
                                     <h3><?php echo $toto[0] ?></h3>
                                     <?php
-                                    for ($i = 1; $i < 3; $i++)
-                                        echo $toto[$i] . '<br>'; ?>
+                                    for ($i = 1; $i < 2; $i++)
+                                        echo $toto[$i] . '<br>';
+                                    /*
+                                                                    $date = strtotime("+1 day", strtotime("2016-02-28"));
+                                                                    echo date("Y-m-d", $date);
+                                    */
+                                    if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
+
+                                        $i = $_GET['startSearch'];
+                                        while ($i < $_GET['endSearch']) {
+
+                                            echo date("Y-m-d", $i = strtotime("+1 day", strtotime($i)));
+
+                                            //$mois = substr($i, 0, 4);
+                                        }
+                                    }
+                                    ?>
 
                                     <button onClick="reserver('<?php echo $toto[0] ?>')" class="btn btn-default "
                                             type="button" id="appearMenu">
@@ -215,7 +243,8 @@ $categorie->execute();
                         ?>
                     </div>
                 <?php
-                } ?>
+                }
+                ?>
 
             </div>
 
