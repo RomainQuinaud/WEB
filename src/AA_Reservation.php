@@ -40,25 +40,35 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label">ID Utilisateur</label>
-                    <input type="" class="form-control" id="idutilisateur" name="idutilisateur" placeholder="">
+                    <input type="" class="form-control" id="idutilisateur" name="idutilisateur"
+                           value="<?php if (!empty($_GET['idutilisateur'])) echo $_GET['idutilisateur']; ?>"
+                        >
                 </div>
                 <div class="form-group">
                     <label class="control-label">ID Logement</label>
-                    <input type="" class="form-control" id="idlogement" name="idlogement" placeholder="">
+                    <input type="" class="form-control" id="idlogement" name="idlogement"
+                           value="<?php if (!empty($_GET['idlogement'])) echo $_GET['idlogement']; ?>"
+                        >
                 </div>
                 <div class="form-group">
                     <label class="control-label">Réservation effectuée le</label>
-                    <input type="" class="form-control" id="datereservation" name="datereservation" placeholder="">
+                    <input type="" class="form-control" id="datereservation" name="datereservation"
+                           value="<?php if (!empty($_GET['datereservation'])) echo urldecode($_GET['datereservation']); ?>"
+                        >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Date de début de réservation</label>
-                    <input type="" class="form-control" id="datedebut" name="datedebut" placeholder="">
+                    <input type="" class="form-control" id="datedebut" name="datedebut"
+                           value="<?php if (!empty($_GET['datedebut'])) echo $_GET['datedebut']; ?>"
+                        >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Date de fin de réservation</label>
-                    <input type="" class="form-control" id="datefin" name="datefin" placeholder="">
+                    <input type="" class="form-control" id="datefin" name="datefin"
+                           value="<?php if (!empty($_GET['datefin'])) echo $_GET['datefin']; ?>"
+                        >
                 </div>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">

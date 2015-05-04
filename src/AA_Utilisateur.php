@@ -1,4 +1,4 @@
-<?php
+utilisateur<?php
 session_start();
 if (!isset($_SESSION['login']))
     header('Location: connexion.php');
@@ -41,35 +41,35 @@ if (!isset($_SESSION['login']))
                 <div class="form-group">
                     <label class="control-label"> Nom </label>
                     <input type="text" class="form-control" id="nom" name="nom"
-                           value="<?php if (!empty($_GET['nom'])) echo $_GET['nom']; ?>"
+                           value="<?php if (!empty($_GET['nomutilisateur'])) echo $_GET['nomutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Prénom</label>
                     <input type="text" class="form-control" id="prenom" name="prenom"
-                           value="<?php if (!empty($_GET['prenom'])) echo $_GET['prenom']; ?>"
+                           value="<?php if (!empty($_GET['prenomutilisateur'])) echo $_GET['prenomutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Téléphone</label>
                     <input type="text" class="form-control" id="telephone" name="telephone"
-                           value="<?php if (!empty($_GET['telephone'])) echo $_GET['telephone']; ?>"
+                           value="<?php if (!empty($_GET['telephoneutilisateur'])) echo $_GET['telephoneutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Mail</label>
                     <input type="text" class="form-control" id="mail" name="mail"
-                           value="<?php if (!empty($_GET['mail'])) echo $_GET['mail']; ?>"
+                           value="<?php if (!empty($_GET['mailutilisateur'])) echo $_GET['mailutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Département</label>
                     <input type="text" class="form-control" id="departement" name="departement"
-                           value="<?php if (!empty($_GET['departement'])) echo $_GET['departement']; ?>"
+                           value="<?php if (!empty($_GET['departementutilisateur'])) echo $_GET['departementutilisateur']; ?>"
                         >
                 </div>
 
