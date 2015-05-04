@@ -40,22 +40,30 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom du Camping</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="nomcamping"
+                           value="<?php if (!empty($_GET['nomcamping'])) echo $_GET['nomcamping']; ?>"
+                        >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Ville du Camping</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="villecamping"
+                           value="<?php if (!empty($_GET['villecamping'])) echo $_GET['villecamping']; ?>"
+                        >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label"> Adresse du Camping</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="adressecamping"
+                           value="<?php if (!empty($_GET['adressecamping'])) echo $_GET['adressecamping']; ?>"
+                        >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label"> Departement du Camping</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="departementcamping"
+                           value="<?php if (!empty($_GET['departementcamping'])) echo $_GET['departementcamping']; ?>"
+                        >
                 </div>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
