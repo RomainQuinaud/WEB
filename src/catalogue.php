@@ -174,6 +174,7 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
                                     echo $toto[1] . '<br>';
 
                                     if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
+
                                         $i = date("Y-m-d", strtotime($_GET['startSearch']));
                                         $somme = 0;
                                         while ($i < date("Y-m-d", strtotime($_GET['endSearch']))) {
@@ -182,13 +183,16 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
                                             $prixPeriodeStatements = $pdo->prepare("SELECT ajout FROM prix_periode WHERE mois= :mois");
                                             $month = (string)date("F", strtotime($i));
                                             $prixPeriodeStatements->bindParam(':mois', $month);
-
                                             $prixPeriodeStatements->execute();
                                             $ajout = $prixPeriodeStatements->fetch();
+                                            echo 'ajout:' . $ajout[0] . '/////';
                                             $somme += $ajout[0];
+                                            echo 'somme' . $somme . '*****';
+
 
                                     }
                                         echo ($toto[2] + $somme) . '<br>';
+
                                     } else
                                         echo 'A partir de ' . $toto[2] . 'Euros <br>';
 
