@@ -65,7 +65,6 @@ $utilisateurTable->execute();
                         <th>villecamping</th>
                         <th>adressecamping</th>
                         <th>departementcamping</th>
-                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -198,7 +197,7 @@ $utilisateurTable->execute();
                         ?>
                         <tr>
                             <?php
-                            for ($i = 0; $i < 4; $i++) {
+                            for ($i = 0; $i < 5; $i++) {
                                 ?>
                                 <td> <?php echo $logement[$i]; ?> </td>
                             <?php
