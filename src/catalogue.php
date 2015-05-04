@@ -160,11 +160,15 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
                 <?php
 
-                $i = $_GET['startSearch'];
-                while ($i < $_GET['endSearch']) {
-                    $i = date("Y-m-d", strtotime("+1 day", $i));
-                    //echo substr($i, 4, 5);
-                    echo date("Y-m-d", $i);
+
+                $i = date("Y-m-d", strtotime($_GET['startSearch']));
+
+                while ($i < date("Y-m-d", strtotime($_GET['endSearch']))) {
+
+
+                    $i = date("Y-m-d", strtotime('+1 days', strtotime($i)));
+
+                    echo $i;
 
                 }
 
