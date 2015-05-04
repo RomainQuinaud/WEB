@@ -40,12 +40,14 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom de la Catégorie</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="libellecategorie"
+                           value="<?php if (!empty($_GET['libellecategorie'])) echo $_GET['libellecategorie']; ?>"
+                        >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Prix de la Catégorie</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="prixcategorie">
                 </div>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">

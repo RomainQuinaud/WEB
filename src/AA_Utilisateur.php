@@ -39,24 +39,30 @@ if (!isset($_SESSION['login']))
             <form class="center-block" method="POST" action=" ">
 
                 <div class="form-group">
-                    <label class="control-label"> Nom du Logement</label>
+                    <label class="control-label"> Nom </label>
                     <input type="" class="form-control" id="idlogement" name="" placeholder="">
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label"> Ville du Camping</label>
+                    <label class="control-label">Prenom</label>
                     <input type="" class="form-control" id="idlogement" name="" placeholder="">
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label"> Adresse du Camping</label>
+                    <label class="control-label">Téléphone</label>
                     <input type="" class="form-control" id="idlogement" name="" placeholder="">
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Departement du Camping</label>
+                    <label class="control-label">Mail</label>
                     <input type="" class="form-control" id="idlogement" name="" placeholder="">
                 </div>
+
+                <div class="form-group">
+                    <label class="control-label">Departement</label>
+                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                </div>
+
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default">Insertion</button>
