@@ -222,7 +222,7 @@ $utilisateurTable->execute();
                             ?>
                             <td class="table_icon">
                                 <?php $inc = 1; ?>
-                                <a href="AA_Logement.php?action=update&nomlogement=<?php echo urlencode($logement[$inc++]) ?>&idcategorie=<?php echo urlencode($logement[$inc++]) ?>&idcamping=<?php echo urlencode($logement[$inc++]) ?>&image=<?php echo $logement[$inc] ?>">
+                                <a href="AA_Logement.php?action=update&idcategorie=<?php echo urlencode($logement[$inc++]) ?>&nomlogement=<?php echo urlencode($logement[$inc++]) ?>&idcamping=<?php echo urlencode($logement[$inc++]) ?>&image=<?php echo $logement[$inc] ?>">
                                     <button class="btn btn-default" title="Editer le logement" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>

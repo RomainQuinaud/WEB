@@ -40,14 +40,14 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom de la Catégorie</label>
-                    <input type="text" class="form-control" id="libellecategorie"
+                    <input type="text" class="form-control" id="libellecategorie" name="libellecategorie"
                            value="<?php if (!empty($_GET['libellecategorie'])) echo $_GET['libellecategorie']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Prix de la Catégorie</label>
-                    <input type="text" class="form-control" id="prixcategorie"
+                    <label class="control-label">Prix par Catégorie en Euros</label>
+                    <input type="text" class="form-control" id="prixcategorie" name="prixcategorie"
                            value="<?php if (!empty($_GET['prixcategorie'])) echo $_GET['prixcategorie']; ?>"
                         >
                 </div>
