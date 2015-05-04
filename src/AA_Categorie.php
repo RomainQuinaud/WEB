@@ -47,7 +47,9 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label">Prix de la Catégorie</label>
-                    <input type="text" class="form-control" id="prixcategorie">
+                    <input type="text" class="form-control" id="prixcategorie"
+                           value="<?php if (!empty($_GET['prixcategorie'])) echo $_GET['prixcategorie']; ?>"
+                        >
                 </div>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
