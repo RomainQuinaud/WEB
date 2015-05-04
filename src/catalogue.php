@@ -1,18 +1,3 @@
-Skip to content
-This repository
-Explore
-Gist
-Blog
-Help
-@philippealeixo philippealeixo
-
-Unwatch 2
-Star 0
-Fork 1RomainQuinaud/WEB
-tree: 7a68c74681  WEB/src/catalogue.php
-@philippealeixophilippealeixo 8 hours ago Remplissage site
-2 contributors @RomainQuinaud @philippealeixo
-RawBlameHistory    313 lines (219 sloc)  12.55 kb
 <?php
 session_start();
 if (!isset($_SESSION['login']))
@@ -153,7 +138,7 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
                 if ($catalogueStatements->rowCount() == 0) {
                     ?>
-                    <p> Le catalogue est actuellement indisponible. </p>
+                    <p> Pas de logement correspondant aux critères de recherche </p>
 
                 <?php
                 } else {
@@ -192,10 +177,10 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
 
                                     }
-                                        echo ($somme) . '<br>';
+                                        echo ($somme) . '€<br>';
 
                                     } else
-                                        echo 'A partir de ' . $toto[2] . 'Euros <br>';
+                                        echo 'À partir de ' . $toto[2] . '€<br>';
 
                                     ?>
 
@@ -293,5 +278,4 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
 </body>
 </html>
-Status API Training Shop Blog About
-© 2015 GitHub, Inc. Terms Privacy Security Contact
+
