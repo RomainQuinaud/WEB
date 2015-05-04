@@ -96,9 +96,9 @@ $utilisateurTable->execute();
                             }
                             ?>
                             <td class="table_icon">
-                                <a href="#">
-                                    <button class="btn btn-default" title="Editer le camping" type="button"
-                                            action="update">
+                                <?php $inc = 1; ?>
+                                <a href="AA_Camping.php?action=update&nomcamping=<?php echo urlencode($camping[$inc++]) ?>&villecamping=<?php echo urlencode($camping[$inc++]) ?>&adressecamping=<?php echo urlencode($camping[$inc++]) ?>&departementcamping=<?php echo urlencode($camping[$inc++]) ?>">
+                                    <button class="btn btn-default" title="Editer le camping" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
                                     </button>
