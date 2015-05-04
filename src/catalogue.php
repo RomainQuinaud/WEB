@@ -168,7 +168,7 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
                     $i = date("Y-m-d", strtotime('+1 days', strtotime($i)));
 
-                    echo $i;
+                    echo date("F", strtotime($i));
 
                 }
 
@@ -199,14 +199,18 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
                                                                     echo date("Y-m-d", $date);
                                     */
                                     if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
+                                        /*
+                                                                                $i = date("Y-m-d", strtotime($_GET['startSearch']));
 
-                                        $i = $_GET['startSearch'];
-                                        while ($i < $_GET['endSearch']) {
+                                                                                while ($i < date("Y-m-d", strtotime($_GET['endSearch']))) {
 
-                                            echo date("Y-m-d", $i = strtotime("+1 day", strtotime($i)));
 
-                                            //$mois = substr($i, 0, 4);
-                                        }
+                                                                                    $i = date("Y-m-d", strtotime('+1 days', strtotime($i)));
+
+                                                                                    echo $i;
+
+                                                                                }
+                                        */
                                     }
                                     ?>
 
