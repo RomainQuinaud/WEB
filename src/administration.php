@@ -119,7 +119,7 @@ $utilisateurTable->execute();
                     </tbody>
                 </table>
                 <div class="table_icon">
-                    <a href="#">
+                    <a href="AA_Camping.php?action=insert">
                         <button class="btn btn-default" title="Insérer un camping" type="button">
                                         <span class="glyphicon glyphicon-plus">
                                         </span>
@@ -181,7 +181,7 @@ $utilisateurTable->execute();
 
                 </table>
                 <div class="table_icon">
-                    <a href="#">
+                    <a href="AA_Categorie.php?action=insert">
                         <button class="btn btn-default" title="Insérer une categorie" type="button">
                                         <span class="glyphicon glyphicon-plus">
                                         </span>
@@ -244,7 +244,7 @@ $utilisateurTable->execute();
 
                 </table>
                 <div class="table_icon">
-                    <a href="#">
+                    <a href="AA_Logement.php?action=insert">
                         <button class="btn btn-default" title="Insérer un logement" type="button">
                                         <span class="glyphicon glyphicon-plus">
                                         </span>
@@ -305,7 +305,7 @@ $utilisateurTable->execute();
 
                 </table>
                 <div class="table_icon">
-                    <a href="#">
+                    <a href="AA_PrixPeriode.php?action=insert">
                         <button class="btn btn-default" title="Insérer un prix par période" type="button">
                                         <span class="glyphicon glyphicon-plus">
                                         </span>
@@ -370,7 +370,7 @@ $utilisateurTable->execute();
 
                 </table>
                 <div class="table_icon">
-                    <a href="#">
+                    <a href="AA_Reservation.php?action=insert">
                         <button class="btn btn-default" title="Insérer une réservation" type="button">
                                         <span class="glyphicon glyphicon-plus">
                                         </span>
@@ -436,7 +436,7 @@ $utilisateurTable->execute();
 
                 </table>
                 <div class="table_icon">
-                    <a href="#">
+                    <a href="AA_Utilisateur.php?action=insert">
                         <button class="btn btn-default" title="Insérer un utilisateur" type="button">
                                         <span class="glyphicon glyphicon-plus">
                                         </span>
