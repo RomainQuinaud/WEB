@@ -40,7 +40,10 @@ function menu($page)
                             Réservations</a>
                     </li>
 
-                    <?php if ($_SESSION['admin'] == 1) echo '<li> <a href="administration.php">Administration</a></li>'; ?>
+                    <?php if ($_SESSION['admin'] == 1) {
+                        if (($page == 'administration.php')) echo '<li class="active"> <a href="administration.php">Administration</a></li>';
+                        else echo '<li> <a href="administration.php">Administration</a></li>';
+                    }?>
 
                 </ul>
 

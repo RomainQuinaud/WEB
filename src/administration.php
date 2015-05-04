@@ -43,7 +43,7 @@ $utilisateurTable->execute();
 <div id="wrap">
     <?php
     include_once 'menu.php';
-    menu("catalogue.php");
+    menu("administration.php");
     ?>
 
     <div class="container">
