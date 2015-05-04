@@ -39,18 +39,26 @@ if (!isset($_SESSION['login']))
             <form class="center-block" method="POST" action=" ">
 
                 <div class="form-group">
-                    <label class="control-label">Réservation effectué le</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <label class="control-label">ID Utilisateur</label>
+                    <input type="" class="form-control" id="idutilisateur" name="idutilisateur" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">ID Logement</label>
+                    <input type="" class="form-control" id="idlogement" name="idlogement" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Réservation effectuée le</label>
+                    <input type="" class="form-control" id="datereservation" name="datereservation" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Date de début de réservation</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="" class="form-control" id="datedebut" name="datedebut" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Date de fin de réservation</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="" class="form-control" id="datefin" name="datefin" placeholder="">
                 </div>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
