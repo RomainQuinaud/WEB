@@ -40,38 +40,40 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom </label>
-                    <input type="text" class="form-control" id="nom" name="nom"
+                    <input type="text" class="form-control" id="nomutilisateur" name="nomutilisateur"
                            value="<?php if (!empty($_GET['nomutilisateur'])) echo $_GET['nomutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Prénom</label>
-                    <input type="text" class="form-control" id="prenom" name="prenom"
+                    <input type="text" class="form-control" id="prenomutilisateur" name="prenomutilisateur"
                            value="<?php if (!empty($_GET['prenomutilisateur'])) echo $_GET['prenomutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Téléphone</label>
-                    <input type="text" class="form-control" id="telephone" name="telephone"
+                    <input type="text" class="form-control" id="telephoneutilisateur" name="telephoneutilisateur"
                            value="<?php if (!empty($_GET['telephoneutilisateur'])) echo $_GET['telephoneutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Mail</label>
-                    <input type="text" class="form-control" id="mail" name="mail"
+                    <input type="text" class="form-control" id="mailutilisateur" name="mailutilisateur"
                            value="<?php if (!empty($_GET['mailutilisateur'])) echo $_GET['mailutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Département</label>
-                    <input type="text" class="form-control" id="departement" name="departement"
+                    <input type="text" class="form-control" id="departementutilisateur" name="departementutilisateur"
                            value="<?php if (!empty($_GET['departementutilisateur'])) echo $_GET['departementutilisateur']; ?>"
                         >
                 </div>
+
+                <input type="text" id="info" name="info" value="utilisateur" hidden>
 
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
