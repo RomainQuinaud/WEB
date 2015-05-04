@@ -348,15 +348,7 @@ $utilisateurTable->execute();
                             <?php
                             }
                             ?>
-                            <td class="table_icon">
-                                <?php $inc = 1; ?>
-                                <a href="AA_Reservation.php?action=update&idutilisateur=<?php echo urlencode($reservation[$inc++]) ?>&idlogement=<?php echo urlencode($reservation[$inc++]) ?>&datereservation=<?php echo urlencode($reservation[$inc++]) ?>&datedebut=<?php echo urlencode($reservation[$inc++]) ?>&datefin=<?php echo urlencode($reservation[$inc++]) ?>">
-                                    <button class="btn btn-default" title="Editer la reservation" type="button">
-                                        <span class="glyphicon glyphicon-pencil">
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
+
                             <td class="table_icon">
                                 <a href="traitement.php?action=delete&table=reservation&numreservation=<?php echo $reservation[0] ?>">
                                     <button class="btn btn-default" title="Supprimer la reservation" type="button">
@@ -373,14 +365,7 @@ $utilisateurTable->execute();
                     </tbody>
 
                 </table>
-                <div class="table_icon">
-                    <a href="AA_Reservation.php?action=insert">
-                        <button class="btn btn-default" title="Insérer une réservation" type="button">
-                                        <span class="glyphicon glyphicon-plus">
-                                        </span>
-                        </button>
-                    </a>
-                </div>
+
             </div>
         </div>
 
