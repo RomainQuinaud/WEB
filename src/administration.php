@@ -417,7 +417,7 @@ $utilisateurTable->execute();
                             ?>
                             <td class="table_icon">
                                 <?php $inc = 1; ?>
-                                <a href="AA_Utilisateur.php?action=update&loginutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&nomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&prenomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&telephoneutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&departementutilisateur=<?php echo urlencode($utilisateur[$inc]) ?>">
+                                <a href="AA_Utilisateur.php?action=update&loginutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&nomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&prenomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&telephoneutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&mailutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&departementutilisateur=<?php echo urlencode($utilisateur[$inc]) ?>">
                                     <button class="btn btn-default" title="Editer l'utilisateur" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
