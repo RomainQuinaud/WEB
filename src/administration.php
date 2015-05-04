@@ -283,7 +283,8 @@ $utilisateurTable->execute();
                             }
                             ?>
                             <td class="table_icon">
-                                <a href="#">
+                                <?php $inc = 0; ?>
+                                <a href="AA_PrixPeriode.php?action=update&mois=<?php echo urlencode($prix_periode[$inc++]) ?>&ajout=<?php echo urlencode($prix_periode[$inc]) ?>">
                                     <button class="btn btn-default" title="Editer le prix par période" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
@@ -348,7 +349,8 @@ $utilisateurTable->execute();
                             }
                             ?>
                             <td class="table_icon">
-                                <a href="#">
+                                <?php $inc = 1; ?>
+                                <a href="AA_Reservation.php?action=update&idutilisateur=<?php echo urlencode($reservation[$inc++]) ?>&idlogement=<?php echo urlencode($reservation[$inc++]) ?>&datereservation=<?php echo urlencode($reservation[$inc++]) ?>&datedebut=<?php echo urlencode($reservation[$inc++]) ?>&datefin=<?php echo urlencode($reservation[$inc++]) ?>">
                                     <button class="btn btn-default" title="Editer la reservation" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
@@ -414,7 +416,8 @@ $utilisateurTable->execute();
                             }
                             ?>
                             <td class="table_icon">
-                                <a href="#">
+                                <?php $inc = 1; ?>
+                                <a href="AA_Utilisateur.php?action=update&loginutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&nomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&prenomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&telephoneutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&departementutilisateur=<?php echo urlencode($utilisateur[$inc]) ?>">
                                     <button class="btn btn-default" title="Editer l'utilisateur" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
