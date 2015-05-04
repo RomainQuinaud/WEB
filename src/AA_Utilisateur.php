@@ -40,27 +40,27 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom </label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="nom" name="nom" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Prenom</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="prenom" name="prenom" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Téléphone</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="telephone" name="telephone" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Mail</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="mail" name="mail" placeholder="">
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Departement</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <label class="control-label">Département</label>
+                    <input type="text" class="form-control" id="departement" name="departement" placeholder="">
                 </div>
 
                 <?php if ($_GET['action'] == 'insert') { ?>
