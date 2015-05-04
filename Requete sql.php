@@ -149,7 +149,6 @@ $statement->bindParam(':idutilisateur', $_GET['idutilisateur']);
 $statement->execute();
 
 $sql="DELETE FROM logement WHERE idlogement=:idlogement";
-
 $statement=$pdo->prepare($sq);
 $statement->bindParam(':idlogement', $_GET['idlogement']);
 $statement->execute();

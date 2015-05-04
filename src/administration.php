@@ -212,7 +212,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="#">
+                                <a href="traitement.php?action=delete&idlogement=<?php echo $logement[0] ?>">
                                     <button class="btn btn-default" title="Supprimer le logement" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>
