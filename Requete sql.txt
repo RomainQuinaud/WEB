@@ -34,8 +34,8 @@ $insertlogement->execute();
 
 $insertprixperiode=$pdo->prepare("INSERT INTO prix_periode(mois,ajout)
 	VALUES(:mois,:ajout");
-$insertprixperiode->bindParam(':mois', $_GET[':mois']);
-$insertprixperiode->bindParam(':ajout', $_GET[':ajout']);
+$insertprixperiode->bindParam(':mois', $_GET['mois']);
+$insertprixperiode->bindParam(':ajout', $_GET['ajout']);
 $insertprixperiode->execute();
 
 $insertreservation=$pdo->prepare("INSERT INTO reservation(idUTILISATEUR,idlogement,datereservation,datedebut,datefin)
@@ -62,35 +62,47 @@ $insertutilisateur->execute();
 
 $updatecamping=$pdo->prepare("	UPDATE camping 
 								SET nomcamping=:nomcamping, villecamping=:villecamping, adressecamping=:adressecamping, departementcamping=:departementcamping
-");
+								WHERE idcamping=:idcamping
+							");
+$updatecamping->bindParam(':idcamping', $_GET['idcamping']);
 $updatecamping->bindParam(':nomcamping', $_GET['nomcamping']);
 $updatecamping->bindParam(':villecamping', $_GET['villecamping']);
 $updatecamping->bindParam(':adressecamping', $_GET['adressecamping']);
 $updatecamping->bindParam(':departementcamping', $_GET['departementcamping']);
 $updatecamping->execute();
 
-$updatecategorie=$pdo->prepare("INSERT INTO categorie(libellecategorie,prixcategorie)
-	VALUES(:libellecategorie,:prixcategorie)");
+$updatecategorie=$pdo->prepare("	UPDATE categorie 
+									SET libellecategorie=:libellecategorie, prixcategorie=:prixcategorie
+									WHERE idcategorie=:idcategorie
+								");
+$updatecategorie->bindParam(':idcategorie', $_GET['idcategorie']);
 $updatecategorie->bindParam(':libellecategorie', $_GET['libellecategorie']);
 $updatecategorie->bindParam(':prixcategorie', $_GET['prixcategorie']);
 $updatecategorie->execute();
 
-$updatelogement=$pdo->prepare("INSERT INTO logement(nomcategorie,nomlogement,idcamping,image)
-	VALUES(:nomcategorie,:nomlogement,:idcamping,:image)");
+$updatelogement=$pdo->prepare("	UPDATE logement 
+								SET nomcategorie=:nomcategorie,nomlogement=:nomlogement,idcamping=:idcamping,image=:image
+								WHERE idlogement=:idlogement
+								");
+$updatelogement->bindParam(':idlogement', $_GET['idlogement']);
 $updatelogement->bindParam(':nomcategorie', $_GET['nomcategorie']);
 $updatelogement->bindParam(':nomlogement', $_GET['nomlogement']);
 $updatelogement->bindParam(':idcamping', $_GET['idcamping']);
 $updatelogement->bindParam(':image', $_GET['image']);
 $updatelogement->execute();
 
-$updateprixperiode=$pdo->prepare("INSERT INTO prix_periode(mois,ajout)
-	VALUES(:mois,:ajout");
+$updateprixperiode=$pdo->prepare("	UPDATE prix_periode 
+									SET ajout=:ajout
+									WHERE mois=:mois
+								");
 $updateprixperiode->bindParam(':mois', $_GET[':mois']);
 $updateprixperiode->bindParam(':ajout', $_GET[':ajout']);
 $updateprixperiode->execute();
 
-$updatereservation=$pdo->prepare("INSERT INTO reservation(idUTILISATEUR,idlogement,datereservation,datedebut,datefin)
-	VALUES(:idUTILISATEUR,:idlogement,:datereservation,:datedebut,:datefin");
+$updatereservation=$pdo->prepare("	UPDATE reservation 
+									SET idlogement=:idlogement,datereservation=:datereservation,datedebut=:datedebut=:,datefin=:datefin
+									WHERE idUTILISATEUR=:idUTILISATEUR
+								");
 $updatereservation->bindParam(':idUTILISATEUR', $_GET['idUTILISATEUR']);
 $updatereservation->bindParam(':idlogement', $_GET['idlogement']);
 $updatereservation->bindParam(':datereservation', $_GET['datereservation']);
@@ -98,8 +110,8 @@ $updatereservation->bindParam(':datedebut', $_GET['datedebut']);
 $updatereservation->bindParam(':datefin', $_GET['datefin']);
 $updatereservation->execute();
 
-$updateutilisateur=$pdo->prepare("INSERT INTO utilisateur(loginUTILISATEUR,nomUTILISATEUR,prenomUTILISATEUR,telephoneUTILISATEUR,mailUTILISATEUR,departementUTILISATEUR)
-	VALUES(:loginUTILISATEUR,:nomUTILISATEUR,:prenomUTILISATEUR,:telephoneUTILISATEUR,:mailUTILISATEUR,:departementUTILISATEUR");
+$updateutilisateur=$pdo->prepare(" UPDATE utilisateur SET loginUTILISATEUR=:loginUTILISATEUR,nomUTILISATEUR=:nomUTILISATEUR,prenomUTILISATEUR=:prenomUTILISATEUR,telephoneUTILISATEUR=:telephoneUTILISATEUR,mailUTILISATEUR=:mailUTILISATEUR,departementUTILISATEUR=:departementUTILISATEUR
+								")
 $updateutilisateur->bindParam(':loginUTILISATEUR', $_GET['loginUTILISATEUR']);
 $updateutilisateur->bindParam(':nomUTILISATEUR', $_GET['nomUTILISATEUR']);
 $updateutilisateur->bindParam(':prenomUTILISATEUR', $_GET['prenomUTILISATEUR']);
