@@ -97,7 +97,7 @@ $utilisateurTable->execute();
                             ?>
                             <td class="table_icon">
                                 <?php $inc = 1; ?>
-                                <a href="AA_Camping.php?action=update&nomcamping=<?php echo urlencode($camping[$inc++]) ?>&villecamping=<?php echo urlencode($camping[$inc++]) ?>&adressecamping=<?php echo urlencode($camping[$inc++]) ?>&departementcamping=<?php echo urlencode($camping[$inc++]) ?>">
+                                <a href="AA_Camping.php?action=update&nomcamping=<?php echo urlencode($camping[$inc++]) ?>&villecamping=<?php echo urlencode($camping[$inc++]) ?>&adressecamping=<?php echo urlencode($camping[$inc++]) ?>&departementcamping=<?php echo urlencode($camping[$inc]) ?>">
                                     <button class="btn btn-default" title="Editer le camping" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
@@ -157,7 +157,8 @@ $utilisateurTable->execute();
                             }
                             ?>
                             <td class="table_icon">
-                                <a href="#">
+                                <?php $inc = 1; ?>
+                                <a href="AA_Categorie.php?action=update&libellecategorie=<?php echo urlencode($categorie[$inc++]) ?>&prixcategorie=<?php echo urlencode($categorie[$inc]) ?>">
                                     <button class="btn btn-default" title="Editer la categorie" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
