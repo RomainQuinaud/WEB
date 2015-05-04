@@ -61,7 +61,7 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Departement du Camping</label>
-                    <input type="text" class="form-control" id="departementcamping" name="adressecamping"
+                    <input type="text" class="form-control" id="departementcamping" name="departementcamping"
                            value="<?php if (!empty($_GET['departementcamping'])) echo $_GET['departementcamping']; ?>"
                         >
                 </div>
