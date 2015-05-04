@@ -65,6 +65,7 @@ $utilisateurTable->execute();
                         <th>villecamping</th>
                         <th>adressecamping</th>
                         <th>departementcamping</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -80,14 +81,36 @@ $utilisateurTable->execute();
                             <?php
                             }
                             ?>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Editer le camping" type="button">
+                                        <span class="glyphicon glyphicon-pencil">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Supprimer le camping" type="button">
+                                        <span class="glyphicon glyphicon-remove">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     <?php
                     }
                     ?>
-
                     </tbody>
-
                 </table>
+                <div class="table_icon">
+                    <a href="#">
+                        <button class="btn btn-default" title="Insérer dans camping" type="button">
+                                        <span class="glyphicon glyphicon-plus">
+                                        </span>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -118,6 +141,22 @@ $utilisateurTable->execute();
                             <?php
                             }
                             ?>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Editer le categorie" type="button">
+                                        <span class="glyphicon glyphicon-pencil">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Supprimer le categorie" type="button">
+                                        <span class="glyphicon glyphicon-remove">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     <?php
                     }
@@ -126,6 +165,14 @@ $utilisateurTable->execute();
                     </tbody>
 
                 </table>
+                <div class="table_icon">
+                    <a href="#">
+                        <button class="btn btn-default" title="Insérer dans categorie" type="button">
+                                        <span class="glyphicon glyphicon-plus">
+                                        </span>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -157,6 +204,22 @@ $utilisateurTable->execute();
                             <?php
                             }
                             ?>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Editer le logement" type="button">
+                                        <span class="glyphicon glyphicon-pencil">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Supprimer le logement" type="button">
+                                        <span class="glyphicon glyphicon-remove">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     <?php
                     }
@@ -165,6 +228,14 @@ $utilisateurTable->execute();
                     </tbody>
 
                 </table>
+                <div class="table_icon">
+                    <a href="#">
+                        <button class="btn btn-default" title="Insérer dans logement" type="button">
+                                        <span class="glyphicon glyphicon-plus">
+                                        </span>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -178,7 +249,7 @@ $utilisateurTable->execute();
                     <thead>
                     <tr>
                         <th>mois</th>
-                        <th>jour</th>
+                        <th>ajout</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -194,6 +265,22 @@ $utilisateurTable->execute();
                             <?php
                             }
                             ?>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Editer le prix par période" type="button">
+                                        <span class="glyphicon glyphicon-pencil">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Supprimer le prix par période" type="button">
+                                        <span class="glyphicon glyphicon-remove">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     <?php
                     }
@@ -202,12 +289,20 @@ $utilisateurTable->execute();
                     </tbody>
 
                 </table>
+                <div class="table_icon">
+                    <a href="#">
+                        <button class="btn btn-default" title="Insérer dans prix par période" type="button">
+                                        <span class="glyphicon glyphicon-plus">
+                                        </span>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 
 
         <div class="row">
-            <h3>Table Reservation</h3>
+            <h3>Table Réservation</h3>
 
             <div class="container-fluid col-md-1">
                 <table class="table table-striped">
@@ -235,6 +330,22 @@ $utilisateurTable->execute();
                             <?php
                             }
                             ?>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Editer le reservation" type="button">
+                                        <span class="glyphicon glyphicon-pencil">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Supprimer le reservation" type="button">
+                                        <span class="glyphicon glyphicon-remove">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     <?php
                     }
@@ -243,6 +354,14 @@ $utilisateurTable->execute();
                     </tbody>
 
                 </table>
+                <div class="table_icon">
+                    <a href="#">
+                        <button class="btn btn-default" title="Insérer dans réservation" type="button">
+                                        <span class="glyphicon glyphicon-plus">
+                                        </span>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -277,6 +396,22 @@ $utilisateurTable->execute();
                             <?php
                             }
                             ?>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Editer le utilisateur" type="button">
+                                        <span class="glyphicon glyphicon-pencil">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td class="table_icon">
+                                <a href="#">
+                                    <button class="btn btn-default" title="Supprimer le utilisateur" type="button">
+                                        <span class="glyphicon glyphicon-remove">
+                                        </span>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     <?php
                     }
@@ -285,6 +420,14 @@ $utilisateurTable->execute();
                     </tbody>
 
                 </table>
+                <div class="table_icon">
+                    <a href="#">
+                        <button class="btn btn-default" title="Insérer dans utilisateur" type="button">
+                                        <span class="glyphicon glyphicon-plus">
+                                        </span>
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -304,4 +447,4 @@ $utilisateurTable->execute();
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
-</html>d
+</html>
