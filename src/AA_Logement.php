@@ -40,14 +40,14 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom du Logement</label>
-                    <input type="text" class="form-control" id="nomlogement"
+                    <input type="text" class="form-control" id="nomlogement" name="nomlogement"
                            value="<?php if (!empty($_GET['nomlogement'])) echo $_GET['nomlogement']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Adresse de l'image du Logement</label>
-                    <input type="text" class="form-control" id="image"
+                    <input type="text" class="form-control" id="image" name="image"
                            value="<?php if (!empty($_GET['image'])) echo $_GET['image']; ?>"
                         >
                 </div>
