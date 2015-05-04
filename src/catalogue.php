@@ -18,7 +18,7 @@ session_start();
 if (!isset($_SESSION['login']))
     header('Location: connexion.php');
 include 'BDD_connect.php';
-$sql = "SELECT nomlogement,libellecategorie,image,prixcategorie
+$sql = "SELECT nomlogement,libellecategorie,prixcategorie,image
                 FROM logement NATURAL JOIN categorie";
 $catalogueStatements = $pdo->prepare($sql);
 // affiche les case problématiques ( en concommittance avec les plages de reservation)
@@ -165,25 +165,33 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
 
                             <div class="thumbnail">
-                                <img class="imgCatalogue" src=" <?php echo $toto[2] ?> "
+                                <img class="imgCatalogue" src=" <?php echo $toto[3] ?> "
                                      alt="Photographie du logement <?php echo $toto[0] ?>">
 
                                 <div class="caption">
                                     <h3><?php echo $toto[0] ?></h3>
                                     <?php
-                                    for ($i = 1; $i < 2; $i++)
-                                        echo $toto[$i] . '<br>';
-                                    /*
-                                                                    $date = strtotime("+1 day", strtotime("2016-02-28"));
-                                                                    echo date("Y-m-d", $date);
-                                    */
+                                    echo $toto[1] . '<br>';
+
                                     if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
-                                        $i = $_GET['startSearch'];
-                                        while ($i < $_GET['endSearch']) {
-                                            echo date("Y-m-d", $i = strtotime("+1 day", strtotime($i)));
-                                            //$mois = substr($i, 0, 4);
-                                        }
+                                        $i = date("Y-m-d", strtotime($_GET['startSearch']));
+                                        $somme = 0;
+                                        while ($i < date("Y-m-d", strtotime($_GET['endSearch']))) {
+                                            $i = date("Y-m-d", strtotime('+1 days', strtotime($i)));
+
+                                            $prixPeriodeStatements = $pdo->prepare("SELECT ajout FROM prix_periode WHERE mois= :mois");
+                                            $month = (string)date("F", strtotime($i));
+                                            $prixPeriodeStatements->bindParam(':mois', $month);
+
+                                            $prixPeriodeStatements->execute();
+                                            $ajout = $prixPeriodeStatements->fetch();
+                                            $somme += $ajout[0];
+
                                     }
+                                        echo ($toto[2] + $somme) . '<br>';
+                                    } else
+                                        echo 'A partir de ' . $toto[2] . 'Euros <br>';
+
                                     ?>
 
                                     <button onClick="reserver('<?php echo $toto[0] ?>')" class="btn btn-default "
