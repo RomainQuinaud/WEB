@@ -42,8 +42,8 @@ if(!isset($_SESSION['login']))
 
                     <p> L'idée de réaliser un projet sur la réservation d'un camping est venue d'un constat: <br>Les
                         sites
-                        de réservations de camping sont parfois un peu complexe et nous voulions en faire un simple, où
-                        n'importe quelle personne peut réserver un logement simplement </p>
+                        de réservations de camping sont parfois un peu complexes et nous voulions en faire un simple, où
+                        n'importe qui peut réserver un logement en quelques clics </p>
                 </div>
                 <div class="pageDroite col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-1">
                     <h2> Le but pédagogique </h2>
