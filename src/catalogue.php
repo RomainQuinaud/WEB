@@ -1,72 +1,63 @@
+Skip to content
+This repository
+Explore
+Gist
+Blog
+Help
+@philippealeixo philippealeixo
+
+Unwatch 2
+Star 0
+Fork 1RomainQuinaud/WEB
+tree: 7a68c74681  WEB/src/catalogue.php
+@philippealeixophilippealeixo 8 hours ago Remplissage site
+2 contributors @RomainQuinaud @philippealeixo
+RawBlameHistory    313 lines (219 sloc)  12.55 kb
 <?php
 session_start();
 if (!isset($_SESSION['login']))
     header('Location: connexion.php');
-
-
 include 'BDD_connect.php';
 $sql = "SELECT nomlogement,libellecategorie,image,prixcategorie
                 FROM logement NATURAL JOIN categorie";
 $catalogueStatements = $pdo->prepare($sql);
-
 // affiche les case problématiques ( en concommittance avec les plages de reservation)
 $queryDispo = "SELECT idlogement FROM logement NATURAL JOIN reservation WHERE :mondebut < :mafin and MOD(DATEDIFF(:mafin,:mondebut),7)=0
                                                      AND ((datedebut < :mondebut AND :mondebut < datefin ) OR (datedebut < :mafin AND :mafin < datefin)
                                                         OR (datedebut = :mondebut AND :mafin = datefin) OR (datedebut < :mafin and datedebut> :mondebut) or (datefin > :mondebut and datefin < :mafin))";
-
-
 if (!empty($_GET['nomLogement']) && !empty($_GET['categorie']) && $_GET['categorie'] != "Tous" && !empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement and idlogement not in (" . $queryDispo . ")";
-
     $catalogueStatements = $pdo->prepare($sql);
-
     $catalogueStatements->execute(array(':categorie' => $_GET['categorie'], ':nomlogement' => '%' . $_GET['nomLogement'] . '%', ':mondebut' => $_GET['startSearch'], ':mafin' => $_GET['endSearch']));
 } else if (!empty($_GET['nomLogement']) && !empty($_GET['categorie']) && $_GET['categorie'] != "Tous") {
     $sql .= " WHERE libellecategorie=:categorie and nomlogement LIKE :nomlogement";
-
     $catalogueStatements = $pdo->prepare($sql);
-
     $catalogueStatements->execute(array(':categorie' => $_GET['categorie'], ':nomlogement' => '%' . $_GET['nomLogement'] . '%'));
 } else if (!empty($_GET['categorie']) && $_GET['categorie'] != "Tous" && !empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE libellecategorie=:categorie and idlogement not in (" . $queryDispo . ")";
-
     $catalogueStatements = $pdo->prepare($sql);
-
     $catalogueStatements->execute(array(':categorie' => $_GET['categorie'], ':mondebut' => $_GET['startSearch'], ':mafin' => $_GET['endSearch']));
 } else if (!empty($_GET['categorie']) && $_GET['categorie'] != "Tous") {
     $sql .= " WHERE libellecategorie=:categorie";
-
     $catalogueStatements = $pdo->prepare($sql);
-
     $catalogueStatements->execute(array(':categorie' => $_GET['categorie']));
 } else if (!empty($_GET['nomLogement']) && !empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE nomlogement LIKE :nomlogement and idlogement not in (" . $queryDispo . ")";
-
     $catalogueStatements = $pdo->prepare($sql);
-
     $catalogueStatements->execute(array(':nomlogement' => '%' . $_GET['nomLogement'] . '%', ':mondebut' => $_GET['startSearch'], ':mafin' => $_GET['endSearch']));
 } else if (!empty($_GET['nomLogement'])) {
     $sql .= " WHERE nomlogement LIKE :nomlogement and idlogement";
-
     $catalogueStatements = $pdo->prepare($sql);
-
     $catalogueStatements->execute(array(':nomlogement' => '%' . $_GET['nomLogement'] . '%'));
 } else if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
     $sql .= " WHERE idlogement not in (" . $queryDispo . ")";
-
     $catalogueStatements = $pdo->prepare($sql);
-
     $catalogueStatements->bindParam(':mondebut', $_GET['startSearch']);
-
     $catalogueStatements->bindParam(':mafin', $_GET['endSearch']);
-
     $catalogueStatements->execute();
 } else {
     $catalogueStatements->execute();
 }
-
-
-
 $categorie = $pdo->prepare("
 SELECT libellecategorie
 FROM categorie");
@@ -160,18 +151,6 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
                 <?php
 
-
-                $i = date("Y-m-d", strtotime($_GET['startSearch']));
-
-                while ($i < date("Y-m-d", strtotime($_GET['endSearch']))) {
-
-
-                    $i = date("Y-m-d", strtotime('+1 days', strtotime($i)));
-
-                    echo date("F", strtotime($i));
-
-                }
-
                 if ($catalogueStatements->rowCount() == 0) {
                     ?>
                     <p> Le catalogue est actuellement indisponible. </p>
@@ -199,18 +178,11 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
                                                                     echo date("Y-m-d", $date);
                                     */
                                     if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
-                                        /*
-                                                                                $i = date("Y-m-d", strtotime($_GET['startSearch']));
-
-                                                                                while ($i < date("Y-m-d", strtotime($_GET['endSearch']))) {
-
-
-                                                                                    $i = date("Y-m-d", strtotime('+1 days', strtotime($i)));
-
-                                                                                    echo $i;
-
-                                                                                }
-                                        */
+                                        $i = $_GET['startSearch'];
+                                        while ($i < $_GET['endSearch']) {
+                                            echo date("Y-m-d", $i = strtotime("+1 day", strtotime($i)));
+                                            //$mois = substr($i, 0, 4);
+                                        }
                                     }
                                     ?>
 
@@ -224,7 +196,7 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
                                               action="insert_reservation.php">
 
 
-                                        <div class="form-group">
+                                            <div class="form-group">
                                                 <input type="text" id="logement" name="logement"
                                                        value="<?php echo $toto[0] ?>" class="hidden" readonly>
                                             </div>
@@ -280,26 +252,18 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
 <script src="../js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
-
     function reserver(toto) {
-
         if (document.getElementById("resaMenu_" + toto).className.match("visible")) {
             document.getElementById("resaMenu_" + toto).className = ("hidden");
             document.getElementById("resaMenu_" + toto).setAttribute("style", "z-index:10;position:absolute;");
         }
-
-
         else if (document.getElementById("resaMenu_" + toto).className.match("hidden")) {
             document.getElementById("resaMenu_" + toto).className = ("visible");
             document.getElementById("resaMenu_" + toto).setAttribute("style", "z-index:10;position:absolute;");
         }
-
-
     }
-
     // When the document is ready
     $(document).ready(function () {
-
         $('.input-daterange').datepicker({
             format: "yyyy-mm-dd",
             todayBtn: "linked",
@@ -310,12 +274,11 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
             autoclose: true,
             todayHighlight: true
         });
-
     });
-
-
 </script>
 
 
 </body>
 </html>
+Status API Training Shop Blog About
+© 2015 GitHub, Inc. Terms Privacy Security Contact
