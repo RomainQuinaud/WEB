@@ -249,14 +249,17 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
 <script src="../js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
+    var nb = 0;
     function reserver(toto) {
         if (document.getElementById("resaMenu_" + toto).className.match("visible")) {
             document.getElementById("resaMenu_" + toto).className = ("hidden");
             document.getElementById("resaMenu_" + toto).setAttribute("style", "z-index:10;position:absolute;");
+            nb = 0;
         }
-        else if (document.getElementById("resaMenu_" + toto).className.match("hidden")) {
+        else if (document.getElementById("resaMenu_" + toto).className.match("hidden") && nb == 0) {
             document.getElementById("resaMenu_" + toto).className = ("visible");
             document.getElementById("resaMenu_" + toto).setAttribute("style", "z-index:10;position:absolute;");
+            nb = 1;
         }
     }
     // When the document is ready
