@@ -52,7 +52,7 @@ if (!isset($_SESSION['login']))
                         <button type="submit" class="btn btn-default">Insert</button>
                     </div>
                 <?php
-                } else if ($_GET['action'] = 'update') { ?>
+                } else { ?>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default">Update</button>
                     </div>
