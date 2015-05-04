@@ -162,9 +162,10 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
                 $i = $_GET['startSearch'];
                 while ($i < $_GET['endSearch']) {
-                    //echo $i = $_GET['startSearch'];
-                    echo substr($i, 4, 5);
-                    //echo date("Y-m-d",$i = strtotime("+1 day", strtotime($i)));
+                    $i = date("Y-m-d", strtotime("+1 day", $i));
+                    //echo substr($i, 4, 5);
+                    echo date("Y-m-d", $i);
+
                 }
 
                 if ($catalogueStatements->rowCount() == 0) {
