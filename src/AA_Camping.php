@@ -31,39 +31,46 @@ if (!isset($_SESSION['login']))
     <div class="container">
 
         <div class="text-center">
-            <h1 class="modal-header">Bienvenue sur CampFind</h1>
-
-            <div class="row">
-
-                <h2></h2>
-
-                <div class="pageGauche col-xs-12 col-sm-6 col-md-6 col-lg-5 col-lg-offset-1">
-                    <h2> D'où vient l'idée ? </h2>
-
-                    <p> L'idée de réaliser un projet sur la réservation d'un camping est venue d'un constat: <br>Les
-                        sites
-                        de réservations de camping sont parfois un peu complexes et nous voulions en faire un simple, où
-                        n'importe qui peut réserver un logement en quelques clics </p>
-                </div>
-                <div class="pageDroite col-xs-12 col-sm-6 col-md-6 col-lg-4 col-lg-offset-1">
-                    <h2> Le but pédagogique </h2>
-
-                    <p> Ce projet est une application de toutes les notions que nous avons vues cette annéee. Nous avons
-                        utilisé un framework CSS nommé Bootstrap Twitter® pour un design simple et épuré. </p>
-                </div>
-
-            </div>
-
+            <h1 class="modal-header">Insert Camping</h1>
         </div>
 
+        <div class="row">
 
+            <form class="center-block" method="POST" action=" ">
+
+                <div class="form-group">
+                    <label class="control-label"> Nom du Camping</label>
+                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Ville du Camping</label>
+                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"> Adresse du Camping</label>
+                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label"> Departement du Camping</label>
+                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Update</button>
+                </div>
+
+            </form>
+
+        </div>
     </div>
-
 </div>
 
 <div id="footer">
     <div class="container">
-        <p class="text-muted credit">© Projet Web - DUT Informatique <br> IUT d'Orsay</p>
+        <p class="text-muted credit"> © Projet Web - DUT Informatique < br> IUT d'Orsay</p>
     </div>
 </div>
 <!-- Bootstrap core JavaScript
@@ -78,7 +85,7 @@ if (!isset($_SESSION['login']))
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
+</div>
 </body>
 
 </html>

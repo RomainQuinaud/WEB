@@ -97,7 +97,8 @@ $utilisateurTable->execute();
                             ?>
                             <td class="table_icon">
                                 <a href="#">
-                                    <button class="btn btn-default" title="Editer le camping" type="button">
+                                    <button class="btn btn-default" title="Editer le camping" type="button"
+                                            action="update">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
                                     </button>
