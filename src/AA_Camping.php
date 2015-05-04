@@ -40,28 +40,28 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Nom du Camping</label>
-                    <input type="text" class="form-control" id="nomcamping"
+                    <input type="text" class="form-control" id="nomcamping" name="nomcamping"
                            value="<?php if (!empty($_GET['nomcamping'])) echo $_GET['nomcamping']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Ville du Camping</label>
-                    <input type="text" class="form-control" id="villecamping"
+                    <input type="text" class="form-control" id="villecamping" name="villecamping"
                            value="<?php if (!empty($_GET['villecamping'])) echo $_GET['villecamping']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label"> Adresse du Camping</label>
-                    <input type="text" class="form-control" id="adressecamping"
+                    <input type="text" class="form-control" id="adressecamping" name="adressecamping"
                            value="<?php if (!empty($_GET['adressecamping'])) echo $_GET['adressecamping']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label"> Departement du Camping</label>
-                    <input type="text" class="form-control" id="departementcamping"
+                    <input type="text" class="form-control" id="departementcamping" name="adressecamping"
                            value="<?php if (!empty($_GET['departementcamping'])) echo $_GET['departementcamping']; ?>"
                         >
                 </div>
