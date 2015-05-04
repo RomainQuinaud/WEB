@@ -51,7 +51,22 @@ $utilisateurTable->execute();
         <div class="text-center">
             <h1 class="modal-header">Base de Données</h1>
         </div>
+        <?php if (!empty($_GET['success'])) echo '
+        <div class="alert alert-success">
+            ' . $_GET['success'] . '
+        </div>
 
+        ';
+
+        ?>
+        <?php if (!empty($_GET['error'])) echo '
+        <div class="alert alert-danger">
+            ' . $_GET['error'] . '
+        </div>
+
+        ';
+
+        ?>
         <div class="row">
             <h3>Table Camping</h3>
 
@@ -89,7 +104,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="#">
+                                <a href="traitement.php?action=delete&table=camping&idcamping=<?php echo $camping[0] ?>">
                                     <button class="btn btn-default" title="Supprimer le camping" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>
@@ -149,7 +164,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="#">
+                                <a href="traitement.php?action=delete&table=categorie&idcategorie=<?php echo $categorie[0] ?>">
                                     <button class="btn btn-default" title="Supprimer la categorie" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>
@@ -212,7 +227,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="traitement.php?action=delete&idlogement=<?php echo $logement[0] ?>">
+                                <a href="traitement.php?action=delete&table=logement&idlogement=<?php echo $logement[0] ?>">
                                     <button class="btn btn-default" title="Supprimer le logement" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>
@@ -273,7 +288,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="#">
+                                <a href="traitement.php?action=delete&table=prixperiode&mois=<?php echo $prix_periode[0] ?>">
                                     <button class="btn btn-default" title="Supprimer le prix par période" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>
@@ -338,7 +353,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="#">
+                                <a href="traitement.php?action=delete&table=reservation&numreservation=<?php echo $reservation[0] ?>">
                                     <button class="btn btn-default" title="Supprimer la reservation" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>
@@ -404,7 +419,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="#">
+                                <a href="traitement.php?action=delete&table=utilisateur&idutilisateur=<?php echo $utilisateur[0] ?>">
                                     <button class="btn btn-default" title="Supprimer l'utilisateur" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>

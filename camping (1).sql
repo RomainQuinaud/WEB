@@ -211,15 +211,15 @@ INSERT INTO `utilisateur` (`idUTILISATEUR`, `loginUTILISATEUR`, `nomUTILISATEUR`
 -- Contraintes pour la table `logement`
 --
 ALTER TABLE `logement`
-  ADD CONSTRAINT `FK_logement_camping` FOREIGN KEY (`idcamping`) REFERENCES `camping` (`idcamping`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_logement_categorie` FOREIGN KEY (`idcategorie`) REFERENCES `categorie` (`idcategorie`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_logement_camping` FOREIGN KEY (`idcamping`) REFERENCES `camping` (`idcamping`),
+  ADD CONSTRAINT `FK_logement_categorie` FOREIGN KEY (`idcategorie`) REFERENCES `categorie` (`idcategorie`);
 
 --
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `FK_reservation_logement` FOREIGN KEY (`idlogement`) REFERENCES `logement` (`idlogement`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_reservation_utilisateur` FOREIGN KEY (`idUTILISATEUR`) REFERENCES `utilisateur` (`idUTILISATEUR`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_reservation_logement` FOREIGN KEY (`idlogement`) REFERENCES `logement` (`idlogement`),
+  ADD CONSTRAINT `FK_reservation_utilisateur` FOREIGN KEY (`idUTILISATEUR`) REFERENCES `utilisateur` (`idUTILISATEUR`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

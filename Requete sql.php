@@ -126,41 +126,41 @@ $updateutilisateur->execute();
 ***********************************************************************************************************************************************************************
 
 $sql="DELETE FROM UTILISATEUR WHERE idutilisateur=:idutilisateur";
-$statement=$pdo->prepare($sq);
+$statement = $pdo->prepare($sql);
 $statement->bindParam(':idutilisateur', $_GET['idutilisateur']);
 $statement->execute();
 
 $sql="DELETE FROM RESERVATION WHERE numreservation=:numreservation";
 
-$statement=$pdo->prepare($sq);
+$statement = $pdo->prepare($sql);
 $statement->bindParam(':numreservation', $_GET['numreservation']);
 $statement->execute();
 
 $sql="DELETE FROM PRIX_PERIODE WHERE mois=:mois";
 
-$statement=$pdo->prepare($sq);
+$statement = $pdo->prepare($sql);
 $statement->bindParam(':mois', $_GET['mois']);
 $statement->execute();
 
 $sql="DELETE FROM pourcent_reduc WHERE idutilisateur=:idutilisateur";
 
-$statement=$pdo->prepare($sq);
+$statement = $pdo->prepare($sql);
 $statement->bindParam(':idutilisateur', $_GET['idutilisateur']);
 $statement->execute();
 
 $sql="DELETE FROM logement WHERE idlogement=:idlogement";
-$statement=$pdo->prepare($sq);
+$statement = $pdo->prepare($sql);
 $statement->bindParam(':idlogement', $_GET['idlogement']);
 $statement->execute();
 
 $sql="DELETE FROM categorie WHERE idcategorie=:idcategorie";
 
-$statement=$pdo->prepare($sq);
+$statement = $pdo->prepare($sql);
 $statement->bindParam(':idcategorie', $_GET['idcategorie']);
 $statement->execute();
 
 $sql="DELETE FROM camping WHERE idcamping=:idcamping";
 
-$statement=$pdo->prepare($sq);
+$statement = $pdo->prepare($sql);
 $statement->bindParam(':idcamping', $_GET['idcamping']);
 $statement->execute();
