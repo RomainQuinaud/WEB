@@ -40,12 +40,16 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label">Mois</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="mois"
+                           value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
+                        >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Augmentation par nuit</label>
-                    <input type="" class="form-control" id="idlogement" name="" placeholder="">
+                    <input type="text" class="form-control" id="ajout"
+                           value="<?php if (!empty($_GET['ajout'])) echo $_GET['ajout']; ?>"
+                        >
                 </div>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
