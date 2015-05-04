@@ -31,7 +31,7 @@ if (!isset($_SESSION['login']))
     <div class="container">
 
         <div class="text-center">
-            <h1 class="modal-header">Insert Categorie</h1>
+            <h1 class="modal-header">Categorie</h1>
         </div>
 
         <div class="row">
@@ -47,14 +47,14 @@ if (!isset($_SESSION['login']))
                     <label class="control-label">Prix de la Catégorie</label>
                     <input type="" class="form-control" id="idlogement" name="" placeholder="">
                 </div>
-                <?php if ($_GET['action'] = 'insert') { ?>
+                <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default">Insert</button>
+                        <button type="submit" class="btn btn-default">Insertion</button>
                     </div>
                 <?php
-                } else { ?>
+                } else if ($_GET['action'] == 'update') { ?>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default">Update</button>
+                        <button type="submit" class="btn btn-default">Mise à jour</button>
                     </div>
                 <?php
                 }
