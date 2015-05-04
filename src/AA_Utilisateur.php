@@ -44,7 +44,7 @@ if (!isset($_SESSION['login']))
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label">Prenom</label>
+                    <label class="control-label">Prénom</label>
                     <input type="text" class="form-control" id="prenom" name="prenom" placeholder="">
                 </div>
 
