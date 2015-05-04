@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.3.12
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 04 Mai 2015 à 18:16
+-- Client :  localhost
+-- Généré le :  Lun 04 Mai 2015 à 18:25
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -27,13 +27,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `camping` (
-  `idcamping` int(11) NOT NULL AUTO_INCREMENT,
+  `idcamping` int(11) NOT NULL,
   `nomcamping` varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   `villecamping` varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   `adressecamping` varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
-  `departementcamping` int(2) unsigned zerofill DEFAULT NULL,
-  PRIMARY KEY (`idcamping`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci AUTO_INCREMENT=2 ;
+  `departementcamping` int(2) unsigned zerofill DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Contenu de la table `camping`
@@ -49,20 +48,19 @@ INSERT INTO `camping` (`idcamping`, `nomcamping`, `villecamping`, `adressecampin
 --
 
 CREATE TABLE IF NOT EXISTS `categorie` (
-  `idcategorie` int(11) NOT NULL AUTO_INCREMENT,
+  `idcategorie` int(11) NOT NULL,
   `libellecategorie` varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
-  `prixcategorie` int(5) DEFAULT NULL,
-  PRIMARY KEY (`idcategorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci AUTO_INCREMENT=4 ;
+  `prixcategorie` int(5) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Contenu de la table `categorie`
 --
 
 INSERT INTO `categorie` (`idcategorie`, `libellecategorie`, `prixcategorie`) VALUES
-(1, 'Bungallow', 50),
-(2, 'Tente', 25),
-(3, 'Caravane', 75);
+(1, 'Bungallow', 75),
+(2, 'Tente', 40),
+(3, 'Caravane', 120);
 
 -- --------------------------------------------------------
 
@@ -71,16 +69,12 @@ INSERT INTO `categorie` (`idcategorie`, `libellecategorie`, `prixcategorie`) VAL
 --
 
 CREATE TABLE IF NOT EXISTS `logement` (
-  `idlogement` int(11) NOT NULL AUTO_INCREMENT,
+  `idlogement` int(11) NOT NULL,
   `idcategorie` int(5) DEFAULT NULL,
   `nomlogement` varchar(50) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   `idcamping` int(11) DEFAULT NULL,
-  `image` varchar(100) COLLATE utf8_unicode_520_ci DEFAULT NULL,
-  PRIMARY KEY (`idlogement`),
-  UNIQUE KEY `nomlogement` (`nomlogement`),
-  KEY `FK_logement_camping` (`idcamping`),
-  KEY `FK_logement_categorie` (`idcategorie`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci AUTO_INCREMENT=30 ;
+  `image` varchar(100) COLLATE utf8_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Contenu de la table `logement`
@@ -125,9 +119,7 @@ INSERT INTO `logement` (`idlogement`, `idcategorie`, `nomlogement`, `idcamping`,
 
 CREATE TABLE IF NOT EXISTS `pourcent_reduc` (
   `avance` varchar(5) COLLATE utf8_unicode_520_ci NOT NULL DEFAULT '',
-  `pourcent` int(11) NOT NULL,
-  PRIMARY KEY (`avance`),
-  UNIQUE KEY `unique_avance` (`avance`)
+  `pourcent` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
@@ -179,16 +171,13 @@ INSERT INTO `prix_periode` (`mois`, `ajout`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `reservation` (
-  `numreservation` int(11) NOT NULL AUTO_INCREMENT,
+  `numreservation` int(11) NOT NULL,
   `idUTILISATEUR` int(11) DEFAULT NULL,
   `idlogement` int(11) DEFAULT NULL,
   `datereservation` datetime DEFAULT NULL,
   `datedebut` date DEFAULT NULL,
-  `datefin` date DEFAULT NULL,
-  PRIMARY KEY (`numreservation`),
-  KEY `FK_reservation_utilisateur` (`idUTILISATEUR`),
-  KEY `FK_reservation_logement` (`idlogement`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci AUTO_INCREMENT=16 ;
+  `datefin` date DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Contenu de la table `reservation`
@@ -209,7 +198,7 @@ INSERT INTO `reservation` (`numreservation`, `idUTILISATEUR`, `idlogement`, `dat
 --
 
 CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `idUTILISATEUR` int(11) NOT NULL AUTO_INCREMENT,
+  `idUTILISATEUR` int(11) NOT NULL,
   `loginUTILISATEUR` varchar(40) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   `nomUTILISATEUR` varchar(60) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   `prenomUTILISATEUR` varchar(60) COLLATE utf8_unicode_520_ci DEFAULT NULL,
@@ -217,9 +206,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mailUTILISATEUR` varchar(40) COLLATE utf8_unicode_520_ci DEFAULT NULL,
   `departementUTILISATEUR` int(3) unsigned zerofill DEFAULT NULL,
   `mdpUTILISATEUR` varchar(100) COLLATE utf8_unicode_520_ci DEFAULT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`idUTILISATEUR`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci AUTO_INCREMENT=3 ;
+  `admin` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_520_ci;
 
 --
 -- Contenu de la table `utilisateur`
@@ -230,6 +218,75 @@ INSERT INTO `utilisateur` (`idUTILISATEUR`, `loginUTILISATEUR`, `nomUTILISATEUR`
 (2, 'Raphaël', 'Hammonais', 'Raphaël', 0102030405, 'raphael@toto.com', 048, '$2y$10$RjlMN7meHW3Soryr/bWO9eYF0wjdvOZ.5fjJPJtDjcfJpERH1FIJe', 0);
 
 --
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `camping`
+--
+ALTER TABLE `camping`
+  ADD PRIMARY KEY (`idcamping`);
+
+--
+-- Index pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  ADD PRIMARY KEY (`idcategorie`);
+
+--
+-- Index pour la table `logement`
+--
+ALTER TABLE `logement`
+  ADD PRIMARY KEY (`idlogement`), ADD UNIQUE KEY `nomlogement` (`nomlogement`), ADD KEY `FK_logement_camping` (`idcamping`), ADD KEY `FK_logement_categorie` (`idcategorie`);
+
+--
+-- Index pour la table `pourcent_reduc`
+--
+ALTER TABLE `pourcent_reduc`
+  ADD PRIMARY KEY (`avance`), ADD UNIQUE KEY `unique_avance` (`avance`);
+
+--
+-- Index pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`numreservation`), ADD KEY `FK_reservation_utilisateur` (`idUTILISATEUR`), ADD KEY `FK_reservation_logement` (`idlogement`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`idUTILISATEUR`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `camping`
+--
+ALTER TABLE `camping`
+  MODIFY `idcamping` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `categorie`
+--
+ALTER TABLE `categorie`
+  MODIFY `idcategorie` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `logement`
+--
+ALTER TABLE `logement`
+  MODIFY `idlogement` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+--
+-- AUTO_INCREMENT pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `numreservation` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `idUTILISATEUR` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- Contraintes pour les tables exportées
 --
 
@@ -237,15 +294,15 @@ INSERT INTO `utilisateur` (`idUTILISATEUR`, `loginUTILISATEUR`, `nomUTILISATEUR`
 -- Contraintes pour la table `logement`
 --
 ALTER TABLE `logement`
-  ADD CONSTRAINT `FK_logement_camping` FOREIGN KEY (`idcamping`) REFERENCES `camping` (`idcamping`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_logement_categorie` FOREIGN KEY (`idcategorie`) REFERENCES `categorie` (`idcategorie`) ON DELETE CASCADE;
+ADD CONSTRAINT `FK_logement_camping` FOREIGN KEY (`idcamping`) REFERENCES `camping` (`idcamping`) ON DELETE CASCADE,
+ADD CONSTRAINT `FK_logement_categorie` FOREIGN KEY (`idcategorie`) REFERENCES `categorie` (`idcategorie`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  ADD CONSTRAINT `FK_reservation_logement` FOREIGN KEY (`idlogement`) REFERENCES `logement` (`idlogement`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_reservation_utilisateur` FOREIGN KEY (`idUTILISATEUR`) REFERENCES `utilisateur` (`idUTILISATEUR`) ON DELETE CASCADE;
+ADD CONSTRAINT `FK_reservation_logement` FOREIGN KEY (`idlogement`) REFERENCES `logement` (`idlogement`) ON DELETE CASCADE,
+ADD CONSTRAINT `FK_reservation_utilisateur` FOREIGN KEY (`idUTILISATEUR`) REFERENCES `utilisateur` (`idUTILISATEUR`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

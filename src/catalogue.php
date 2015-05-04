@@ -177,6 +177,7 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
 
                                         $i = date("Y-m-d", strtotime($_GET['startSearch']));
                                         $somme = 0;
+
                                         while ($i < date("Y-m-d", strtotime($_GET['endSearch']))) {
                                             $i = date("Y-m-d", strtotime('+1 days', strtotime($i)));
 
@@ -185,13 +186,13 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
                                             $prixPeriodeStatements->bindParam(':mois', $month);
                                             $prixPeriodeStatements->execute();
                                             $ajout = $prixPeriodeStatements->fetch();
-                                            echo 'ajout:' . $ajout[0] . '/////';
-                                            $somme += $ajout[0];
-                                            echo 'somme' . $somme . '*****';
+
+                                            $somme += $ajout[0] + $toto[2];
+
 
 
                                     }
-                                        echo ($toto[2] + $somme) . '<br>';
+                                        echo ($somme) . '<br>';
 
                                     } else
                                         echo 'A partir de ' . $toto[2] . 'Euros <br>';
