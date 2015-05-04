@@ -51,6 +51,7 @@ if (!isset($_SESSION['login']))
                            value="<?php if (!empty($_GET['prixcategorie'])) echo $_GET['prixcategorie']; ?>"
                         >
                 </div>
+                <input type="text" id="info" name="info" value="categorie" hidden>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default">Insertion</button>
