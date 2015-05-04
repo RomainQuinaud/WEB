@@ -410,7 +410,7 @@ $utilisateurTable->execute();
                                 </a>
                             </td>
                             <td class="table_icon">
-                                <a href="traitement.php?action=delete&table=utilisateur&idutilisateur=<?php echo $utilisateur[0] ?>">
+                                <a href="traitement.php?action=delete&table=utilisateur&idutilisateur=<?php echo $utilisateur[0] ?>&admin=<?php echo urlencode($utilisateur[7]) ?>">
                                     <button class="btn btn-default" title="Supprimer l'utilisateur" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>

@@ -114,10 +114,16 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'utilisateur') {
     $sql = "DELETE FROM utilisateur WHERE idUTILISATEUR=:idutilisateur";
     $statement = $pdo->prepare($sql);
     $statement->bindParam(':idutilisateur', $_GET['idutilisateur']);
+    $error = "";
     try {
+        if ($_GET['admin'] == 1)
         $state = $statement->execute();
+        else {
+            $error = " impossible de supprimer l'administrateur";
+            $state = false;
+        }
     } catch (PDOException $Exception) {
-        $error = "";
+
         if ($Exception->getCode() == 23000) $error = ' contrainte d\'intégrité référentielle bafouée';
 
     }
