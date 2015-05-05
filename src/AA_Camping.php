@@ -69,7 +69,8 @@ if (!isset($_SESSION['login']))
 
                 <input type="text" id="info" name="info" value="camping" hidden>
 
-                <input type="text" id="idcamping" name="idcamping" value="<?php echo $_GET['idcamping']; ?>" hidden>
+                <input type="text" id="idcamping" name="idcamping"
+                       value="<?php if (!empty($_GET['idcamping'])) echo $_GET['idcamping']; ?>" hidden>
 
 
                 <?php if ($_GET['action'] == 'insert') { ?>

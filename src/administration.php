@@ -157,8 +157,8 @@ $utilisateurTable->execute();
                             }
                             ?>
                             <td class="table_icon">
-                                <?php $inc = 1; ?>
-                                <a href="AA_Categorie.php?action=update&libellecategorie=<?php echo urlencode($categorie[$inc++]) ?>&prixcategorie=<?php echo urlencode($categorie[$inc]) ?>">
+                                <?php $inc = 0; ?>
+                                <a href="AA_Categorie.php?action=update&idcategorie=<?php echo $categorie[$inc++] ?>&libellecategorie=<?php echo urlencode($categorie[$inc++]) ?>&prixcategorie=<?php echo urlencode($categorie[$inc]) ?>">
                                     <button class="btn btn-default" title="Editer la categorie" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
@@ -221,8 +221,8 @@ $utilisateurTable->execute();
                             }
                             ?>
                             <td class="table_icon">
-                                <?php $inc = 1; ?>
-                                <a href="AA_Logement.php?action=update&idcategorie=<?php echo urlencode($logement[$inc++]) ?>&nomlogement=<?php echo urlencode($logement[$inc++]) ?>&idcamping=<?php echo urlencode($logement[$inc++]) ?>&image=<?php echo $logement[$inc] ?>">
+                                <?php $inc = 0; ?>
+                                <a href="AA_Logement.php?action=update&idlogement=<?php echo urlencode($logement[$inc++]) ?>&idcategorie=<?php echo urlencode($logement[$inc++]) ?>&nomlogement=<?php echo urlencode($logement[$inc++]) ?>&idcamping=<?php echo urlencode($logement[$inc++]) ?>&image=<?php echo $logement[$inc] ?>">
                                     <button class="btn btn-default" title="Editer le logement" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
@@ -406,8 +406,8 @@ $utilisateurTable->execute();
                             <?php
                             ?>
                             <td class="table_icon">
-                                <?php $inc = 1; ?>
-                                <a href="AA_Utilisateur.php?action=update&loginutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&nomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&prenomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&telephoneutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&mailutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&departementutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&admin=<?php echo $utilisateur[$inc++] ?>">
+                                <?php $inc = 0; ?>
+                                <a href="AA_Utilisateur.php?action=update&idutilisateur=<?php echo $utilisateur[$inc++] ?>&loginutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&nomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&prenomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&telephoneutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&mailutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&departementutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&admin=<?php echo $utilisateur[$inc++] ?>">
                                     <button class="btn btn-default" title="Editer l'utilisateur" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>

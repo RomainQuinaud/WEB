@@ -32,9 +32,9 @@ VALUES(:libellecategorie,:prixcategorie)");
 
 
 if ($_POST['info'] == 'logement') {
-    $insertlogement = $pdo->prepare("INSERT INTO logement(nomcategorie,nomlogement,idcamping,image)
-VALUES(:nomcategorie,:nomlogement,:idcamping,:image)");
-    $insertlogement->bindParam(':nomcategorie', $_POST['nomcategorie']);
+    $insertlogement = $pdo->prepare("INSERT INTO logement(idcategorie,nomlogement,idcamping,image)
+VALUES(:idcategorie,:nomlogement,:idcamping,:image)");
+    $insertlogement->bindParam(':idcategorie', $_POST['nomcategorie']);
     $insertlogement->bindParam(':nomlogement', $_POST['nomlogement']);
     $insertlogement->bindParam(':idcamping', $_POST['idcamping']);
     $insertlogement->bindParam(':image', $_POST['image']);
