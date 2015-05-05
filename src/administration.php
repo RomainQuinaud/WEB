@@ -384,6 +384,7 @@ $utilisateurTable->execute();
                         <th>telephoneUTILISATEUR</th>
                         <th>mailUTILISATEUR</th>
                         <th>departementUTILISATEUR</th>
+                        <th>administrateur</th>
 
                     </tr>
                     </thead>
@@ -397,12 +398,16 @@ $utilisateurTable->execute();
                             for ($i = 0; $i < 7; $i++) {
                                 ?>
                                 <td> <?php echo $utilisateur[$i]; ?> </td>
+
                             <?php
                             }
                             ?>
+                            <td> <?php if ($utilisateur[8] == 1) echo 'Oui'; else echo 'Non' ?> </td>
+                            <?php
+                            ?>
                             <td class="table_icon">
                                 <?php $inc = 1; ?>
-                                <a href="AA_Utilisateur.php?action=update&loginutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&nomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&prenomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&telephoneutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&mailutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&departementutilisateur=<?php echo urlencode($utilisateur[$inc]) ?>">
+                                <a href="AA_Utilisateur.php?action=update&loginutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&nomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&prenomutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&telephoneutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&mailutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&departementutilisateur=<?php echo urlencode($utilisateur[$inc++]) ?>&admin=<?php echo $utilisateur[$inc++] ?>">
                                     <button class="btn btn-default" title="Editer l'utilisateur" type="button">
                                         <span class="glyphicon glyphicon-pencil">
                                         </span>
