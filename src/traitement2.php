@@ -9,7 +9,6 @@ include 'BDD_connect.php';
 
 if ($_POST['info'] == 'camping') {
 
-
     $insertcamping = $pdo->prepare("INSERT INTO camping(nomcamping, villecamping, adressecamping, departementcamping)
 VALUES(:nomcamping, :villecamping, :adressecamping, :departementcamping)");
     $insertcamping->bindParam(':nomcamping', $_POST['nomcamping']);
