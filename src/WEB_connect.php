@@ -11,29 +11,28 @@ include 'BDD_connect.php';
 $user = $_POST['email'];
 $password = $_POST['password'];
 
-if(empty($user)) {
+if (empty($user)) {
     $errmsg_arr[] = 'Veuillez saisir votre adresse email';
     $errflag = true;
 }
-if(empty($password)) {
+if (empty($password)) {
     $errmsg_arr[] = 'Veuillez saisir votre mot de passe';
     $errflag = true;
 }
 
 
 // query
-$result = $pdo->prepare($sql."WHERE mailUTILISATEUR= :mail");
+$result = $pdo->prepare($sql . "WHERE mailUTILISATEUR= :mail");
 $result->bindParam(':mail', $user);
 $result->execute();
 $rows = $result->fetch(PDO::FETCH_NUM);
-if($rows > 0 && password_verify($password,$rows[1])) {
+if ($rows > 0 && password_verify($password, $rows[1])) {
 
     $_SESSION['login'] = $rows[2];
     $_SESSION['admin'] = $rows[3];
     header("Location: index.php");
 
-}
-else {
+} else {
     if (!empty($user) && !empty($password)) {
         $errmsg_arr[] = 'Mauvais couple login/mot de passe';
         $errflag = true;

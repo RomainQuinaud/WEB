@@ -43,52 +43,52 @@ $reservationStatements->execute();
             <h2>Vos Réservations</h2>
 
             <div class="text-left mesreservations">
-            <?php if ($reservationStatements->rowCount() == 0) {
-                ?> <p> Pas de réservations en cours</p>
-            <?php
-            } else {
-                ?>
-
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Date de début</th>
-                        <th>Date de fin</th>
-                        <th>Nom du logement</th>
-                        <th>Type de logement</th>
-                        <th>Nom du Camping</th>
-                        <th>Ville</th>
-                        <th>Adresse</th>
-                        <th>Département</th>
-
-
-                    </tr>
-
-
-                    </thead>
-                    <tbody>
-                    <?php
-
-                    while ($reservation = $reservationStatements->fetch()) {
-                        ?>
-                        <tr>
-                            <?php
-                            for ($i = 0; $i < 8; $i++) {
-                                ?>
-                                <td <?php if (DateTime::createFromFormat("Y-m-d", $reservation[1]) > new DateTime()) echo "class= \" success \" "; else echo "class=\"danger\""; ?> > <?php echo $reservation[$i] ?> </td>
-                            <?php
-                            }
-                            ?>
-                        </tr>
-                    <?php
-                    }
+                <?php if ($reservationStatements->rowCount() == 0) {
+                    ?> <p> Pas de réservations en cours</p>
+                <?php
+                } else {
                     ?>
-                    </tbody>
 
-                </table>
-            <?php
-            }
-            ?>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Date de début</th>
+                            <th>Date de fin</th>
+                            <th>Nom du logement</th>
+                            <th>Type de logement</th>
+                            <th>Nom du Camping</th>
+                            <th>Ville</th>
+                            <th>Adresse</th>
+                            <th>Département</th>
+
+
+                        </tr>
+
+
+                        </thead>
+                        <tbody>
+                        <?php
+
+                        while ($reservation = $reservationStatements->fetch()) {
+                            ?>
+                            <tr>
+                                <?php
+                                for ($i = 0; $i < 8; $i++) {
+                                    ?>
+                                    <td <?php if (DateTime::createFromFormat("Y-m-d", $reservation[1]) > new DateTime()) echo "class= \" success \" "; else echo "class=\"danger\""; ?> > <?php echo $reservation[$i] ?> </td>
+                                <?php
+                                }
+                                ?>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                        </tbody>
+
+                    </table>
+                <?php
+                }
+                ?>
                 <div class="text-center legend">
                     Légendes
                     <div class="bg-success">

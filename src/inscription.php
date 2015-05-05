@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(isset($_SESSION['login']))
+if (isset($_SESSION['login']))
     header('Location: index.php');
 ?>
 
@@ -114,7 +114,6 @@ if(isset($_SESSION['login']))
             </div>
 
 
-
             <div class="form-group">
                 <button type="submit" class="btn btn-default">Inscription</button>
             </div>
@@ -138,7 +137,8 @@ if(isset($_SESSION['login']))
     </footer>
 
 
-</div><!-- /.container -->
+</div>
+<!-- /.container -->
 
 <!-- Bootstrap core JavaScript
 
@@ -150,9 +150,6 @@ if(isset($_SESSION['login']))
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 <!--<script src="../js/jquery-1.9.1.min.js"></script>-->
-
-
-
 
 
 </body>

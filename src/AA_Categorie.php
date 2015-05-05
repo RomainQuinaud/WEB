@@ -70,15 +70,15 @@ if (!isset($_SESSION['login']))
                 <?php
                 }
                 ?>
-            </form >
+            </form>
 
-        </div >
-    </div >
-</div >
+        </div>
+    </div>
+</div>
 
-<div id = "footer" >
-    <div class="container" >
-        <p class="text-muted credit" > © Projet Web - DUT Informatique < br> IUT d'Orsay</p>
+<div id="footer">
+    <div class="container">
+        <p class="text-muted credit"> © Projet Web - DUT Informatique < br> IUT d'Orsay</p>
     </div>
 </div>
 <!-- Bootstrap core JavaScript

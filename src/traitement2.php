@@ -51,7 +51,6 @@ VALUES(:libellecategorie,:prixcategorie)");
 }
 
 
-
 if ($_POST['info'] == 'logement') {
     $insertlogement = $pdo->prepare("INSERT INTO logement(idcategorie,nomlogement,idcamping,image)
 VALUES(:idcategorie,:nomlogement,:idcamping,:image)");

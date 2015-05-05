@@ -86,7 +86,6 @@ if (!empty($_GET['startSearch']) && !empty($_GET['endSearch'])) {
             <form class="form-inline" method="GET" action="catalogue.php">
 
 
-
                 <div class="form-group">
                     <input type="text" maxlength="40" class="form-control" id="nomLogement" name="nomLogement"
 

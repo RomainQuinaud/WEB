@@ -21,7 +21,6 @@ $randomId2 = rand(1, $catalogueStatements->rowCount());
 $randomId3 = rand(1, $catalogueStatements->rowCount());
 
 
-
 $propositionStatements = $pdo->prepare("
                 SELECT image,nomcamping,nomlogement,libellecategorie,prixcategorie
                 FROM utilisateur NATURAL JOIN logement NATURAL JOIN categorie NATURAL JOIN camping WHERE loginUtilisateur=:login AND (idlogement=:random1 OR idlogement=:random2)");
@@ -82,34 +81,34 @@ $propositionStatements->execute();
                             ?>
                             <div class="center-block">
                                 <?php
-                            while ($proposition = $propositionStatements->fetch()) { ?>
+                                while ($proposition = $propositionStatements->fetch()) { ?>
 
 
 
-                                <div class="thumbnail">
+                                    <div class="thumbnail">
 
 
-                                    <a href="catalogue.php?nomLogement=<?php echo urlencode($proposition[2]) ?>&categorie=Tous&startSearch=&endSearch=">
+                                        <a href="catalogue.php?nomLogement=<?php echo urlencode($proposition[2]) ?>&categorie=Tous&startSearch=&endSearch=">
 
 
-                                        <img class="imgCatalogue" src=" <?php echo $proposition[0] ?> "
-                                         alt="Photographie du logement <?php echo $proposition[2] ?>">
+                                            <img class="imgCatalogue" src=" <?php echo $proposition[0] ?> "
+                                                 alt="Photographie du logement <?php echo $proposition[2] ?>">
 
-                                    <div class="caption">
-                                        <h3><?php echo $proposition[2] ?></h3>
-                                        <?php
-                                        for ($i = 3; $i < 4; $i++)
-                                            echo $proposition[$i] . '<br>';
-                                        ?>
+                                            <div class="caption">
+                                                <h3><?php echo $proposition[2] ?></h3>
+                                                <?php
+                                                for ($i = 3; $i < 4; $i++)
+                                                    echo $proposition[$i] . '<br>';
+                                                ?>
+                                            </div>
+
+                                        </a>
                                     </div>
 
-                                    </a>
-                                </div>
 
 
-
-                            <?php
-                            }
+                                <?php
+                                }
                                 ?> </div> <?php
                         }
                         ?>

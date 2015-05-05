@@ -112,7 +112,7 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'utilisateur') {
     $error = "";
     try {
         if ($_GET['admin'] == 0)
-        $state = $statement->execute();
+            $state = $statement->execute();
         else {
             $error = " impossible de supprimer l'administrateur";
             $state = false;

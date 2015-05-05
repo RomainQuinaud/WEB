@@ -1,4 +1,3 @@
-
 <?php
 
 
@@ -31,7 +30,6 @@ function menu($page)
             <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
 
 
-
                 <ul class="nav navbar-nav">
                     <li <?php if ($page == 'index.php') echo 'class="active"' ?>><a href="index.php">Accueil</a></li>
                     <li <?php if ($page == 'catalogue.php') echo 'class="active"' ?>><a
@@ -59,7 +57,7 @@ function menu($page)
             /.nav-collapse 
     
             -->
-            
+
         </div>
 
 
@@ -70,4 +68,5 @@ function menu($page)
 
 <?php
 }
+
 ?>
