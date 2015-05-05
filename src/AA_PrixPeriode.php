@@ -41,7 +41,7 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label">Mois</label>
-                    <input type="text" class="form-control" id="mois" name="mois"
+                    <input disabled type="text" class="form-control" id="disabledInput" name="mois"
                            value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
                         >
                 </div>
@@ -53,6 +53,12 @@ if (!isset($_SESSION['login']))
                         >
                 </div>
                 <input type="text" id="info" name="info" value="prixperiode" hidden>
+
+                <input type="text" id="mois" name="mois"
+                       value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>" hidden>
+
+
+
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default">Insertion</button>

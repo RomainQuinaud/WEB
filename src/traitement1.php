@@ -24,14 +24,19 @@ if ($_POST['info'] == 'categorie') {
     $updatecategorie->bindParam(':prixcategorie', $_POST['prixcategorie']);
     $updatecategorie->execute();
 }
-
+if ($_POST['info'] == 'prixperiode') {
+    $updateprixperiode = $pdo->prepare("UPDATE prix_periode SET ajout=:ajout WHERE mois=:mois ");
+    $updateprixperiode->bindParam(':mois', $_POST['mois']);
+    $updateprixperiode->bindParam(':ajout', $_POST['ajout']);
+    $updateprixperiode->execute();
+}
 
 if ($_POST['info'] == 'logement') {
     $updatelogement = $pdo->prepare("   UPDATE logement
-                                        SET nomcategorie=:nomcategorie,nomlogement=:nomlogement,idcamping=:idcamping,image=:image
+                                        SET idcategorie=:idcategorie,nomlogement=:nomlogement,idcamping=:idcamping,image=:image
                                         WHERE idlogement=:idlogement");
     $updatelogement->bindParam(':idlogement', $_POST['idlogement']);
-    $updatelogement->bindParam(':nomcategorie', $_POST['nomcategorie']);
+    $updatelogement->bindParam(':idcategorie', $_POST['idcategorie']);
     $updatelogement->bindParam(':nomlogement', $_POST['nomlogement']);
     $updatelogement->bindParam(':idcamping', $_POST['idcamping']);
     $updatelogement->bindParam(':image', $_POST['image']);
@@ -39,13 +44,16 @@ if ($_POST['info'] == 'logement') {
 }
 
 if ($_POST['info'] == 'utilisateur') {
-    $updateutilisateur = $pdo->prepare("  UPDATE utilisateur
-                                        SET loginUTILISATEUR=:loginUTILISATEUR,nomUTILISATEUR=:nomUTILISATEUR,prenomUTILISATEUR=:prenomUTILISATEUR,telephoneUTILISATEUR=:telephoneUTILISATEUR,mailUTILISATEUR=:mailUTILISATEUR,departementUTILISATEUR=:departementUTILISATEUR");
-    $updateutilisateur->bindParam(':loginUTILISATEUR', $_GET['loginUTILISATEUR']);
-    $updateutilisateur->bindParam(':nomUTILISATEUR', $_GET['nomUTILISATEUR']);
-    $updateutilisateur->bindParam(':prenomUTILISATEUR', $_GET['prenomUTILISATEUR']);
-    $updateutilisateur->bindParam(':telephoneUTILISATEUR', $_GET['telephoneUTILISATEUR']);
-    $updateutilisateur->bindParam(':mailUTILISATEUR', $_GET['mailUTILISATEUR']);
-    $updateutilisateur->bindParam(':departementUTILISATEUR', $_GET['departementUTILISATEUR']);
+    $updateutilisateur = $pdo->prepare("  update utilisateur
+                                        set loginutilisateur=:loginutilisateur,nomutilisateur=:nomutilisateur,prenomutilisateur=:prenomutilisateur,telephoneutilisateur=:telephoneutilisateur,mailutilisateur=:mailutilisateur,departementutilisateur=:departementutilisateur, admin=:admin
+                                        where idutilisateur=:idutilisateur");
+    $updateutilisateur->bindparam(':loginutilisateur', $_POST['loginutilisateur']);
+    $updateutilisateur->bindParam(':idutilisateur', $_POST['idutilisateur']);
+    $updateutilisateur->bindParam(':nomutilisateur', $_POST['nomutilisateur']);
+    $updateutilisateur->bindParam(':prenomutilisateur', $_POST['prenomutilisateur']);
+    $updateutilisateur->bindParam(':telephoneutilisateur', $_POST['telephoneutilisateur']);
+    $updateutilisateur->bindParam(':mailutilisateur', $_POST['mailutilisateur']);
+    $updateutilisateur->bindParam(':departementutilisateur', $_POST['departementutilisateur']);
+    $updateutilisateur->bindParam(':admin', $_POST['admin']);
     $updateutilisateur->execute();
 }

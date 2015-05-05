@@ -99,6 +99,9 @@ if (!isset($_SESSION['login']))
 
                 <input type="text" id="info" name="info" value="utilisateur" hidden>
 
+                <input type="text" id="idutilisateur" name="idutilisateur"
+                       value="<?php if (!empty($_GET['idutilisateur'])) echo $_GET['idutilisateur']; ?>" hidden>
+
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default">Insertion</button>

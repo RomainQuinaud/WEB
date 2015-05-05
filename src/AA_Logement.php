@@ -39,12 +39,46 @@ if (!isset($_SESSION['login']))
             <form class="center-block"
                   method="POST" <?php if ($_GET['action'] == 'insert') echo 'action="traitement2.php"'; else if ($_GET['action'] == 'update') echo 'action="traitement1.php"'; ?>>
 
+
+                <div class="form-group">
+                    <label class="control-label">Categorie</label>
+                    <select class="form-control" id="idcategorie" name="idcategorie">
+
+                        <?php
+
+                        include 'BDD_connect.php';
+                        $categorie = $pdo->prepare("
+                         SELECT idcategorie,libellecategorie
+                         FROM categorie");
+                        $categorie->execute();
+
+
+                        while ($libelle = $categorie->fetch()) { ?>
+
+                            <option value="<?php echo $libelle[0] ?>"> <?php echo $libelle[1] ?> </option>
+
+                        <?php } ?>
+
+                    </select>
+
+                </div>
+
+
                 <div class="form-group">
                     <label class="control-label"> Nom du Logement</label>
                     <input type="text" class="form-control" id="nomlogement" name="nomlogement"
                            value="<?php if (!empty($_GET['nomlogement'])) echo $_GET['nomlogement']; ?>"
                         >
                 </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">ID camping</label>
+                    <input disabled type="text" class="form-control" id="disabledInput" name="idcamping"
+                           value="<?php if (!empty($_GET['idcamping'])) echo $_GET['idcamping']; ?>"
+                        >
+                </div>
+
 
                 <div class="form-group">
                     <label class="control-label">Adresse de l'image du Logement</label>
@@ -56,6 +90,12 @@ if (!isset($_SESSION['login']))
 
                 <input type="text" id="idlogement" name="idlogement"
                        value="<?php if (!empty($_GET['idlogement'])) echo $_GET['idlogement']; ?>" hidden>
+
+
+                <input type="text" id="idcamping" name="idcamping"
+                       value="<?php if (!empty($_GET['idcamping'])) echo $_GET['idcamping']; ?>" hidden>
+
+
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default">Insertion</button>
