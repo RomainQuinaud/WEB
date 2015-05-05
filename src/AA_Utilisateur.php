@@ -39,6 +39,13 @@ if (!isset($_SESSION['login']))
             <form class="center-block"
                   method="POST" <?php if ($_GET['action'] == 'insert') echo 'action="traitement2.php"'; else if ($_GET['action'] == 'update') echo 'action="traitement1.php"'; ?>>
 
+
+                <div class="form-group">
+                    <label class="control-label"> Login </label>
+                    <input type="text" class="form-control" id="loginutilisateur" name="loginutilisateur"
+                           value="<?php if (!empty($_GET['loginutilisateur'])) echo $_GET['loginutilisateur']; ?>"
+                        >
+                </div>
                 <div class="form-group">
                     <label class="control-label"> Nom </label>
                     <input type="text" class="form-control" id="nomutilisateur" name="nomutilisateur"
@@ -72,6 +79,22 @@ if (!isset($_SESSION['login']))
                     <input type="text" class="form-control" id="departementutilisateur" name="departementutilisateur"
                            value="<?php if (!empty($_GET['departementutilisateur'])) echo $_GET['departementutilisateur']; ?>"
                         >
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Administrateur</label>
+                    <select class="form-control" id="admin" name="admin">
+
+                        <option
+                            value="1">
+                            Vrai
+                        </option>
+                        <option
+                            value="0">
+                            False
+                        </option>
+
+                    </select>
                 </div>
 
                 <input type="text" id="info" name="info" value="utilisateur" hidden>

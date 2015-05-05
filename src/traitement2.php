@@ -51,13 +51,26 @@ VALUES(:mois,:ajout)");
 
 
 if ($_POST['info'] == 'utilisateur') {
-    $insertutilisateur = $pdo->prepare("INSERT INTO utilisateur(loginUTILISATEUR,nomUTILISATEUR,prenomUTILISATEUR,telephoneUTILISATEUR,mailUTILISATEUR,departementUTILISATEUR)
-VALUES(:loginUTILISATEUR,:nomUTILISATEUR,:prenomUTILISATEUR,:telephoneUTILISATEUR,:mailUTILISATEUR,:departementUTILISATEUR)");
+    $insertutilisateur = $pdo->prepare("INSERT INTO utilisateur(loginUTILISATEUR,nomUTILISATEUR,prenomUTILISATEUR,telephoneUTILISATEUR,mailUTILISATEUR,departementUTILISATEUR,admin)
+VALUES(:loginUTILISATEUR,:nomUTILISATEUR,:prenomUTILISATEUR,:telephoneUTILISATEUR,:mailUTILISATEUR,:departementUTILISATEUR,:admin)");
     $insertutilisateur->bindParam(':loginUTILISATEUR', $_POST['loginutilisateur']);
     $insertutilisateur->bindParam(':nomUTILISATEUR', $_POST['nomutilisateur']);
     $insertutilisateur->bindParam(':prenomUTILISATEUR', $_POST['prenomutilisateur']);
     $insertutilisateur->bindParam(':telephoneUTILISATEUR', $_POST['telephoneutilisateur']);
     $insertutilisateur->bindParam(':mailUTILISATEUR', $_POST['mailutilisateur']);
     $insertutilisateur->bindParam(':departementUTILISATEUR', $_POST['departementutilisateur']);
-    $insertutilisateur->execute();
+    $insertutilisateur->bindParam(':admin', $_POST['admin']);
+    try {
+        $state = $insertutilisateur->execute();
+
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+        if ($state)
+            header('Location: administration.php?success=' . urlencode("Ajout Réussi") . '');
+        else
+            header('Location: administration.php?error=' . urlencode("Ajout Échoué:" . $error . "") . '');
+
+    }
 }
