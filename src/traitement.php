@@ -116,7 +116,7 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'utilisateur') {
     $statement->bindParam(':idutilisateur', $_GET['idutilisateur']);
     $error = "";
     try {
-        if ($_GET['admin'] == 1)
+        if ($_GET['admin'] == 0)
         $state = $statement->execute();
         else {
             $error = " impossible de supprimer l'administrateur";

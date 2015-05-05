@@ -17,7 +17,7 @@ $prix_periodeTable->execute();
 $reservationTable = $pdo->prepare("SELECT numreservation, idUTILISATEUR, idlogement, datereservation, datedebut, datefin FROM reservation");
 $reservationTable->execute();
 
-$utilisateurTable = $pdo->prepare("SELECT idUTILISATEUR, loginUTILISATEUR, nomUTILISATEUR, prenomUTILISATEUR, telephoneUTILISATEUR, mailUTILISATEUR, departementUTILISATEUR, mdpUTILISATEUR FROM utilisateur");
+$utilisateurTable = $pdo->prepare("SELECT idUTILISATEUR, loginUTILISATEUR, nomUTILISATEUR, prenomUTILISATEUR, telephoneUTILISATEUR, mailUTILISATEUR, departementUTILISATEUR, mdpUTILISATEUR, admin FROM utilisateur");
 $utilisateurTable->execute();
 
 
@@ -409,8 +409,9 @@ $utilisateurTable->execute();
                                     </button>
                                 </a>
                             </td>
+
                             <td class="table_icon">
-                                <a href="traitement.php?action=delete&table=utilisateur&idutilisateur=<?php echo $utilisateur[0] ?>&admin=<?php echo urlencode($utilisateur[7]) ?>">
+                                <a href="traitement.php?action=delete&table=utilisateur&idutilisateur=<?php echo $utilisateur[0] ?>&admin=<?php echo $utilisateur[8] ?>">
                                     <button class="btn btn-default" title="Supprimer l'utilisateur" type="button">
                                         <span class="glyphicon glyphicon-remove">
                                         </span>
