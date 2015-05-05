@@ -17,7 +17,7 @@ VALUES(:nomcamping, :villecamping, :adressecamping, :departementcamping)");
     $insertcamping->bindParam(':departementcamping', $_POST['departementcamping']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $insertcamping->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();
@@ -38,7 +38,7 @@ VALUES(:libellecategorie,:prixcategorie)");
     $insertcategorie->bindParam(':prixcategorie', $_POST['prixcategorie']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $insertcategorie->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();
@@ -61,7 +61,7 @@ VALUES(:idcategorie,:nomlogement,:idcamping,:image)");
     $insertlogement->bindParam(':image', $_POST['image']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $insertlogement->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();
@@ -80,7 +80,7 @@ VALUES(:mois,:ajout)");
     $insertprixperiode->bindParam(':ajout', $_POST['ajout']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $insertprixperiode->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();

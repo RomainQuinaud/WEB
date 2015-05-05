@@ -25,7 +25,7 @@ if ($_POST['info'] == 'categorie') {
     $statement->bindParam(':numreservation', $_GET['numreservation']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $updatecategorie->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();
@@ -42,7 +42,7 @@ if ($_POST['info'] == 'prixperiode') {
     $updateprixperiode->bindParam(':ajout', $_POST['ajout']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $updateprixperiode->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();
@@ -65,7 +65,7 @@ if ($_POST['info'] == 'logement') {
     $updatelogement->bindParam(':image', $_POST['image']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $updatelogement->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();
@@ -91,7 +91,7 @@ if ($_POST['info'] == 'utilisateur') {
     $updateutilisateur->bindParam(':admin', $_POST['admin']);
     $error = "";
     try {
-        $state = $statement->execute();
+        $state = $updateutilisateur->execute();
     } catch (PDOException $Exception) {
 
         $error = '<br>' . $Exception->getMessage();
