@@ -36,7 +36,8 @@ if (!isset($_SESSION['login']))
 
         <div class="row">
 
-            <form class="center-block" method="POST" action=" ">
+            <form class="center-block"
+                  method="POST" <?php if ($_GET['action'] == 'insert') echo 'action="traitement2.php"'; else if ($_GET['action'] == 'update') echo 'action="traitement1.php"'; ?>>
 
                 <div class="form-group">
                     <label class="control-label"> Nom du Logement</label>
