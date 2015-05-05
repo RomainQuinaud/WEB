@@ -42,41 +42,45 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label"> Login </label>
-                    <input type="text" class="form-control" id="loginutilisateur" name="loginutilisateur"
+                    <input type="text" maxlength="40" class="form-control" id="loginutilisateur" name="loginutilisateur"
                            value="<?php if (!empty($_GET['loginutilisateur'])) echo $_GET['loginutilisateur']; ?>"
                         >
                 </div>
                 <div class="form-group">
                     <label class="control-label"> Nom </label>
-                    <input type="text" class="form-control" id="nomutilisateur" name="nomutilisateur"
+                    <input type="text" maxlength="60" class="form-control" id="nomutilisateur" name="nomutilisateur"
                            value="<?php if (!empty($_GET['nomutilisateur'])) echo $_GET['nomutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Prénom</label>
-                    <input type="text" class="form-control" id="prenomutilisateur" name="prenomutilisateur"
+                    <input type="text" maxlength="60" class="form-control" id="prenomutilisateur"
+                           name="prenomutilisateur"
                            value="<?php if (!empty($_GET['prenomutilisateur'])) echo $_GET['prenomutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Téléphone</label>
-                    <input type="text" class="form-control" id="telephoneutilisateur" name="telephoneutilisateur"
+                    <input type="tel"
+                           pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
+                           maxlength="20" class="form-control" id="telephoneutilisateur" name="telephoneutilisateur"
                            value="<?php if (!empty($_GET['telephoneutilisateur'])) echo $_GET['telephoneutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Mail</label>
-                    <input type="text" class="form-control" id="mailutilisateur" name="mailutilisateur"
+                    <input type="email" maxlength="40" class="form-control" id="mailutilisateur" name="mailutilisateur"
                            value="<?php if (!empty($_GET['mailutilisateur'])) echo $_GET['mailutilisateur']; ?>"
                         >
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Département</label>
-                    <input type="text" class="form-control" id="departementutilisateur" name="departementutilisateur"
+                    <input type="text" maxlength="3" class="form-control" id="departementutilisateur"
+                           name="departementutilisateur"
                            value="<?php if (!empty($_GET['departementutilisateur'])) echo $_GET['departementutilisateur']; ?>"
                         >
                 </div>

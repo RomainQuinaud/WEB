@@ -291,14 +291,7 @@ $utilisateurTable->execute();
                                     </button>
                                 </a>
                             </td>
-                            <td class="table_icon">
-                                <a href="traitement.php?action=delete&table=prixperiode&mois=<?php echo $prix_periode[0] ?>">
-                                    <button class="btn btn-default" title="Supprimer le prix par période" type="button">
-                                        <span class="glyphicon glyphicon-remove">
-                                        </span>
-                                    </button>
-                                </a>
-                            </td>
+
                         </tr>
                     <?php
                     }
@@ -307,14 +300,7 @@ $utilisateurTable->execute();
                     </tbody>
 
                 </table>
-                <div class="table_icon">
-                    <a href="AA_PrixPeriode.php?action=insert">
-                        <button class="btn btn-default" title="Insérer un prix par période" type="button">
-                                        <span class="glyphicon glyphicon-plus">
-                                        </span>
-                        </button>
-                    </a>
-                </div>
+
             </div>
         </div>
 
