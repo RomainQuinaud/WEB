@@ -53,6 +53,9 @@ if (!isset($_SESSION['login']))
                         >
                 </div>
                 <input type="text" id="info" name="info" value="logement" hidden>
+
+                <input type="text" id="idlogement" name="idlogement"
+                       value="<?php if (!empty($_GET['idlogement'])) echo $_GET['idlogement']; ?>" hidden>
                 <?php if ($_GET['action'] == 'insert') { ?>
                     <div class="form-group">
                         <button type="submit" class="btn btn-default">Insertion</button>
