@@ -59,8 +59,10 @@ $insertutilisateur->bindParam(':mailUTILISATEUR', $_GET['mailUTILISATEUR']);
 $insertutilisateur->bindParam(':departementUTILISATEUR', $_GET['departementUTILISATEUR']);
 $insertutilisateur->execute();
 
+/*
 ************************************************************************************************************************************************************************
 ************************************************************************************************************************************************************************
+*/
 
 $updatecamping = $pdo->prepare("    UPDATE camping
 SET nomcamping=:nomcamping, villecamping=:villecamping, adressecamping=:adressecamping, departementcamping=:departementcamping
@@ -122,8 +124,10 @@ $updateutilisateur->bindParam(':mailUTILISATEUR', $_GET['mailUTILISATEUR']);
 $updateutilisateur->bindParam(':departementUTILISATEUR', $_GET['departementUTILISATEUR']);
 $updateutilisateur->execute();
 
+/*
 ***********************************************************************************************************************************************************************
 ***********************************************************************************************************************************************************************
+*/
 
 $sql="DELETE FROM UTILISATEUR WHERE idutilisateur=:idutilisateur";
 $statement = $pdo->prepare($sql);
