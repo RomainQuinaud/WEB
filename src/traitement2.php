@@ -15,7 +15,18 @@ VALUES(:nomcamping, :villecamping, :adressecamping, :departementcamping)");
     $insertcamping->bindParam(':villecamping', $_POST['villecamping']);
     $insertcamping->bindParam(':adressecamping', $_POST['adressecamping']);
     $insertcamping->bindParam(':departementcamping', $_POST['departementcamping']);
-    $insertcamping->execute();
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Insertion Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Insertion Échouée:" . $error . "") . '');
 }
 
 if ($_POST['info'] == 'categorie') {
@@ -25,10 +36,20 @@ if ($_POST['info'] == 'categorie') {
 VALUES(:libellecategorie,:prixcategorie)");
     $insertcategorie->bindParam(':libellecategorie', $_POST['libellecategorie']);
     $insertcategorie->bindParam(':prixcategorie', $_POST['prixcategorie']);
-    $insertcategorie->execute();
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
 
+        $error = '<br>' . $Exception->getMessage();
 
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Insertion Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Insertion Échouée:" . $error . "") . '');
 }
+
 
 
 if ($_POST['info'] == 'logement') {
@@ -38,7 +59,18 @@ VALUES(:idcategorie,:nomlogement,:idcamping,:image)");
     $insertlogement->bindParam(':nomlogement', $_POST['nomlogement']);
     $insertlogement->bindParam(':idcamping', $_POST['idcamping']);
     $insertlogement->bindParam(':image', $_POST['image']);
-    $insertlogement->execute();
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Insertion Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Insertion Échouée:" . $error . "") . '');
 }
 
 if ($_POST['info'] == 'prixperiode') {
@@ -46,7 +78,18 @@ if ($_POST['info'] == 'prixperiode') {
 VALUES(:mois,:ajout)");
     $insertprixperiode->bindParam(':mois', $_POST['mois']);
     $insertprixperiode->bindParam(':ajout', $_POST['ajout']);
-    $insertprixperiode->execute();
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Insertion Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Insertion Échouée:" . $error . "") . '');
 }
 
 
@@ -68,9 +111,9 @@ VALUES(:loginUTILISATEUR,:nomUTILISATEUR,:prenomUTILISATEUR,:telephoneUTILISATEU
         $error = '<br>' . $Exception->getMessage();
 
         if ($state)
-            header('Location: administration.php?success=' . urlencode("Ajout Réussi") . '');
+            header('Location: administration.php?success=' . urlencode("Insertion Réussie") . '');
         else
-            header('Location: administration.php?error=' . urlencode("Ajout Échoué:" . $error . "") . '');
+            header('Location: administration.php?error=' . urlencode("Insertion Échouée:" . $error . "") . '');
 
     }
 }

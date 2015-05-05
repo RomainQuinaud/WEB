@@ -12,19 +12,18 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'camping') {
     $sql = "DELETE FROM camping WHERE idcamping=:idcamping";
     $statement = $pdo->prepare($sql);
     $statement->bindParam(':idcamping', $_GET['idcamping']);
+    $error = "";
     try {
         $state = $statement->execute();
     } catch (PDOException $Exception) {
-        $error = "";
-        if ($Exception->getCode() == 23000) $error = ' contrainte d\'intégrité référentielle bafouée';
+
+        $error = '<br>' . $Exception->getMessage();
 
     }
     if ($state)
         header('Location: administration.php?success=' . urlencode("Suppression Réussie") . '');
     else
         header('Location: administration.php?error=' . urlencode("Suppression Échouée:" . $error . "") . '');
-
-
 }
 
 if ($_GET['action'] == 'delete' and $_GET['table'] == 'categorie') {
@@ -33,19 +32,18 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'categorie') {
 
     $statement = $pdo->prepare($sql);
     $statement->bindParam(':idcategorie', $_GET['idcategorie']);
+    $error = "";
     try {
         $state = $statement->execute();
     } catch (PDOException $Exception) {
-        $error = "";
-        if ($Exception->getCode() == 23000) $error = ' contrainte d\'intégrité référentielle bafouée';
+
+        $error = '<br>' . $Exception->getMessage();
 
     }
     if ($state)
         header('Location: administration.php?success=' . urlencode("Suppression Réussie") . '');
     else
         header('Location: administration.php?error=' . urlencode("Suppression Échouée:" . $error . "") . '');
-
-
 }
 
 
@@ -54,19 +52,18 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'logement') {
     $sql = "DELETE FROM logement WHERE idlogement=:idlogement";
     $statement = $pdo->prepare($sql);
     $statement->bindParam(':idlogement', $_GET['idlogement']);
+    $error = "";
     try {
         $state = $statement->execute();
     } catch (PDOException $Exception) {
-        $error = "";
-        if ($Exception->getCode() == 23000) $error = ' contrainte d\'intégrité référentielle bafouée';
+
+        $error = '<br>' . $Exception->getMessage();
 
     }
     if ($state)
         header('Location: administration.php?success=' . urlencode("Suppression Réussie") . '');
     else
         header('Location: administration.php?error=' . urlencode("Suppression Échouée:" . $error . "") . '');
-
-
 }
 
 
@@ -76,38 +73,36 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'prixperiode') {
 
     $statement = $pdo->prepare($sql);
     $statement->bindParam(':mois', $_GET['mois']);
+    $error = "";
     try {
         $state = $statement->execute();
     } catch (PDOException $Exception) {
-        $error = "";
-        if ($Exception->getCode() == 23000) $error = ' contrainte d\'intégrité référentielle bafouée';
+
+        $error = '<br>' . $Exception->getMessage();
 
     }
     if ($state)
         header('Location: administration.php?success=' . urlencode("Suppression Réussie") . '');
     else
         header('Location: administration.php?error=' . urlencode("Suppression Échouée:" . $error . "") . '');
-
-
 }
 if ($_GET['action'] == 'delete' and $_GET['table'] == 'reservation') {
 
     $sql = "DELETE FROM reservation WHERE numreservation=:numreservation";
     $statement = $pdo->prepare($sql);
     $statement->bindParam(':numreservation', $_GET['numreservation']);
+    $error = "";
     try {
         $state = $statement->execute();
     } catch (PDOException $Exception) {
-        $error = "";
-        if ($Exception->getCode() == 23000) $error = ' contrainte d\'intégrité référentielle bafouée';
+
+        $error = '<br>' . $Exception->getMessage();
 
     }
     if ($state)
         header('Location: administration.php?success=' . urlencode("Suppression Réussie") . '');
     else
         header('Location: administration.php?error=' . urlencode("Suppression Échouée:" . $error . "") . '');
-
-
 }
 if ($_GET['action'] == 'delete' and $_GET['table'] == 'utilisateur') {
 
@@ -124,7 +119,7 @@ if ($_GET['action'] == 'delete' and $_GET['table'] == 'utilisateur') {
         }
     } catch (PDOException $Exception) {
 
-        if ($Exception->getCode() == 23000) $error = ' contrainte d\'intégrité référentielle bafouée';
+        $error = '<br>' . $Exception->getMessage();
 
     }
     if ($state)

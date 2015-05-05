@@ -22,13 +22,36 @@ if ($_POST['info'] == 'categorie') {
     $updatecategorie->bindParam(':idcategorie', $_POST['idcategorie']);
     $updatecategorie->bindParam(':libellecategorie', $_POST['libellecategorie']);
     $updatecategorie->bindParam(':prixcategorie', $_POST['prixcategorie']);
-    $updatecategorie->execute();
+    $statement->bindParam(':numreservation', $_GET['numreservation']);
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Mise à jour Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Mise à jour Échouée:" . $error . "") . '');
 }
 if ($_POST['info'] == 'prixperiode') {
     $updateprixperiode = $pdo->prepare("UPDATE prix_periode SET ajout=:ajout WHERE mois=:mois ");
     $updateprixperiode->bindParam(':mois', $_POST['mois']);
     $updateprixperiode->bindParam(':ajout', $_POST['ajout']);
-    $updateprixperiode->execute();
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Mise à jour Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Mise à jour Échouée:" . $error . "") . '');
 }
 
 if ($_POST['info'] == 'logement') {
@@ -40,7 +63,18 @@ if ($_POST['info'] == 'logement') {
     $updatelogement->bindParam(':nomlogement', $_POST['nomlogement']);
     $updatelogement->bindParam(':idcamping', $_POST['idcamping']);
     $updatelogement->bindParam(':image', $_POST['image']);
-    $updatelogement->execute();
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Mise à jour Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Mise à jour Échouée:" . $error . "") . '');
 }
 
 if ($_POST['info'] == 'utilisateur') {
@@ -55,5 +89,16 @@ if ($_POST['info'] == 'utilisateur') {
     $updateutilisateur->bindParam(':mailutilisateur', $_POST['mailutilisateur']);
     $updateutilisateur->bindParam(':departementutilisateur', $_POST['departementutilisateur']);
     $updateutilisateur->bindParam(':admin', $_POST['admin']);
-    $updateutilisateur->execute();
+    $error = "";
+    try {
+        $state = $statement->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Mise à jour Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Mise à jour Échouée:" . $error . "") . '');
 }
