@@ -3,8 +3,7 @@ include 'BDD_connect.php';
 
 if ($_POST['info'] == 'camping') {
 
-    $updatecamping = $pdo->prepare("    UPDATE camping
-                                        SET nomcamping=:nomcamping, villecamping=:villecamping, adressecamping=:adressecamping, departementcamping=:departementcamping
+    $updatecamping = $pdo->prepare("UPDATE camping SET nomcamping=:nomcamping, villecamping=:villecamping, adressecamping=:adressecamping, departementcamping=:departementcamping
                                         WHERE idcamping=:idcamping ");
     $updatecamping->bindParam(':idcamping', $_POST['idcamping']);
     $updatecamping->bindParam(':nomcamping', $_POST['nomcamping']);
