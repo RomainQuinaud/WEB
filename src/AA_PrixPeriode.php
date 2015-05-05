@@ -41,7 +41,9 @@ if (!isset($_SESSION['login']))
 
                 <div class="form-group">
                     <label class="control-label">Mois</label>
-                    <input disabled type="text" class="form-control" id="disabledInput" name="mois"
+                    <input
+                        <?php if ($_GET['action'] == 'update') echo 'disabled'; ?> type="text" class="form-control"
+                                                                                   id="disabledInput" name="mois"
                            value="<?php if (!empty($_GET['mois'])) echo $_GET['mois']; ?>"
                         >
                 </div>

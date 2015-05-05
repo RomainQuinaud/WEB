@@ -10,7 +10,18 @@ if ($_POST['info'] == 'camping') {
     $updatecamping->bindParam(':villecamping', $_POST['villecamping']);
     $updatecamping->bindParam(':adressecamping', $_POST['adressecamping']);
     $updatecamping->bindParam(':departementcamping', $_POST['departementcamping']);
-    $updatecamping->execute();
+    $error = "";
+    try {
+        $state = $updatecamping->execute();
+    } catch (PDOException $Exception) {
+
+        $error = '<br>' . $Exception->getMessage();
+
+    }
+    if ($state)
+        header('Location: administration.php?success=' . urlencode("Mise à jour Réussie") . '');
+    else
+        header('Location: administration.php?error=' . urlencode("Mise à jour Échouée:" . $error . "") . '');
 }
 
 if ($_POST['info'] == 'categorie') {
@@ -22,7 +33,7 @@ if ($_POST['info'] == 'categorie') {
     $updatecategorie->bindParam(':idcategorie', $_POST['idcategorie']);
     $updatecategorie->bindParam(':libellecategorie', $_POST['libellecategorie']);
     $updatecategorie->bindParam(':prixcategorie', $_POST['prixcategorie']);
-    $statement->bindParam(':numreservation', $_GET['numreservation']);
+
     $error = "";
     try {
         $state = $updatecategorie->execute();
